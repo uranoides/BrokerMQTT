@@ -1,4 +1,6 @@
-﻿using MQTT.Sharing.Models;
+﻿using MQTT.Sharing;
+using MQTT.Sharing.Models;
+using MQTT.Sharing.Utilities;
 using MQTTnet;
 using System.ComponentModel;
 
@@ -27,6 +29,9 @@ namespace MQTT.Publisher.ViewModels
         #region Variables
         private IMqttClient mqttClient;
         private ConnectionSettings connectionSettings;
+        public List<VariableData> TagVariables;
+        public List<BlebSensor> BlebSensorsAll;
+        private int WriterTimerIntervalMilliSeconds = 100;
         #endregion
 
         #region Properties
@@ -73,8 +78,8 @@ namespace MQTT.Publisher.ViewModels
             await GetBlebSensorsAsync();
 
             BlebSensorsPayloads = new List<BlebSensor>();
-            InitializeTaskTimer();
-            InitializeUiTimer();
+            //InitializeTaskTimer();
+            //InitializeUiTimer();
         }
         #endregion
 
@@ -88,14 +93,14 @@ namespace MQTT.Publisher.ViewModels
             BlebSensorsAll = new List<BlebSensor>();
             foreach (var tag in TagVariables)
             {
-                Global.CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
+                CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
                 BlebSensorsAll.Add(new BlebSensor()
                 {
                     Topic = tag.Address,
                     PlaceId = tag.Id,
                     Sensor_Location = config.Sensor,
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_Type = EnumRandomizer.GetRandomSensorType().ToString(),
+                    Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
                     Sensor_Area = EnumRandomizer.GetRandomSensorLocation().ToString(),
                     Sensor_Status = "Offline",
                     Sensor_Value = 0,
