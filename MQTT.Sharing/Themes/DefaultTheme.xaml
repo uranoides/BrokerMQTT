@@ -1,0 +1,516 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:conv="clr-namespace:MQTT.Sharing.Converters"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <conv:PresenceColorConverter x:Key="PresenceColorConverter"/>
+    <conv:NetstateColorConverter x:Key="NetstateColorConverter"/>
+    <conv:PidColorConverter x:Key="PidColorConverter"/>
+    <conv:LedColorConverter x:Key="LedColorConverter"/>
+    <conv:SecondsToMMSSConverter x:Key="SecondsToMMSSConverter"/>
+
+    <Style x:Key="BorderBackground" TargetType="{x:Type Border}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush Center="0.5 0.5" RadiusX="0.75" RadiusY="0.75">
+                    <GradientStop Color="#111111" Offset="0" />
+                    <GradientStop Color="#00042D" Offset="0.25" />
+                    <GradientStop Color="#011943" Offset="0.5" />
+                    <GradientStop Color="#00042D" Offset="0.75" />
+                    <GradientStop Color="#111111" Offset="1" />
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LinearBorderBackground" TargetType="{x:Type Border}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#111111" Offset="0" />
+                        <GradientStop Color="#00042D" Offset="0.25" />
+                        <GradientStop Color="#011943" Offset="0.5" />
+                        <GradientStop Color="#00042D" Offset="0.75" />
+                        <GradientStop Color="#111111" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LinearVerticalBorderBackground" TargetType="{x:Type Border}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 0">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#111111" Offset="0" />
+                        <GradientStop Color="#00042D" Offset="0.25" />
+                        <GradientStop Color="#011943" Offset="0.5" />
+                        <GradientStop Color="#00042D" Offset="0.75" />
+                        <GradientStop Color="#111111" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="PanelButtonTemplate" TargetType="Button">
+        <Border Name="Border" BorderBrush="{StaticResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
+            Background="Transparent">
+            <TextBlock x:Name="Text" Grid.Row="0" Text="{TemplateBinding Content}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"
+                   FontSize="{DynamicResource FontSize12}" Foreground="{DynamicResource Azure3}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource Azure3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Blue8}"/>
+                <Setter TargetName="Text" Property="Foreground" Value="{StaticResource Blue8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource Blue8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Azure3}"/>
+                <Setter TargetName="Text" Property="Foreground" Value="{StaticResource Azure1}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="TextBlockTemplate">
+        <Grid>
+            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
+                Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
+                Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                FontWeight="{Binding FontWeight, RelativeSource={RelativeSource TemplatedParent}}"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"/>
+            <ContentPresenter x:Name="contentPresenter" TextBlock.Foreground="{TemplateBinding Foreground}" 
+                        TextBlock.FontSize="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}"
+                        TextElement.Foreground="{TemplateBinding Foreground}" Focusable="False" 
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" 
+                        RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                <ContentPresenter.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{x:Null}" />
+                </ContentPresenter.Resources>
+            </ContentPresenter>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="ExpanderUpHeaderStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Padding="{TemplateBinding Padding}">
+                        <Grid SnapsToDevicePixels="True" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Canvas x:Name="CanvasDown" Width="18" Height="18">
+                                    <Path x:Name="CanvasPathDown" Stroke="{DynamicResource Azure3}" StrokeThickness="1.5"
+                                      StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                                        <Path.Data>
+                                            <GeometryGroup FillRule="Nonzero">
+                                                <EllipseGeometry Center="9 9" RadiusX="8" RadiusY="8"/>
+                                                <LineGeometry StartPoint="7 7" EndPoint="9 11"/>
+                                                <LineGeometry StartPoint="9 11" EndPoint="11 7"/>
+                                            </GeometryGroup>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                                <Canvas x:Name="CanvasUp" Width="18" Height="18">
+                                    <Path x:Name="CanvasPathUp" Stroke="{DynamicResource Azure3}" StrokeThickness="1.5"
+                                      StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                                        <Path.Data>
+                                            <GeometryGroup FillRule="Nonzero">
+                                                <EllipseGeometry Center="9 9" RadiusX="8" RadiusY="8"/>
+                                                <LineGeometry StartPoint="7 11" EndPoint="9 7"/>
+                                                <LineGeometry StartPoint="9 7" EndPoint="11 11"/>
+                                            </GeometryGroup>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                            </Grid>
+                            <ContentPresenter HorizontalAlignment="Left" Margin="4 0 0 0" VerticalAlignment="Center" SnapsToDevicePixels="True" Grid.Column="1" RecognizesAccessKey="True"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Stroke" TargetName="CanvasPathDown" Value="{DynamicResource Blue8}"/>
+                            <Setter Property="Stroke" TargetName="CanvasPathUp" Value="{DynamicResource Blue8}"/>
+                            <Setter Property="Fill" TargetName="CanvasPathDown" Value="{DynamicResource Azure3}"/>
+                            <Setter Property="Fill" TargetName="CanvasPathUp" Value="{DynamicResource Azure3}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Visibility" TargetName="CanvasDown" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="CanvasUp" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Visibility" TargetName="CanvasDown" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="CanvasUp" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+        <Setter Property="Foreground" Value="{DynamicResource Azure3}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="IsExpanded" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Border SnapsToDevicePixels="True" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                        <DockPanel>
+                            <ToggleButton x:Name="HeaderSite" 
+                                      Margin="1" MinHeight="0" MinWidth="0" 
+                                      Style="{DynamicResource ExpanderUpHeaderStyle}" 
+                                      Content="{TemplateBinding Header}" 
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}" 
+                                      ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" 
+                                      FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" 
+                                      FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}" 
+                                      FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                      Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                      DockPanel.Dock="Top" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <ContentPresenter x:Name="ExpandSite" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                          Focusable="false" Visibility="Collapsed" DockPanel.Dock="Bottom"/>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="true">
+                            <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="ExpandDirection" Value="Up">
+                            <Setter Property="DockPanel.Dock" TargetName="ExpandSite" Value="Top"/>
+                            <Setter Property="DockPanel.Dock" TargetName="HeaderSite" Value="Bottom"/>
+                            <Setter Property="Style" TargetName="HeaderSite" Value="{DynamicResource ExpanderUpHeaderStyle}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="WriteButtonTemplate" TargetType="Button">
+        <Border Name="Border" BorderBrush="{DynamicResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
+             Background="Transparent">
+            <Viewbox HorizontalAlignment="Center" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="36" Height="36">
+                        <Path Stroke="{DynamicResource Azure3}" StrokeThickness="2.5" x:Name="Path"
+                           StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="6 12" EndPoint="6 6"/>
+                                    <LineGeometry StartPoint="6 6" EndPoint="30 6"/>
+                                    <LineGeometry StartPoint="30 6" EndPoint="30 12"/>
+                                    <LineGeometry StartPoint="18 28" EndPoint="18 12"/>
+                                    <LineGeometry StartPoint="18 12" EndPoint="12 18"/>
+                                    <LineGeometry StartPoint="18 12" EndPoint="24 18"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Blue8}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Gray8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Gray8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Azure3}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="WriteAllButtonTemplate" TargetType="Button">
+        <Border Name="Border" BorderBrush="{DynamicResource Red5}" BorderThickness="1.5" CornerRadius="2" 
+         Background="Transparent">
+            <Viewbox HorizontalAlignment="Center" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="36" Height="36">
+                        <Path Stroke="{DynamicResource Red5}" StrokeThickness="2.5" x:Name="Path"
+                       StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="6 12" EndPoint="6 6"/>
+                                    <LineGeometry StartPoint="6 6" EndPoint="30 6"/>
+                                    <LineGeometry StartPoint="30 6" EndPoint="30 12"/>
+                                    <LineGeometry StartPoint="18 28" EndPoint="18 12"/>
+                                    <LineGeometry StartPoint="18 12" EndPoint="12 18"/>
+                                    <LineGeometry StartPoint="18 12" EndPoint="24 18"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Red3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Red8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Red8}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Gray8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Gray8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Red8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Red3}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Red3}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ReadButtonTemplate" TargetType="Button">
+        <Border Name="Border" BorderBrush="{DynamicResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
+         Background="Transparent">
+            <Viewbox HorizontalAlignment="Center" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="36" Height="36">
+                        <Path Stroke="{DynamicResource Azure3}" StrokeThickness="2.5" x:Name="Path"
+                       StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="6 24" EndPoint="6 30"/>
+                                    <LineGeometry StartPoint="6 30" EndPoint="30 30"/>
+                                    <LineGeometry StartPoint="30 30" EndPoint="30 24"/>
+                                    <LineGeometry StartPoint="18 8" EndPoint="18 22"/>
+                                    <LineGeometry StartPoint="18 24" EndPoint="12 18"/>
+                                    <LineGeometry StartPoint="18 24" EndPoint="24 18"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Blue8}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Gray8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Gray8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Azure3}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="TimeButtonTemplate" TargetType="Button">
+        <Border Name="Border" BorderBrush="{DynamicResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
+            Background="Transparent">
+            <Viewbox HorizontalAlignment="Center" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="36" Height="36">
+                        <Path Stroke="{DynamicResource Azure3}" StrokeThickness="2.5" x:Name="Path"
+                          StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <EllipseGeometry Center="18 18" RadiusX="12" RadiusY="12"/>
+                                    <LineGeometry StartPoint="18 18" EndPoint="18 12"/>
+                                    <LineGeometry StartPoint="18 18" EndPoint="24 18"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Blue8}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Gray8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Gray8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Azure3}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBoxBase}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Foreground" Value="{DynamicResource Azure2}"/>
+        <Setter Property="FontSize" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Azure2}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border Name="Border" CornerRadius="2" Padding="4" Background="Transparent" 
+                        BorderBrush="{DynamicResource Azure2}" BorderThickness="1">
+                        <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBoxMultilineStyle" TargetType="{x:Type TextBoxBase}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="MaxHeight" Value="1000"/>
+        <Setter Property="AllowDrop" Value="True"/>
+        <Setter Property="Foreground" Value="{DynamicResource Azure2}"/>
+        <Setter Property="FontSize" Value="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Azure2}"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border Name="Border" CornerRadius="2" Padding="2" Background="Transparent" 
+                        BorderBrush="{DynamicResource Azure2}" BorderThickness="0.75">
+                        <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="{x:Type ScrollBar}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource Azure1}"/>
+                <Setter Property="BorderThickness" Value="1 2 1 2"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                                    <RowDefinition Height="0.00001*"/>
+                                    <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                                </Grid.RowDefinitions>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Background="{TemplateBinding Background}" Grid.Row="1" 
+                                    CornerRadius="10"/>
+                                <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                                    <Track.Thumb>
+                                        <Thumb Style="{DynamicResource ScrollBarThumbVertical}" Margin="2 2 2.5 2"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="ScrollBarThumbVertical" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border x:Name="Rectangle" Background="{DynamicResource Azure3}" 
+                        Height="{TemplateBinding Height}" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" 
+                        CornerRadius="8"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="Rectangle" Value="{DynamicResource Azure6}"/>
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="true">
+                            <Setter Property="Background" TargetName="Rectangle" Value="{DynamicResource Azure6}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderBrush="{StaticResource Azure1}" BorderThickness="1">
+                        <Grid Width="20" Height="20" >
+                            <Rectangle Fill="{TemplateBinding Background}"/>
+                            <TextBlock Foreground="{TemplateBinding Foreground}" FontSize="{StaticResource FontSize18}" FontWeight="Bold"
+                                   Margin="0 0 1 1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="●"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Azure1}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RadioButtonTextStyle" TargetType="RadioButton">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="1">
+                        <Grid Width="20" Height="20" >
+                            <Rectangle Fill="{TemplateBinding Background}"/>
+                            <TextBlock Foreground="{TemplateBinding Foreground}" 
+                                   FontSize="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}}" 
+                                   FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Azure1}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

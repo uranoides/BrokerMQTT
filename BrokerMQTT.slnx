@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MQTT.Publisher/MQTT.Publisher.csproj" />
+  <Project Path="MQTT.Sharing/MQTT.Sharing.csproj" />
+</Solution>

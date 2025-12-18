@@ -1,0 +1,72 @@
+[
+  {
+    "ConnectionId": 1,
+    "Address": "127.0.0.1",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 3,
+    "Username": "",
+    "Password": "",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Local.xml",
+    "IntervalInSeconds": 10
+  },
+  {
+    "ConnectionId": 2,
+    "Address": "51.210.97.65",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 3,
+    "Username": "BlebTechnology",
+    "Password": "BL3BR1CKS",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Bleb.xml",
+    "IntervalInSeconds": 10
+  },
+  {
+    "ConnectionId": 3,
+    "Address": "127.0.0.1",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 3,
+    "Username": "",
+    "Password": "",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Local.xml",
+    "IntervalInSeconds": 10
+  },
+  {
+    "ConnectionId": 4,
+    "Address": "xbricksboard.bleb.it",
+    "Port": 1886,
+    "MqttTransCodeProtocolVersion": 3,
+    "Username": "test1",
+    "Password": "Test1234!",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Bleb.xml",
+    "IntervalInSeconds": 10
+  },
+  {
+    "ConnectionId": 5,
+    "Address": "192.168.11.124",
+    "Port": 1886,
+    "MqttTransCodeProtocolVersion": 3,
+    "Username": "test1",
+    "Password": "Test1234!",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Bleb.xml",
+    "IntervalInSeconds": 60
+  },
+  {
+    "ConnectionId": 6,
+    "Address": "127.0.0.1",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 0,
+    "Username": "",
+    "Password": "",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.Officina.xml",
+    "IntervalInSeconds": 10
+  },
+  {
+    "ConnectionId": 7,
+    "Address": "192.168.55.10",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 0,
+    "Username": "",
+    "Password": "",
+    "TagVariablesFileName": "MQTT.Utilities.TagVariables.SacmImola.xml",
+    "IntervalInSeconds": 10
+  }
+]

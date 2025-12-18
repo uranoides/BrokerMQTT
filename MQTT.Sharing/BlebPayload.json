@@ -1,0 +1,17 @@
+{
+  "gateway_ID": "F0BB80950C",
+  "sensor_ID": "EDBF619ABB",
+  "sensor_type": "IR",
+  "sensor_communication": "LoRa",
+  "sensor_area": "W18",
+  "sensor_location": "S6",
+  "sensor_status": "Valid",
+  "sensor_threshold": 400,
+  "sensor_value": 894,
+  "presence": false,
+  "rssi": -73,
+  "battery": 2.9,
+  "LoRaretryON": true,
+  "LoRaretries": 1,
+  "timestamp": "2025-11-28T10:48:21"
+}
