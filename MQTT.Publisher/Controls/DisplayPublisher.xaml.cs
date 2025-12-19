@@ -24,23 +24,32 @@ namespace MQTT.Publisher.Controls
         public static readonly DependencyProperty LastErrorProperty =
             DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
 
-        public string LastStatusNotification
+        public string LastTextLeftUpNotification
         {
-            get { return (string)GetValue(LastStatusNotificationProperty); }
-            set { SetValue(LastStatusNotificationProperty, value); }
+            get { return (string)GetValue(LastTextLeftUpNotificationProperty); }
+            set { SetValue(LastTextLeftUpNotificationProperty, value); }
         }
-        public static readonly DependencyProperty LastStatusNotificationProperty =
-            DependencyProperty.Register(nameof(LastStatusNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+        public static readonly DependencyProperty LastTextLeftUpNotificationProperty =
+            DependencyProperty.Register(nameof(LastTextLeftUpNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+
+        public string LastTextLeftDownNotification
+        {
+            get { return (string)GetValue(LastTextLeftDownNotificationProperty); }
+            set { SetValue(LastTextLeftDownNotificationProperty, value); }
+        }
+        public static readonly DependencyProperty LastTextLeftDownNotificationProperty =
+            DependencyProperty.Register(nameof(LastTextLeftDownNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
         #endregion
 
         #region Variables
         private Task LastErrorTask = null;
-        private Task LastStatusNotificationTask = null;
+        private Task LastTextLeftUpNotificationTask = null;
+        private Task LastTextLeftDownNotificationTask = null;
         private string LastErrorMessage = null;
         #endregion
 
         #region Progress
-        private async void UpdateProgressNotification(string Message)
+        private async void UpdateTextLeftUpNotification(string Message)
         {
             if (Application.Current == null) return;
 
@@ -48,19 +57,19 @@ namespace MQTT.Publisher.Controls
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    LastStatusNotification = $"{DateTime.Now.ToLongTimeString()} - {Message}";
+                    LastTextLeftUpNotification = $"{DateTime.Now.ToLongTimeString()} - {Message}";
                 });
 
-                var currentTask = Task.Delay(TimeSpan.FromSeconds(5));
-                LastStatusNotificationTask = currentTask;
+                var currentTask = Task.Delay(TimeSpan.FromSeconds(Properties.Settings.Default.NotificationTime));
+                LastTextLeftUpNotificationTask = currentTask;
 
                 await currentTask;
 
-                if (Application.Current != null && LastStatusNotificationTask == currentTask)
+                if (Application.Current != null && LastTextLeftUpNotificationTask == currentTask)
                 {
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        LastStatusNotification = null;
+                        LastTextLeftUpNotification = null;
                     });
                 }
             }
@@ -69,10 +78,51 @@ namespace MQTT.Publisher.Controls
                 System.Diagnostics.Debug.WriteLine("Notifica interrotta dalla chiusura dell'applicazione.");
             }
         }
-        private void OnPublisherVMProgress(string Message)
+        private async void UpdateTextLeftDownNotification(string Message)
         {
-            UpdateProgressNotification(Message);
+            if (Application.Current == null) return;
+
+            try
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    LastTextLeftDownNotification = $"{DateTime.Now.ToLongTimeString()} - {Message}";
+                });
+
+                var currentTask = Task.Delay(TimeSpan.FromSeconds(Properties.Settings.Default.NotificationTime));
+                LastTextLeftDownNotificationTask = currentTask;
+
+                await currentTask;
+
+                if (Application.Current != null && LastTextLeftDownNotificationTask == currentTask)
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        LastTextLeftDownNotification = null;
+                    });
+                }
+            }
+            catch (Exception ex) when (ex is TaskCanceledException || ex is NullReferenceException)
+            {
+                System.Diagnostics.Debug.WriteLine("Notifica interrotta dalla chiusura dell'applicazione.");
+            }
         }
+        private void OnTextLeftUpVMProgress(string Message)
+        {
+            UpdateTextLeftUpNotification(Message);
+        }
+        private void OnTextLeftDownVMProgress(string Message)
+        {
+            UpdateTextLeftDownNotification(Message);
+        }
+        //private void OnTextRightUpVMProgress(string Message)
+        //{
+        //    UpdateProgressNotification(Message);
+        //}
+        //private void OnTextRightDownVMProgress(string Message)
+        //{
+        //    UpdateProgressNotification(Message);
+        //}
         #endregion
 
         #region Error
@@ -123,8 +173,8 @@ namespace MQTT.Publisher.Controls
         {
             try
             {
-                //if (PublisherVM != null)
-                //    PublisherVM.ToggleTimerLogic();
+                if (PublisherVM != null)
+                    PublisherVM.ToggleTimerLogic();
             }
             catch (Exception ex)
             {
@@ -134,7 +184,11 @@ namespace MQTT.Publisher.Controls
 
         private void WriteTopicsCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
         {
-            if (PublisherVM != null) { e.CanExecute = true; }
+            if (PublisherVM != null) 
+            {
+                if(PublisherVM.SelectedConnectionSettings != null)
+                    e.CanExecute = true; 
+            }
         }
         #endregion
 
@@ -143,14 +197,14 @@ namespace MQTT.Publisher.Controls
         {
             Storyboard Anima = (Storyboard)TryFindResource("ConnectionSettingsFadeIn");
             if (Anima != null) { Anima.Begin(); }
-            OnPublisherVMProgress("Connection Settings Panel Open..");
+            OnTextLeftUpVMProgress("Connection Settings Panel Open..");
         }
 
         private void ConnSett_Unchecked(object sender, RoutedEventArgs e)
         {
             Storyboard Anima = (Storyboard)TryFindResource("ConnectionSettingsFadeOut");
             if (Anima != null) { Anima.Begin(); }
-            OnPublisherVMProgress("Connection Settings Panel Close..");
+            OnTextLeftDownVMProgress("Connection Settings Panel Close..");
         }
         #endregion
     }

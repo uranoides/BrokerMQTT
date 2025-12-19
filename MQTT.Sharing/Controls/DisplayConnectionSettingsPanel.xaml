@@ -19,9 +19,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                <TextBlock Grid.Row="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" VerticalAlignment="Bottom" 
                     Text="{Binding Address, StringFormat=Address: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}"  VerticalAlignment="Top" FontWeight="Medium"
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}"  VerticalAlignment="Top" 
                     Text="{Binding Port, StringFormat=Port: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
             </Grid>
             <Grid Grid.Column="1">
@@ -29,9 +29,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="{StaticResource FontSize11}" VerticalAlignment="Bottom" 
                     Text="{Binding MqttTransCodeProtocolVersion, StringFormat=MqttProtocolVersion: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="{StaticResource FontSize12}" VerticalAlignment="Top" FontWeight="Medium"
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="{StaticResource FontSize11}" VerticalAlignment="Top" 
                     Text="{Binding TagVariablesFileName, StringFormat=TagVariable: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
             </Grid>
             <Grid Grid.Column="2">
@@ -39,9 +39,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                <TextBlock Grid.Row="0" HorizontalAlignment="Right" FontSize="{StaticResource FontSize11}" VerticalAlignment="Bottom" 
                     Text="{Binding Username, StringFormat=Username: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" VerticalAlignment="Top" FontWeight="Medium"
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right" FontSize="{StaticResource FontSize11}" VerticalAlignment="Top" 
                     Text="{Binding Password, StringFormat=Password: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
             </Grid>
         </Grid>

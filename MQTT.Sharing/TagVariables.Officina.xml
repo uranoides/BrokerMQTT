@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IToolS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Groups>
+
+		<!--L'attribute Index di Group specifica il Numero di piazza della macchina per la quale valgono le 
+		configurazioni delle Variable in esso contenuto. Alla lettura il sistema appenderà il valore Index al nome delle Variable 
+		contenute nel Group relativo.
+		Se Index non viene specificato i nomi delle Variable contenute nel gruppo restano tali.-->
+
+		<!--L'attribute Offset di Group permette, dove possibile a seconda del tipo di indirizzamento dipendente dal protocollo,
+		    di aggiungere un offset agli Address di tutte le Variable in esso contenute-->
+
+		<!--Per configurare un tag in modo che non comunichi e abbia un valore di default fisso ...
+		    <Variable Name="ReadEmptyPlace" Active="false" VariableType="Bool" InitializationValue="true"/>-->
+
+		<Group Name="Place1Read" Index="1" Offset="0">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Picking" Address="francesco/1" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place2Read" Index="2" Offset="0">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Picking" Address="francesco/2" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place3Read" Index="1" Offset="0">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Picking" Address="francesco/3" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place4Read" Index="2" Offset="0">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Picking" Address="francesco/4" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place5Read" Index="3" Offset="0">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Picking" Address="francesco/5" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place6Read" Index="4" Offset="0">
+			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Store" Address="francesco/6" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+		<Group Name="Place7Read" Index="1" Offset="0">
+			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Store" Address="francesco/7" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+		</Group>
+
+	</Groups>
+</IToolS>

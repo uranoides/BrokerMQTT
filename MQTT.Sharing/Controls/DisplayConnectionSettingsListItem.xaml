@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MQTT.Sharing.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border BorderThickness="0 0 0 0.25" BorderBrush="{StaticResource Azure3}">
+    <Border BorderThickness="0 0 0 0.5" BorderBrush="{StaticResource Azure3}">
         <Grid DataContext="{Binding ConnectionSettings, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -19,22 +19,22 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" FontWeight="Medium"
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
                 Text="{Binding ConnectionId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" FontWeight="Medium"
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
                 Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
-            <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" FontWeight="Medium"
+            <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
                 Text="{Binding Port, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" 
-                Text="{Binding MqttTransCodeProtocolVersion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" 
-                Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-            <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" 
-                Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
-            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" FontWeight="SemiBold"
-                Text="{Binding TagVariablesFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure5}"/>
-            <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" FontWeight="SemiBold"
-                Text="{Binding IntervalInSeconds, StringFormat={}{0} sec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure5}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
+                Text="{Binding MqttTransCodeProtocolVersion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
+                Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
+                Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
+                Text="{Binding TagVariablesFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="{StaticResource FontSize11}" FontWeight="Medium"
+                Text="{Binding IntervalInSeconds, StringFormat={}{0} sec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure1}"/>
         </Grid>
     </Border>
 </UserControl>

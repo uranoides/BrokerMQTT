@@ -8,10 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TagVariables.Bleb.xml" />
+    <None Remove="TagVariables.Officina.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="BlebPayload.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectionSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TagVariables.Bleb.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TagVariables.Officina.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="TagVariables.SacmImola.xml">
