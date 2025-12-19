@@ -118,8 +118,8 @@ namespace MQTT.Publisher.ViewModels
 
             }
         }
-        private string selectedTopic;
-        public string SelectedTopic
+        private TopicCounter selectedTopic;
+        public TopicCounter SelectedTopic
         {
             get { return selectedTopic; }
             set
@@ -127,7 +127,7 @@ namespace MQTT.Publisher.ViewModels
                 selectedTopic = value;
                 OnPropertyChanged(nameof(SelectedTopic));
                 if (SelectedTopic != null)
-                    GetTopicBlebSensors();
+                    GetTopicBlebSensorsCount();
             }
         }
         private bool isPublisherRunning = false;
@@ -201,7 +201,7 @@ namespace MQTT.Publisher.ViewModels
             }
             TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {SelectedConnectionSettings.TagVariablesFileName}");
             InitializeTopics();
-            TextLeftDown?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
+            TextRightUp?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
         }
         public void InitializeTopics()
         {
@@ -234,10 +234,10 @@ namespace MQTT.Publisher.ViewModels
                 }
             });
         }
-        private void GetTopicBlebSensors()
+        private void GetTopicBlebSensorsCount()
         {
-            BlebSensors = BlebSensorsAll.Where(v => v.Topic == SelectedTopic).ToList();
-            TextLeftDown?.Invoke($"Loaded {BlebSensors.Count} Bleb Sensors for Topic " + SelectedTopic);
+            BlebSensors = BlebSensorsAll.Where(v => v.Topic == SelectedTopic.Name).ToList();
+            TextRightUp?.Invoke($"Loaded {BlebSensors.Count} Bleb Sensors for Topic " + SelectedTopic.Name);
         }
         public void ToggleTimerLogic()
         {
@@ -339,10 +339,7 @@ namespace MQTT.Publisher.ViewModels
                     string randomTopic = Global.GetRandomTestTopic();
                     string randomMessage = GetRandomMessage(randomTopic);
                     await manager.PublishMessageAsync(randomTopic, randomMessage);
-                    TextLeftUp?.Invoke("Scrittura Eseguita Correttamente su Topic: " + randomTopic);
                     await manager.DisconnectAsync();
-
-                    TextLeftUp?.Invoke("Scrittura Eseguita Correttamente alle " + DateTime.Now.ToString());
                 }
                 else
                 {

@@ -1,4 +1,5 @@
-﻿using MQTT.Publisher.ViewModels;
+﻿using MQTT.Publisher.Models;
+using MQTT.Publisher.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -39,90 +40,73 @@ namespace MQTT.Publisher.Controls
         }
         public static readonly DependencyProperty LastTextLeftDownNotificationProperty =
             DependencyProperty.Register(nameof(LastTextLeftDownNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+
+        public string LastTextRightUpNotification
+        {
+            get { return (string)GetValue(LastTextRightUpNotificationProperty); }
+            set { SetValue(LastTextRightUpNotificationProperty, value); }
+        }
+        public static readonly DependencyProperty LastTextRightUpNotificationProperty =
+            DependencyProperty.Register(nameof(LastTextRightUpNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+
+        public string LastTextRightDownNotification
+        {
+            get { return (string)GetValue(LastTextRightDownNotificationProperty); }
+            set { SetValue(LastTextRightDownNotificationProperty, value); }
+        }
+        public static readonly DependencyProperty LastTextRightDownNotificationProperty =
+            DependencyProperty.Register(nameof(LastTextRightDownNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
         #endregion
 
         #region Variables
         private Task LastErrorTask = null;
-        private Task LastTextLeftUpNotificationTask = null;
-        private Task LastTextLeftDownNotificationTask = null;
         private string LastErrorMessage = null;
+        private readonly NotificationState _leftUpState = new();
+        private readonly NotificationState _leftDownState = new();
+        private readonly NotificationState _rightUpState = new();
+        private readonly NotificationState _rightDownState = new();
         #endregion
 
         #region Progress
-        private async void UpdateTextLeftUpNotification(string Message)
+        private async Task UpdateNotificationGeneric(string message, Action<string> setter, NotificationState state)
         {
             if (Application.Current == null) return;
 
-            try
-            {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    LastTextLeftUpNotification = $"{DateTime.Now.ToLongTimeString()} - {Message}";
-                });
-
-                var currentTask = Task.Delay(TimeSpan.FromSeconds(Properties.Settings.Default.NotificationTime));
-                LastTextLeftUpNotificationTask = currentTask;
-
-                await currentTask;
-
-                if (Application.Current != null && LastTextLeftUpNotificationTask == currentTask)
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        LastTextLeftUpNotification = null;
-                    });
-                }
-            }
-            catch (Exception ex) when (ex is TaskCanceledException || ex is NullReferenceException)
-            {
-                System.Diagnostics.Debug.WriteLine("Notifica interrotta dalla chiusura dell'applicazione.");
-            }
-        }
-        private async void UpdateTextLeftDownNotification(string Message)
-        {
-            if (Application.Current == null) return;
+            state.CTS?.Cancel();
+            state.CTS = new CancellationTokenSource();
+            var token = state.CTS.Token;
 
             try
             {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    LastTextLeftDownNotification = $"{DateTime.Now.ToLongTimeString()} - {Message}";
-                });
+                string formattedMessage = $"{DateTime.Now.ToLongTimeString()} - {message}";
 
-                var currentTask = Task.Delay(TimeSpan.FromSeconds(Properties.Settings.Default.NotificationTime));
-                LastTextLeftDownNotificationTask = currentTask;
+                await Application.Current.Dispatcher.InvokeAsync(() => setter(formattedMessage));
 
-                await currentTask;
+                var delay = TimeSpan.FromSeconds(Properties.Settings.Default.NotificationTime);
+                await Task.Delay(delay, token);
 
-                if (Application.Current != null && LastTextLeftDownNotificationTask == currentTask)
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        LastTextLeftDownNotification = null;
-                    });
-                }
+                await Application.Current.Dispatcher.InvokeAsync(() => setter(null));
             }
-            catch (Exception ex) when (ex is TaskCanceledException || ex is NullReferenceException)
+            catch (OperationCanceledException)
             {
-                System.Diagnostics.Debug.WriteLine("Notifica interrotta dalla chiusura dell'applicazione.");
+                System.Diagnostics.Debug.WriteLine("Notifica sovrascritta.");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Errore: {ex.Message}");
             }
         }
-        private void OnTextLeftUpVMProgress(string Message)
-        {
-            UpdateTextLeftUpNotification(Message);
-        }
-        private void OnTextLeftDownVMProgress(string Message)
-        {
-            UpdateTextLeftDownNotification(Message);
-        }
-        //private void OnTextRightUpVMProgress(string Message)
-        //{
-        //    UpdateProgressNotification(Message);
-        //}
-        //private void OnTextRightDownVMProgress(string Message)
-        //{
-        //    UpdateProgressNotification(Message);
-        //}
+        private void UpdateTextLeftUpNotification(string m) =>
+            _ = UpdateNotificationGeneric(m, v => LastTextLeftUpNotification = v, _leftUpState);
+
+        private void UpdateTextLeftDownNotification(string m) =>
+            _ = UpdateNotificationGeneric(m, v => LastTextLeftDownNotification = v, _leftDownState);
+
+        private void UpdateTextRightUpNotification(string m) =>
+            _ = UpdateNotificationGeneric(m, v => LastTextRightUpNotification = v, _rightUpState);
+
+        private void UpdateTextRightDownNotification(string m) =>
+            _ = UpdateNotificationGeneric(m, v => LastTextRightDownNotification = v, _rightDownState);
         #endregion
 
         #region Error
@@ -197,14 +181,14 @@ namespace MQTT.Publisher.Controls
         {
             Storyboard Anima = (Storyboard)TryFindResource("ConnectionSettingsFadeIn");
             if (Anima != null) { Anima.Begin(); }
-            OnTextLeftUpVMProgress("Connection Settings Panel Open..");
+            UpdateTextLeftUpNotification("Connection Settings Panel Open..");
         }
 
         private void ConnSett_Unchecked(object sender, RoutedEventArgs e)
         {
             Storyboard Anima = (Storyboard)TryFindResource("ConnectionSettingsFadeOut");
             if (Anima != null) { Anima.Begin(); }
-            OnTextLeftDownVMProgress("Connection Settings Panel Close..");
+            UpdateTextLeftUpNotification("Connection Settings Panel Close..");
         }
         #endregion
     }

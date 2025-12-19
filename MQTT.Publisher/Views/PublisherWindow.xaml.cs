@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 
 namespace MQTT.Publisher.Views
 {
@@ -8,6 +9,8 @@ namespace MQTT.Publisher.Views
         public PublisherWindow()
         {
             InitializeComponent();
+
+            Title = "Broker Publisher V" + Assembly.GetExecutingAssembly().GetName().Version?.ToString(3);
         }
         protected override async void OnInitialized(EventArgs e)
         {
