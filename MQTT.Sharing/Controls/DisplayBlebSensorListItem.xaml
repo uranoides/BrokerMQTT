@@ -1,0 +1,71 @@
+﻿<UserControl x:Name="myUserControl" x:Class="MQTT.Sharing.Controls.DisplayBlebSensorListItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MQTT.Sharing.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border BorderThickness="0 0 0 0.25" BorderBrush="{StaticResource Azure3}">
+        <Grid DataContext="{Binding BlebSensor, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
+                Text="{Binding Sensor_Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
+                Text="{Binding Sensor_ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
+                Text="{Binding Sensor_Area, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Ellipse Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="10" Height="10" Margin="0 0 5 0">
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Fill" Value="{StaticResource Gray6}"/>
+                            <Setter Property="Stroke" Value="Transparent"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Presence}" Value="True">
+                                    <Setter Property="Fill" Value="{StaticResource Green6}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Presence}" Value="False">
+                                    <Setter Property="Fill" Value="{StaticResource Red6}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+                </Ellipse>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
+                Text="{Binding Sensor_Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="{StaticResource Yellow6}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Sensor_Status}" Value="Valid">
+                                    <Setter Property="Foreground" Value="{StaticResource Azure6}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Sensor_Status}" Value="Offline">
+                                    <Setter Property="Foreground" Value="{StaticResource Gray6}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
+                Text="{Binding Timestamp, StringFormat='{}{0:dd/MM/yy HH:mm:ss}', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

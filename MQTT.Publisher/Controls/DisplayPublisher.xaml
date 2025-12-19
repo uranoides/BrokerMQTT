@@ -91,7 +91,14 @@
                                     SelectedValue="{Binding SelectedTopic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding}" Foreground="{StaticResource Azure1}"/>
+                                            <Grid Margin="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Name}" Foreground="{StaticResource Azure1}"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding Count}" Foreground="{StaticResource Azure1}"/>
+                                            </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
@@ -148,13 +155,38 @@
                     </Grid>
                 </Border>
                 <Border Grid.Column="3" Margin="5 10 10 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
-
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Content="Last Message Pubblished for Each Sensor" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" Focusable="False" HorizontalAlignment="Center"/>
+                        <Expander Grid.Row="1" Margin="5 0" Header="Messages List" 
+                                Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
+                            <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5" Margin="0 5">
+                                <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0"
+                                    VirtualizingStackPanel.IsVirtualizing="True"
+                                    VirtualizingStackPanel.VirtualizationMode="Recycling"
+                                    VirtualizingStackPanel.CacheLengthUnit="Item"
+                                    VirtualizingStackPanel.CacheLength="10,10"
+                                    ItemsSource="{Binding BlebSensorsPayloads, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <uc:DisplayBlebSensorListItem BlebSensor="{Binding}"/>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+                        </Expander>
+                    </Grid>
                 </Border>
             </Grid>
             <uc:DisplayInfo Grid.Row="2" BorderBrush="{StaticResource Azure1}" BorderThickness="0 0.5 0 0"
                 LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftUp="{Binding LastTextLeftUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                TextLeftDown="{Binding LastTextLeftDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextLeftDown="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 
                 >
             </uc:DisplayInfo>

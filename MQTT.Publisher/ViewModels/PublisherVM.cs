@@ -1,10 +1,14 @@
-﻿using MQTT.Sharing;
+﻿using MQTT.Publisher.Models;
+using MQTT.Sharing;
+using MQTT.Sharing.Helpers;
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
 using MQTTnet;
 using MQTTnet.Exceptions;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Text.Json;
+using System.Windows;
 using System.Windows.Threading;
 using TaskTimer = System.Timers.Timer;
 
@@ -102,8 +106,9 @@ namespace MQTT.Publisher.ViewModels
                 }
             }
         }
-        private List<string> topics;
-        public List<string> Topics
+        private Dictionary<string, TopicCounter> _topicLookup;
+        private ObservableCollection<TopicCounter> topics;
+        public ObservableCollection<TopicCounter> Topics
         {
             get { return topics; }
             set
@@ -145,6 +150,16 @@ namespace MQTT.Publisher.ViewModels
                 OnPropertyChanged(nameof(LastMessage));
             }
         }
+        private List<BlebSensor> blebSensorsPayloads;
+        public List<BlebSensor> BlebSensorsPayloads
+        {
+            get { return blebSensorsPayloads; }
+            set
+            {
+                blebSensorsPayloads = value;
+                OnPropertyChanged(nameof(BlebSensorsPayloads));
+            }
+        }
         #endregion
 
         #region Builder
@@ -161,6 +176,8 @@ namespace MQTT.Publisher.ViewModels
         #region Methods
         private async Task GetBlebSensorsAsync()
         {
+            BlebSensorsPayloads = new List<BlebSensor>();
+            Topics = new ObservableCollection<TopicCounter>();
             var reader = new ConfigurationXmlReader();
             TagVariables = reader.ReadVariables(SelectedConnectionSettings.TagVariablesFileName);
             BlebSensorsAll = new List<BlebSensor>();
@@ -183,8 +200,39 @@ namespace MQTT.Publisher.ViewModels
                 });
             }
             TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {SelectedConnectionSettings.TagVariablesFileName}");
-            Topics = BlebSensorsAll.Select(v => v.Topic).Distinct().ToList();
+            InitializeTopics();
             TextLeftDown?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
+        }
+        public void InitializeTopics()
+        {
+            var uniqueTopics = BlebSensorsAll.Select(v => v.Topic).Distinct();
+
+            Topics.Clear();
+            _topicLookup = new Dictionary<string, TopicCounter>();
+
+            foreach (var name in uniqueTopics)
+            {
+                var item = new TopicCounter { Name = name, Count = 0 };
+                Topics.Add(item);
+                _topicLookup.Add(name, item); 
+            }
+        }
+        public void IncrementTopic(string topicName)
+        {
+            if (_topicLookup.ContainsKey(topicName))
+            {
+                Application.Current.Dispatcher.Invoke(() => _topicLookup[topicName].Count++);
+            }
+        }
+        public void ResetAllCounters()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                foreach (var topic in Topics)
+                {
+                    topic.Count = 0;
+                }
+            });
         }
         private void GetTopicBlebSensors()
         {
@@ -204,6 +252,8 @@ namespace MQTT.Publisher.ViewModels
             {
                 taskTimer.Stop();
                 IsPublisherRunning = false;
+                BlebSensorsPayloads = new List<BlebSensor>();
+                ResetAllCounters();
                 TextLeftUp?.Invoke("Publisher Task Stopped..");
             }
         }
@@ -215,8 +265,42 @@ namespace MQTT.Publisher.ViewModels
             string randomSensorCustomData = matchingTags[randomIndex].CustomData;
             CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(randomSensorCustomData);
             bool randomBusy = random.Next(2) == 0;
-            LastMessage = "{\r\n    \"sensor_location\": \"" + config.Sensor + "\",\r\n    \"sensor_status\": \"" + EnumRandomizer.GetRandomStatusString() + "\",\r\n    \"presence\": " + randomBusy.ToString().ToLower() + ",\r\n    \"timestamp\": \"" + TimestampRoundTrip.GetTimeStamp() + "\" \r\n}";
+            PublisherPayload publisherPayload = new PublisherPayload{
+                Presence = randomBusy,
+                SensorLocation = config.Sensor, 
+                SensorStatus = EnumRandomizer.GetRandomStatusString(),
+                Timestamp = TimestampRoundTrip.GetTimeStamp()
+            };
+            IncrementTopic(topic);
+            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == config.Sensor);
+            blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
+            blebSensorToUpdate.Presence = publisherPayload.Presence;
+            blebSensorToUpdate.Timestamp = DateTime.Now;
+            LastMessage = JsonHelper.ToJson(publisherPayload, true);
+            UpdateBlebSensorPayloads(blebSensorToUpdate);
+
             return LastMessage;
+        }
+        private void UpdateBlebSensorPayloads(BlebSensor sensor)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var existingSensor = BlebSensorsPayloads.FirstOrDefault(s => s.Sensor_Location == sensor.Sensor_Location);
+                if (existingSensor != null)
+                {
+                    BlebSensorsPayloads.Remove(existingSensor);
+                }
+                BlebSensorsPayloads.Add(sensor);
+                BlebSensorsPayloads = BlebSensorsPayloads.OrderByDescending(s => s.Timestamp).ToList();
+                OnPropertyChanged(nameof(BlebSensorsPayloads));
+                if (SelectedBlebSensor != null)
+                {
+                    if (SelectedBlebSensor.Sensor_Location == sensor.Sensor_Location)
+                    {
+                        SelectedBlebSensor = sensor;
+                    }
+                }
+            });
         }
         #endregion
 
