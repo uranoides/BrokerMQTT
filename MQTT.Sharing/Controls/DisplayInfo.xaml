@@ -1,0 +1,59 @@
+﻿<UserControl x:Name="myUserControl" x:Class="MQTT.Sharing.Controls.DisplayInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MQTT.Sharing.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="{StaticResource HeaderInfo}" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/ColorTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/DefaultTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/FontTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/SizeTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border>
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="ExceptionMessage" Template="{StaticResource WarningTemplate}" Margin="5" MouseDown="ExceptionMessage_MouseDown"
+                    Visibility="{Binding LastError, ElementName=myUserControl, ConverterParameter=Collapsed, Converter={StaticResource NullCheckValueConverter}}"/>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 0 0 1"
+                        Foreground="{StaticResource Yellow3}" FontSize="{StaticResource FontSize11}"
+                        Text="{Binding TextLeftUp, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 1 0 0"
+                        Foreground="{StaticResource Yellow3}" FontSize="{StaticResource FontSize11}"
+                        Text="{Binding TextLeftDown, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding TextRightUp, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    FontSize="{StaticResource FontSize11}" Margin="0 0 10 1"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="{StaticResource Yellow3}"/>
+                <TextBlock Grid.Row="1" Text="{Binding TextRightDown, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    FontSize="{StaticResource FontSize11}" Margin="0 1 10 0"
+                    VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="{StaticResource Yellow3}"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

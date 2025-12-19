@@ -8,6 +8,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/MQTT.Sharing;component/Themes/ColorTheme.xaml"/>
                 <ResourceDictionary Source="/MQTT.Sharing;component/Themes/DefaultTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/FontTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/SizeTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

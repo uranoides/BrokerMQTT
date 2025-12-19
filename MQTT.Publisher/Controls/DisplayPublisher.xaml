@@ -3,10 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:MQTT.Publisher.ViewModels"
+             xmlns:hlp="clr-namespace:MQTT.Sharing.Helpers;assembly=MQTT.Sharing"
+             xmlns:uc="clr-namespace:MQTT.Sharing.Controls;assembly=MQTT.Sharing"
+             xmlns:cmd="clr-namespace:MQTT.Publisher.Commands"
              xmlns:local="clr-namespace:MQTT.Publisher.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <vm:PublisherVM x:Key="vm" Error="OnPublisherVMError" Progress="OnPublisherVMProgress"/>
+            <Storyboard x:Key="ConnectionSettingsFadeIn">
+                <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
+                    Storyboard.TargetProperty="Width"
+                    From="0" To="250" Duration="0:0:0.25" />
+            </Storyboard>
+            <Storyboard x:Key="ConnectionSettingsFadeOut">
+                <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
+                    Storyboard.TargetProperty="Width"
+                    From="250" To="0" Duration="0:0:0.25" />
+            </Storyboard>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static cmd:PublisherCommands.WriteTopics}" Executed="WriteTopicsExecuted" CanExecute="WriteTopicsCanExecuted"/>
+    </UserControl.CommandBindings>
+    <Border Style="{DynamicResource LinearHorizontalBorderBackground}" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Margin="10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                    
+                </Border>
+                <Border Grid.Column="1" Margin="10 10 5 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Content="Broker Connection Settings" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" 
+                            HorizontalAlignment="Center" Focusable="False"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton x:Name="ConnSett" Grid.Column="1" Width="24" Height="24" 
+                                Checked="ConnSett_Checked" Unchecked="ConnSett_Unchecked"
+                                Template="{DynamicResource OpenCloseToggle}" ToolTip="Open/Close List">
+                            </ToggleButton>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2" Margin="5 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+
+                </Border>
+                <Border Grid.Column="3" Margin="5 10 10 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+
+                </Border>
+            </Grid>
+            <uc:DisplayInfo Grid.Row="1" BorderBrush="{StaticResource Azure1}" BorderThickness="0 0.5 0 0"
+                LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextLeftUp="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextLeftDown="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextRightUp="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextRightDown="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+            </uc:DisplayInfo>
+        </Grid>
+    </Border>
 </UserControl>

@@ -7,6 +7,7 @@
     <conv:PidColorConverter x:Key="PidColorConverter"/>
     <conv:LedColorConverter x:Key="LedColorConverter"/>
     <conv:SecondsToMMSSConverter x:Key="SecondsToMMSSConverter"/>
+    <conv:NullCheckValueConverter x:Key="NullCheckValueConverter"/>
 
     <Style x:Key="BorderBackground" TargetType="{x:Type Border}">
         <Setter Property="Background">
@@ -22,7 +23,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="LinearBorderBackground" TargetType="{x:Type Border}">
+    <Style x:Key="LinearHorizontalBorderBackground" TargetType="{x:Type Border}">
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
@@ -53,6 +54,47 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <ControlTemplate x:Key="OpenCloseToggle" TargetType="ToggleButton">
+        <Border Name="Border" BorderBrush="{DynamicResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
+            Background="Transparent">
+            <Viewbox HorizontalAlignment="Center" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="24" Height="24">
+                        <Path Stroke="{DynamicResource Azure3}" StrokeThickness="1.5" x:Name="Path"
+                          StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="12 6" EndPoint="12 18"/>
+                                    <LineGeometry StartPoint="4 12" EndPoint="20 12"/>
+                                    <LineGeometry StartPoint="4 12" EndPoint="6 14"/>
+                                    <LineGeometry StartPoint="4 12" EndPoint="6 10"/>
+                                    <LineGeometry StartPoint="20 12" EndPoint="18 14"/>
+                                    <LineGeometry StartPoint="20 12" EndPoint="18 10"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Blue8}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Gray8}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Gray8}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource Blue8}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Azure3}"/>
+                <Setter TargetName="Path" Property="Stroke" Value="{DynamicResource Azure3}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
     <ControlTemplate x:Key="PanelButtonTemplate" TargetType="Button">
         <Border Name="Border" BorderBrush="{StaticResource Azure3}" BorderThickness="1.5" CornerRadius="2" 
@@ -512,5 +554,28 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <ControlTemplate x:Key="WarningTemplate" TargetType="Label">
+        <Border Name="Border" BorderThickness="0" CornerRadius="1" 
+            Background="Transparent">
+            <Viewbox HorizontalAlignment="Left" Stretch="Uniform">
+                <Grid>
+                    <Canvas Width="36" Height="36" Name="Canvas">
+                        <Path Stroke="{DynamicResource Yellow7}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeLineJoin="Round" StrokeEndLineCap="Round">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="18 6" EndPoint="3 30"/>
+                                    <LineGeometry StartPoint="3 30" EndPoint="33 30"/>
+                                    <LineGeometry StartPoint="33 30" EndPoint="18 6"/>
+                                    <LineGeometry StartPoint="18 14" EndPoint="18 22"/>
+                                    <LineGeometry StartPoint="18 25" EndPoint="18 26"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Grid>
+            </Viewbox>
+        </Border>
+    </ControlTemplate>
 
 </ResourceDictionary>
