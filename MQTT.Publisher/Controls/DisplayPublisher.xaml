@@ -125,7 +125,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 0 0 0">
                                 <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
-                                    Foreground="{StaticResource Yellow1}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
+                                    Foreground="{StaticResource Azure3}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
                                     Text="{Binding PublisherTimerIntervalMSec, StringFormat=Interval {0} msec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
@@ -135,7 +135,7 @@
                             <Grid Grid.Column="2">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0">
                                     <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
-                                        Foreground="{StaticResource Yellow1}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
+                                        Foreground="{StaticResource Azure3}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
                                         Text="Publisher Task " />
                                     <uc:DisplayStatusIndicator Width="12" Height="12" VerticalAlignment="Center"
                                         HorizontalAlignment="Right" IsConnected="{Binding IsPublisherRunning}"/>

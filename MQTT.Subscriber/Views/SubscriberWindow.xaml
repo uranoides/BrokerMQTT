@@ -7,7 +7,7 @@
         xmlns:uc="clr-namespace:MQTT.Subscriber.Controls"
         xmlns:vm="clr-namespace:MQTT.Subscriber.ViewModels"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="" Height="600" Width="800">
+        Title="" Height="650" Width="1050">
     <Window.Resources>
         <vm:SubscriberVM x:Key="vm"/>
     </Window.Resources>

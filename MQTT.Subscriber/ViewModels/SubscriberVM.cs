@@ -1,7 +1,14 @@
-﻿using MQTT.Sharing.Models;
+﻿using MQTT.Sharing;
+using MQTT.Sharing.Helpers;
+using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
+using MQTTnet;
+using MQTTnet.Protocol;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Text.Json;
 using System.Windows;
 
 namespace MQTT.Subscriber.ViewModels
@@ -38,6 +45,9 @@ namespace MQTT.Subscriber.ViewModels
         #region Variables
         public List<VariableData> TagVariables;
         public List<BlebSensor> BlebSensorsAll;
+        private CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        private bool isDisconnectingIntentional = false;
+        private IMqttClient mqttClient;
         #endregion
 
         #region Properties
@@ -88,6 +98,8 @@ namespace MQTT.Subscriber.ViewModels
                 OnPropertyChanged(nameof(SelectedTopic));
                 if (SelectedTopic != null)
                     GetTopicBlebSensors();
+                else
+                    BlebSensors = new List<BlebSensor>();
             }
         }
         private List<BlebSensor> blebSensors;
@@ -100,6 +112,36 @@ namespace MQTT.Subscriber.ViewModels
                 OnPropertyChanged(nameof(BlebSensors));
             }
         }
+        private bool isBlebRunning = false;
+        public bool IsBlebRunning
+        {
+            get { return isBlebRunning; }
+            set
+            {
+                isBlebRunning = value;
+                OnPropertyChanged(nameof(IsBlebRunning));
+            }
+        }
+        private List<BlebSensor> blebSensorsPayloads;
+        public List<BlebSensor> BlebSensorsPayloads
+        {
+            get { return blebSensorsPayloads; }
+            set
+            {
+                blebSensorsPayloads = value;
+                OnPropertyChanged(nameof(BlebSensorsPayloads));
+            }
+        }
+        private bool isConnectionSelectionEnable = true;
+        public bool IsConnectionSelectionEnable
+        {
+            get { return isConnectionSelectionEnable; }
+            set
+            {
+                isConnectionSelectionEnable = value;
+                OnPropertyChanged(nameof(IsConnectionSelectionEnable));
+            }
+        }
         #endregion
 
         #region Builder
@@ -108,13 +150,256 @@ namespace MQTT.Subscriber.ViewModels
             JsonManager jsonManager = new JsonManager();
             List<ConnectionSettings> connectionSettings = await jsonManager.ReadJsonAsync();
             ConnectionSettings = new ObservableCollection<ConnectionSettings>(connectionSettings);
+            BlebSensorsPayloads = new List<BlebSensor>();
+        }
+        #endregion
+
+        #region Subscriber
+        public void ToggleTimerBleb()
+        {
+            if (!IsBlebRunning)
+            {
+                IsConnectionSelectionEnable = false;
+                _ = StartAsync();
+            }
+            else
+            {
+                IsConnectionSelectionEnable = true;
+                _ = StopAsync();
+            }
+        }
+        public async Task StartAsync()
+        {
+            using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            var cancellationToken = cts.Token;
+            string nuovoGuidString = Guid.NewGuid().ToString();
+
+            MqttClientFactory mqttFactory = new();
+            mqttClient = mqttFactory.CreateMqttClient();
+
+            mqttClient.ApplicationMessageReceivedAsync += OnReceivedMessageAsync;
+            mqttClient.ConnectedAsync += OnConnectedAsync;
+            mqttClient.DisconnectedAsync += OnDisconnectedAsync;
+
+            var mqttClientOptions = (MqttClientOptions)MqttClientBuilderHelper.ConfigureMqttOptions(SelectedConnectionSettings);
+
+            try
+            {
+                MqttClientConnectResult result = await mqttClient.ConnectAsync(mqttClientOptions, timeoutCts.Token);
+                if (result.ResultCode != MqttClientConnectResultCode.Success)
+                {
+                    string connectionError = string.Empty;
+                    connectionError = $"Connessione fallita. Codice: {result.ResultCode} - ";
+
+                    if ((int)result.ResultCode == 1)
+                    {
+                        connectionError += "Versione del Protocollo Inaccettabile";
+                    }
+                    else
+                    {
+                        connectionError += "Errore Generico";
+                    }
+                    Error?.Invoke(connectionError);
+                    await DisconnectOnError();
+                }
+                else
+                {
+                    TextLeftUp?.Invoke("Connessione al Broker Riuscita!");
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                Error?.Invoke("ERRORE: Timeout di Connessione (5\") Raggiunto");
+                await DisconnectOnError();
+            }
+            catch (Exception ex)
+            {
+                Error?.Invoke($"ERRORE: Errore di Connessione o Esecuzione: {ex.Message}");
+                await DisconnectOnError();
+            }
+        }
+        public async Task StopAsync()
+        {
+            isDisconnectingIntentional = true;
+
+            if (mqttClient != null)
+            {
+                mqttClient.ApplicationMessageReceivedAsync -= OnReceivedMessageAsync;
+                mqttClient.ConnectedAsync -= OnConnectedAsync;
+                mqttClient.DisconnectedAsync -= OnDisconnectedAsync;
+                if (mqttClient.IsConnected)
+                {
+                    await mqttClient.DisconnectAsync();
+                }
+                mqttClient.Dispose();
+
+                TextLeftUp?.Invoke("Client MQTT disconnesso e risorse liberate.");
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                IsBlebRunning = false;
+            });
+            SetBlebSensorsOffline();
+            ResetAllCounters();
+            SelectedTopic = null;
+            isDisconnectingIntentional = false;
+        }
+        private Task OnConnectedAsync(MqttClientConnectedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                IsBlebRunning = true;
+            });
+
+            return TopicSubscriptionAsync();
+        }
+        private Task OnDisconnectedAsync(MqttClientDisconnectedEventArgs e)
+        {
+            if (isDisconnectingIntentional)
+            {
+                TextLeftUp?.Invoke("⛔️ Disconnessione dal Broker completata (richiesta dall'utente).");
+            }
+            else
+            {
+                string reason = e.ReasonString ?? e.Reason.ToString();
+                string errorMessage = $"⛔️ Disconnessione Imprevista dal Broker. Causa: {reason}";
+
+                Error?.Invoke(errorMessage);
+
+                SetBlebSensorsOffline();
+                OnPropertyChanged(nameof(BlebSensors));
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                IsBlebRunning = false;
+            });
+            cts.Cancel();
+
+            return Task.CompletedTask;
+        }
+        private async Task DisconnectOnError()
+        {
+            if (cts != null)
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = null;
+            }
+            await mqttClient.DisconnectAsync();
+        }
+        private async Task TopicSubscriptionAsync()
+        {
+            MqttClientFactory mqttFactory = new();
+            var subscribeOptionsBuilder = mqttFactory.CreateSubscribeOptionsBuilder();
+
+            List<string> uniqueAddresses = TagVariables
+                .Select(v => v.Address)
+                .Distinct()
+                .ToList();
+
+            foreach (string address in uniqueAddresses)
+            {
+                var mqttTopicFilter = new MqttTopicFilterBuilder()
+                    .WithTopic(address)
+                    .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
+                    .Build();
+
+                subscribeOptionsBuilder.WithTopicFilter(mqttTopicFilter);
+            }
+
+            var subscribeOptions = subscribeOptionsBuilder.Build();
+
+            await mqttClient.SubscribeAsync(subscribeOptions, CancellationToken.None);
+
+            TextLeftUp?.Invoke("Connessione e Sottoscrizione ai Topic avvenuta con Successo..");
+        }
+        private Task OnReceivedMessageAsync(MqttApplicationMessageReceivedEventArgs e)
+        {
+            string payload = e.ApplicationMessage.ConvertPayloadToString();
+            string topic = e.ApplicationMessage.Topic;
+
+            IncrementTopic(topic);
+
+            TextLeftUp?.Invoke("Last Reading at " + DateTime.Now.ToString());
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                try
+                {
+                    using (JsonDocument document = JsonDocument.Parse(payload))
+                    {
+                        JsonElement root = document.RootElement;
+
+                        if (root.TryGetProperty("sensor_location", out JsonElement locElem) && locElem.ValueKind == JsonValueKind.String)
+                        {
+                            string location = locElem.GetString();
+                            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(f => f.Sensor_Location == location);
+                            if (blebSensorToUpdate != null)
+                            {
+                                if (root.TryGetProperty("gateway_ID", out var gtw))
+                                    blebSensorToUpdate.Gateway_ID = gtw.GetString();
+
+                                if (root.TryGetProperty("sensor_ID", out var id))
+                                    blebSensorToUpdate.Sensor_ID = id.GetString();
+
+                                if (root.TryGetProperty("sensor_type", out var type))
+                                    blebSensorToUpdate.Sensor_Type = type.GetString();
+
+                                if (root.TryGetProperty("sensor_communication", out var comm))
+                                    blebSensorToUpdate.Sensor_Communication = comm.GetString();
+
+                                if (root.TryGetProperty("sensor_area", out var area))
+                                    blebSensorToUpdate.Sensor_Area = area.GetString();
+
+                                blebSensorToUpdate.Sensor_Location = location;
+                                blebSensorToUpdate.Sensor_Status = root.TryGetProperty("sensor_status", out var status) ? status.GetString() : "Unknown";
+
+                                if (root.TryGetProperty("sensor_threshold", out var threshold))
+                                    blebSensorToUpdate.Sensor_Threshold = threshold.GetInt64();
+
+                                if (root.TryGetProperty("sensor_value", out var val))
+                                    blebSensorToUpdate.Sensor_Value = val.GetInt64();
+
+                                if (status.GetString() == "Offline")
+                                    blebSensorToUpdate.Presence = null;
+                                else
+                                    blebSensorToUpdate.Presence = root.TryGetProperty("presence", out var pres) ? pres.GetBoolean() : null;
+
+                                if (root.TryGetProperty("timestamp", out var ts))
+                                {
+                                    if (DateTime.TryParse(ts.GetString(), out DateTime parsedDate))
+                                        blebSensorToUpdate.Timestamp = parsedDate;
+                                }
+                                OnPropertyChanged(nameof(BlebSensors));
+                                UpdateBlebSensorPayloads(blebSensorToUpdate);
+                                //if (blebSensorToUpdate.Sensor_Status == "Valid" && blebSensorToUpdate.Presence == true)
+                                //{
+                                //    Task.Run(async () => await GetDestinationPlaceId(blebSensorToUpdate.PlaceId));
+                                //}
+                            }
+                            else
+                            {
+                                Error?.Invoke($"⚠️ Sensor with Location '{location}' NOT FOUND on BlebSensors' list.");
+                            }
+                        }
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    Error?.Invoke($"Errore di Parsing JSON per il Topic '{topic}'. Payload non valido: '{payload}'. Errore: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Error?.Invoke($"Errore Generico durante l'Elaborazione del Messaggio sul Topic '{topic}'. Errore: {ex.Message}");
+                }
+            });
+            return Task.CompletedTask;
         }
         #endregion
 
         #region Methods
         private async Task GetBlebSensorsAsync()
         {
-            //BlebSensorsPayloads = new List<BlebSensor>();
             Topics = new ObservableCollection<TopicCounter>();
             var reader = new ConfigurationXmlReader();
             TagVariables = reader.ReadVariables(SelectedConnectionSettings.TagVariablesFileName);
@@ -140,6 +425,30 @@ namespace MQTT.Subscriber.ViewModels
             TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {SelectedConnectionSettings.TagVariablesFileName}");
             InitializeTopics();
             TextRightUp?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
+        }
+        private void UpdateBlebSensorPayloads(BlebSensor sensor)
+        {
+            var existingSensor = BlebSensorsPayloads.FirstOrDefault(s => s.Sensor_Location == sensor.Sensor_Location);
+            if (existingSensor != null)
+            {
+                BlebSensorsPayloads.Remove(existingSensor);
+            }
+            BlebSensorsPayloads.Add(sensor);
+            BlebSensorsPayloads = BlebSensorsPayloads.OrderByDescending(s => s.Timestamp).ToList();
+            OnPropertyChanged(nameof(BlebSensorsPayloads));
+        }
+        private void SetBlebSensorsOffline()
+        {
+            List<BlebSensor> blebSensorsList = this.BlebSensorsAll.ToList();
+            foreach (var sensor in blebSensorsList)
+            {
+                sensor.Sensor_Status = "Offline";
+                sensor.Presence = null;
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                BlebSensors = new List<BlebSensor>();
+            });
         }
         private void GetTopicBlebSensors()
         {
@@ -176,11 +485,6 @@ namespace MQTT.Subscriber.ViewModels
                     topic.Count = 0;
                 }
             });
-        }
-        private void GetTopicBlebSensorsCount()
-        {
-            BlebSensors = BlebSensorsAll.Where(v => v.Topic == SelectedTopic.Name).ToList();
-            TextRightUp?.Invoke($"Loaded {BlebSensors.Count} Bleb Sensors for Topic " + SelectedTopic.Name);
         }
         #endregion
     }

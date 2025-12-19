@@ -9,7 +9,7 @@
              xmlns:cmd="clr-namespace:MQTT.Subscriber.Commands"
              xmlns:local="clr-namespace:MQTT.Subscriber.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="650" d:DesignWidth="1050">
     <UserControl.Resources>
         <ResourceDictionary>
             <vm:SubscriberVM x:Key="vm" Error="OnSubscriberVMError" 
@@ -41,8 +41,8 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="500"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
@@ -79,7 +79,8 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <ToggleButton x:Name="ConnSett" Grid.Column="1" Width="24" Height="24" 
-                                Checked="ConnSett_Checked" Unchecked="ConnSett_Unchecked"
+                                Checked="ConnSett_Checked" Unchecked="ConnSett_Unchecked" 
+                                IsEnabled="{Binding IsConnectionSelectionEnable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 Template="{DynamicResource OpenCloseToggle}" ToolTip="Open/Close List">
                             </ToggleButton>
                         </Grid>
@@ -100,6 +101,75 @@
                                                 <TextBlock Grid.Column="0" Text="{Binding Name}" Foreground="{StaticResource Azure1}"/>
                                                 <TextBlock Grid.Column="1" Text="{Binding Count}" Foreground="{StaticResource Azure1}"/>
                                             </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+                        </Expander>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2" Margin="5" BorderThickness="0.5" CornerRadius="1" BorderBrush="{StaticResource Azure2}">
+                    <Grid Grid.Row="3" Margin="10 0 10 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Topic Bleb Supscrition" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize12}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" HorizontalAlignment="Center" Focusable="False"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 0 0 0">
+                                <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
+                                    Foreground="{StaticResource Azure3}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
+                                    Text="{Binding SelectedTopic.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
+                                Command="{x:Static cmd:SubscriberCommands.ReadTopics}" 
+                                ToolTip="Read Topic">
+                            </Button>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
+                                    Foreground="{StaticResource Azure3}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
+                                    Text="Subscription State  " />
+                                <uc:DisplayStatusIndicator Width="12" Height="12" VerticalAlignment="Center"
+                                    HorizontalAlignment="Right" IsConnected="{Binding IsBlebRunning}"/>
+                            </StackPanel>
+                        </Grid>
+                        <uc:DisplayBlebSensors Grid.Row="2" Rows="4" Columns="6"
+                            LedSensorIdFontSize="{StaticResource FontSize11}"
+                            LedTimerFontSize="{StaticResource FontSize11}"
+                            LedCircleSize="55" 
+                            LedLocationFontSize="{StaticResource FontSize18}"
+                            BlebSensors="{Binding BlebSensors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="3" Margin="5 5 10 5" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Content="Last Message Received from Each Sensor" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" Focusable="False" HorizontalAlignment="Center"
+                            FontWeight="Medium"/>
+                        <Expander Grid.Row="1" Margin="5 0" Header="Payloads" 
+                                Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
+                            <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5" Margin="0 5">
+                                <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0"
+                                    VirtualizingStackPanel.IsVirtualizing="True"
+                                    VirtualizingStackPanel.VirtualizationMode="Recycling"
+                                    VirtualizingStackPanel.CacheLengthUnit="Item"
+                                    VirtualizingStackPanel.CacheLength="10,10"
+                                    ItemsSource="{Binding BlebSensorsPayloads, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <uc:DisplayBlebSensorListItem BlebSensor="{Binding}"/>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>

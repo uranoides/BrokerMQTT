@@ -1,0 +1,34 @@
+﻿<UserControl x:Name="myUserControl" x:Class="MQTT.Sharing.Controls.DisplayBlebSensors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MQTT.Sharing.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300">
+    <ItemsControl Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+          ItemsSource="{Binding BlebSensors, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid IsItemsHost="True" 
+                     Rows="{Binding Rows, ElementName=myUserControl}" 
+                     Columns="{Binding Columns, ElementName=myUserControl}" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <WrapPanel Orientation="Vertical">
+                    <local:DisplayBlebLed BlebSensor="{Binding}" 
+                        CircleSize="{Binding ElementName=myUserControl, Path=LedCircleSize}"
+                        LocationFontSize="{Binding ElementName=myUserControl, Path=LedLocationFontSize}"
+                        TimerFontSize="{Binding ElementName=myUserControl, Path=LedTimerFontSize}"
+                        SensorIdFontSize="{Binding ElementName=myUserControl, Path=LedSensorIdFontSize}"
+                        IsSubscribed="{Binding DataContext.IsBlebRunning, 
+                            RelativeSource={RelativeSource FindAncestor, 
+                            AncestorType={x:Type Grid}}}"
+                        Margin="5 10"/>
+                </WrapPanel>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

@@ -156,12 +156,24 @@ namespace MQTT.Subscriber.Controls
         #region Commands
         private void ReadTopicsCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
         {
-
+            if (SubscriberVM != null)
+            {
+                if (SubscriberVM.SelectedConnectionSettings != null)
+                    e.CanExecute = true;
+            }
         }
 
-        private void ReadTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        private async void ReadTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
-
+            try
+            {
+                if (SubscriberVM != null)
+                    SubscriberVM.ToggleTimerBleb();
+            }
+            catch (Exception ex)
+            {
+                await OnError(ex.Message);
+            }
         }
         #endregion
 
