@@ -1,4 +1,4 @@
-﻿namespace MQTT.Publisher.Models
+﻿namespace MQTT.Sharing.Models
 {
     public class NotificationState
     {

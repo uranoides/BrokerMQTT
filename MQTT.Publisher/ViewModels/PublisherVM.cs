@@ -1,13 +1,10 @@
-﻿using MQTT.Publisher.Models;
-using MQTT.Sharing;
+﻿using MQTT.Sharing;
 using MQTT.Sharing.Helpers;
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
-using MQTTnet;
 using MQTTnet.Exceptions;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Text.Json;
 using System.Windows;
 using System.Windows.Threading;
 using TaskTimer = System.Timers.Timer;

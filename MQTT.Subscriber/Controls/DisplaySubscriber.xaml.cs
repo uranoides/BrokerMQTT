@@ -1,21 +1,22 @@
-﻿using MQTT.Publisher.ViewModels;
-using MQTT.Sharing.Models;
+﻿using MQTT.Sharing.Models;
+using MQTT.Subscriber.ViewModels;
+using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
-namespace MQTT.Publisher.Controls
+namespace MQTT.Subscriber.Controls
 {
-    public partial class DisplayPublisher : UserControl
+    public partial class DisplaySubscriber : UserControl
     {
         #region DependencyProperty
-        public PublisherVM PublisherVM
+        public SubscriberVM SubscriberVM
         {
-            get { return (PublisherVM)GetValue(SacmImolaVMProperty); }
+            get { return (SubscriberVM)GetValue(SacmImolaVMProperty); }
             set { SetValue(SacmImolaVMProperty, value); }
         }
         public static readonly DependencyProperty SacmImolaVMProperty =
-            DependencyProperty.Register(nameof(PublisherVM), typeof(PublisherVM), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(SubscriberVM), typeof(SubscriberVM), typeof(DisplaySubscriber), new PropertyMetadata(null));
 
         public string LastError
         {
@@ -23,7 +24,7 @@ namespace MQTT.Publisher.Controls
             set { SetValue(LastErrorProperty, value); }
         }
         public static readonly DependencyProperty LastErrorProperty =
-            DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplaySubscriber), new PropertyMetadata(null));
 
         public string LastTextLeftUpNotification
         {
@@ -31,7 +32,7 @@ namespace MQTT.Publisher.Controls
             set { SetValue(LastTextLeftUpNotificationProperty, value); }
         }
         public static readonly DependencyProperty LastTextLeftUpNotificationProperty =
-            DependencyProperty.Register(nameof(LastTextLeftUpNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(LastTextLeftUpNotification), typeof(string), typeof(DisplaySubscriber), new PropertyMetadata(null));
 
         public string LastTextLeftDownNotification
         {
@@ -39,7 +40,7 @@ namespace MQTT.Publisher.Controls
             set { SetValue(LastTextLeftDownNotificationProperty, value); }
         }
         public static readonly DependencyProperty LastTextLeftDownNotificationProperty =
-            DependencyProperty.Register(nameof(LastTextLeftDownNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(LastTextLeftDownNotification), typeof(string), typeof(DisplaySubscriber), new PropertyMetadata(null));
 
         public string LastTextRightUpNotification
         {
@@ -47,7 +48,7 @@ namespace MQTT.Publisher.Controls
             set { SetValue(LastTextRightUpNotificationProperty, value); }
         }
         public static readonly DependencyProperty LastTextRightUpNotificationProperty =
-            DependencyProperty.Register(nameof(LastTextRightUpNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(LastTextRightUpNotification), typeof(string), typeof(DisplaySubscriber), new PropertyMetadata(null));
 
         public string LastTextRightDownNotification
         {
@@ -55,7 +56,7 @@ namespace MQTT.Publisher.Controls
             set { SetValue(LastTextRightDownNotificationProperty, value); }
         }
         public static readonly DependencyProperty LastTextRightDownNotificationProperty =
-            DependencyProperty.Register(nameof(LastTextRightDownNotification), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(LastTextRightDownNotification), typeof(string), typeof(DisplaySubscriber), new PropertyMetadata(null));
         #endregion
 
         #region Variables
@@ -110,7 +111,7 @@ namespace MQTT.Publisher.Controls
         #endregion
 
         #region Error
-        public async void OnPublisherVMError(string Message, bool Silent)
+        public async void OnSubscriberVMError(string Message, bool Silent)
         {
             await OnError(Message, Silent);
         }
@@ -137,42 +138,30 @@ namespace MQTT.Publisher.Controls
         }
         #endregion
 
-        #region Builder
-        public DisplayPublisher()
+        #region
+        public DisplaySubscriber()
         {
             InitializeComponent();
         }
         public async Task Start()
         {
-            PublisherVM = FindResource("vm") as PublisherVM;
-            if (PublisherVM != null)
+            SubscriberVM = FindResource("vm") as SubscriberVM;
+            if (SubscriberVM != null)
             {
-                await PublisherVM.LoadAsync();
+                await SubscriberVM.LoadAsync();
             }
         }
         #endregion
 
         #region Commands
-        private async void WriteTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        private void ReadTopicsCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
         {
-            try
-            {
-                if (PublisherVM != null)
-                    PublisherVM.ToggleTimerLogic();
-            }
-            catch (Exception ex)
-            {
-                await OnError(ex.Message);
-            }
+
         }
 
-        private void WriteTopicsCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+        private void ReadTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
-            if (PublisherVM != null) 
-            {
-                if(PublisherVM.SelectedConnectionSettings != null)
-                    e.CanExecute = true; 
-            }
+
         }
         #endregion
 

@@ -1,0 +1,120 @@
+﻿<UserControl x:Name="myUserControl" x:Class="MQTT.Subscriber.Controls.DisplaySubscriber"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:MQTT.Subscriber.ViewModels"
+             xmlns:hlp="clr-namespace:MQTT.Sharing.Helpers;assembly=MQTT.Sharing"
+             xmlns:uc="clr-namespace:MQTT.Sharing.Controls;assembly=MQTT.Sharing"
+             xmlns:cmd="clr-namespace:MQTT.Subscriber.Commands"
+             xmlns:local="clr-namespace:MQTT.Subscriber.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <vm:SubscriberVM x:Key="vm" Error="OnSubscriberVMError" 
+                TextLeftUp="UpdateTextLeftUpNotification" TextLeftDown="UpdateTextLeftDownNotification"
+                TextRightUp="UpdateTextRightUpNotification" TextRightDown="UpdateTextRightDownNotification"/>
+            <Storyboard x:Key="ConnectionSettingsFadeIn">
+                <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
+                    Storyboard.TargetProperty="Width"
+                    From="0" To="350" Duration="0:0:0.25" />
+            </Storyboard>
+            <Storyboard x:Key="ConnectionSettingsFadeOut">
+                <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
+                    Storyboard.TargetProperty="Width"
+                    From="350" To="0" Duration="0:0:0.25" />
+            </Storyboard>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static cmd:SubscriberCommands.ReadTopics}" Executed="ReadTopicsExecuted" CanExecute="ReadTopicsCanExecuted"/>
+    </UserControl.CommandBindings>
+    <Border Style="{DynamicResource LinearHorizontalBorderBackground}" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5">
+        <Grid DataContext="{StaticResource vm}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <uc:DisplayConnectionSettingsPanel ConnectionSettings="{Binding SelectedConnectionSettings}"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                    <Expander Margin="10 5 5 5" Header="Connection Settings List" 
+                            Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
+                        <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="1" Margin="0 5 0 0">
+                            <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0"
+                                ItemsSource="{Binding ConnectionSettings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedValue="{Binding SelectedConnectionSettings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <uc:DisplayConnectionSettingsListItem ConnectionSettings="{Binding}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Border>
+                    </Expander>
+                </Border>
+                <Border Grid.Column="1" Margin="10 5 5 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Content="Broker Connection Settings" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" 
+                            HorizontalAlignment="Center" Focusable="False"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton x:Name="ConnSett" Grid.Column="1" Width="24" Height="24" 
+                                Checked="ConnSett_Checked" Unchecked="ConnSett_Unchecked"
+                                Template="{DynamicResource OpenCloseToggle}" ToolTip="Open/Close List">
+                            </ToggleButton>
+                        </Grid>
+                        <Expander Grid.Row="2" Margin="10 5 10 10" Header="Topics List" 
+                                Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
+                            <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="1" Margin="0 5 0 0">
+                                <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0"
+                                    ItemsSource="{Binding Topics, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    SelectedValue="{Binding SelectedTopic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Name}" Foreground="{StaticResource Azure1}"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding Count}" Foreground="{StaticResource Azure1}"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+                        </Expander>
+                    </Grid>
+                </Border>
+            </Grid>
+            <uc:DisplayInfo Grid.Row="2"
+                LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextLeftUp="{Binding LastTextLeftUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextLeftDown="{Binding LastTextLeftDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextRightUp="{Binding LastTextRightUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextRightDown="{Binding LastTextRightDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+            </uc:DisplayInfo>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MQTT.Publisher.Models
+namespace MQTT.Sharing.Models
 {
     public class TopicCounter : INotifyPropertyChanged
     {
@@ -16,10 +16,10 @@ namespace MQTT.Publisher.Models
         public string Name
         {
             get { return name; }
-            set 
-            { 
-                name = value; 
-                OnPropertyChanged(nameof(Name)); 
+            set
+            {
+                name = value;
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -27,13 +27,13 @@ namespace MQTT.Publisher.Models
         public int Count
         {
             get { return count; }
-            set 
-            { 
-                count = value; 
-                OnPropertyChanged(nameof(Count)); 
+            set
+            {
+                count = value;
+                OnPropertyChanged(nameof(Count));
             }
         }
 
-        
+
     }
 }

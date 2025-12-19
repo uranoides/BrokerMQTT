@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="MQTT.Publisher/MQTT.Publisher.csproj" />
   <Project Path="MQTT.Sharing/MQTT.Sharing.csproj" />
+  <Project Path="MQTT.Subscriber/MQTT.Subscriber.csproj" Id="d1c481de-a0a7-4e97-8a87-d93a7e83f4f2" />
 </Solution>

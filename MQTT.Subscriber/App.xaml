@@ -1,0 +1,16 @@
+﻿<Application x:Class="MQTT.Subscriber.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MQTT.Subscriber"
+             StartupUri="Views/SubscriberWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/ColorTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/DefaultTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/FontTheme.xaml"/>
+                <ResourceDictionary Source="/MQTT.Sharing;component/Themes/SizeTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
