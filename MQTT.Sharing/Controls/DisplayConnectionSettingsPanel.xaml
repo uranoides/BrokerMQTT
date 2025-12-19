@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MQTT.Sharing.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="{StaticResource HeaderInfo}" d:DesignWidth="800">
-    <Border BorderThickness="0 0 0 0.5" BorderBrush="{StaticResource Azure1}">
+    <Border BorderThickness="0 0 0 0" BorderBrush="{StaticResource Azure1}">
         <Grid Margin="10 0"
             DataContext="{Binding ConnectionSettings, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <Grid.ColumnDefinitions>

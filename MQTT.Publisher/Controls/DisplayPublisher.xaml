@@ -45,8 +45,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Margin="10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
-                    <Expander Margin="10 5 10 10" Header="Connection Settings List" 
+                <Border Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                    <Expander Margin="10 5 5 5" Header="Connection Settings List" 
                             Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
                         <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="1" Margin="0 5 0 0">
                             <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -62,7 +62,7 @@
                         </Border>
                     </Expander>
                 </Border>
-                <Border Grid.Column="1" Margin="10 10 5 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                <Border Grid.Column="1" Margin="10 5 5 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
@@ -107,7 +107,7 @@
                         </Expander>
                     </Grid>
                 </Border>
-                <Border Grid.Column="2" Margin="5 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                <Border Grid.Column="2" Margin="5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
@@ -125,7 +125,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 0 0 0">
                                 <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
-                                    Foreground="{StaticResource Yellow3}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
+                                    Foreground="{StaticResource Yellow1}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
                                     Text="{Binding PublisherTimerIntervalMSec, StringFormat=Interval {0} msec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
@@ -135,7 +135,7 @@
                             <Grid Grid.Column="2">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0">
                                     <TextBlock VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Right"
-                                        Foreground="{StaticResource Yellow3}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
+                                        Foreground="{StaticResource Yellow1}" FontWeight="Medium" FontSize="{StaticResource FontSize11}"
                                         Text="Publisher Task " />
                                     <uc:DisplayStatusIndicator Width="12" Height="12" VerticalAlignment="Center"
                                         HorizontalAlignment="Right" IsConnected="{Binding IsPublisherRunning}"/>
@@ -149,19 +149,19 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Last Message Received" Template="{StaticResource TextBlockTemplate}" 
-                                FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                                FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
                             <TextBox Grid.Row="1" Style="{StaticResource TextBoxMultilineStyle}" Foreground="{DynamicResource Azure1}" 
                                 FontSize="{DynamicResource FontSize11}" TextWrapping="Wrap" Text="{Binding LastMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Grid>
                 </Border>
-                <Border Grid.Column="3" Margin="5 10 10 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                <Border Grid.Column="3" Margin="5 5 10 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ContentControl Grid.Row="0" Content="Last Message Pubblished for Each Sensor" Template="{StaticResource TextBlockTemplate}" 
+                        <ContentControl Grid.Row="0" Content="Last Message Pubblished for Each Sensor" Template="{StaticResource TextBlockTemplate}" FontWeight="Medium" 
                             FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" Focusable="False" HorizontalAlignment="Center"/>
                         <Expander Grid.Row="1" Margin="5 0" Header="Messages List" 
                                 Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
@@ -184,7 +184,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <uc:DisplayInfo Grid.Row="2" BorderBrush="{StaticResource Azure1}" BorderThickness="0 0.5 0 0"
+            <uc:DisplayInfo Grid.Row="2"
                 LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftUp="{Binding LastTextLeftUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftDown="{Binding LastTextLeftDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
