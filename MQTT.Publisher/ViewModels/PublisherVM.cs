@@ -2,6 +2,7 @@
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
 using MQTTnet;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace MQTT.Publisher.ViewModels
@@ -28,7 +29,6 @@ namespace MQTT.Publisher.ViewModels
 
         #region Variables
         private IMqttClient mqttClient;
-        private ConnectionSettings connectionSettings;
         public List<VariableData> TagVariables;
         public List<BlebSensor> BlebSensorsAll;
         private int WriterTimerIntervalMilliSeconds = 100;
@@ -66,6 +66,26 @@ namespace MQTT.Publisher.ViewModels
                 //UpdateJsonDisplay();
             }
         }
+        private ObservableCollection<ConnectionSettings> connectionSettings;
+        public ObservableCollection<ConnectionSettings> ConnectionSettings
+        {
+            get { return connectionSettings; }
+            set
+            {
+                connectionSettings = value;
+                OnPropertyChanged(nameof(ConnectionSettings));
+            }
+        }
+        private ConnectionSettings selectedConnectionSettings;
+        public ConnectionSettings SelectedConnectionSettings
+        {
+            get { return selectedConnectionSettings; }
+            set
+            {
+                selectedConnectionSettings = value;
+                OnPropertyChanged(nameof(SelectedConnectionSettings));
+            }
+        }
         #endregion
 
         #region Builder
@@ -75,38 +95,44 @@ namespace MQTT.Publisher.ViewModels
         }
         private async void InitProcedures()
         {
-            await GetBlebSensorsAsync();
+            //await GetBlebSensorsAsync();
 
-            BlebSensorsPayloads = new List<BlebSensor>();
+            //BlebSensorsPayloads = new List<BlebSensor>();
             //InitializeTaskTimer();
             //InitializeUiTimer();
+        }
+        public async Task LoadAsync()
+        {
+            JsonManager jsonManager = new JsonManager();
+            List<ConnectionSettings> connectionSettings = await jsonManager.ReadJsonAsync();
+            ConnectionSettings = new ObservableCollection<ConnectionSettings>(connectionSettings);
         }
         #endregion
 
         #region Methods
         private async Task GetBlebSensorsAsync()
         {
-            JsonManager jsonManager = new JsonManager();
-            connectionSettings = await jsonManager.GetConnectionByIdAsync(7);
-            var reader = new ConfigurationXmlReader();
-            TagVariables = reader.ReadVariables(connectionSettings.TagVariablesFileName);
-            BlebSensorsAll = new List<BlebSensor>();
-            foreach (var tag in TagVariables)
-            {
-                CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
-                BlebSensorsAll.Add(new BlebSensor()
-                {
-                    Topic = tag.Address,
-                    PlaceId = tag.Id,
-                    Sensor_Location = config.Sensor,
-                    Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
-                    Sensor_Area = EnumRandomizer.GetRandomSensorLocation().ToString(),
-                    Sensor_Status = "Offline",
-                    Sensor_Value = 0,
-                    Presence = false,
-                });
-            }
+            //JsonManager jsonManager = new JsonManager();
+            //connectionSettings = await jsonManager.GetConnectionByIdAsync(7);
+            //var reader = new ConfigurationXmlReader();
+            //TagVariables = reader.ReadVariables(connectionSettings.TagVariablesFileName);
+            //BlebSensorsAll = new List<BlebSensor>();
+            //foreach (var tag in TagVariables)
+            //{
+            //    CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
+            //    BlebSensorsAll.Add(new BlebSensor()
+            //    {
+            //        Topic = tag.Address,
+            //        PlaceId = tag.Id,
+            //        Sensor_Location = config.Sensor,
+            //        Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
+            //        Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
+            //        Sensor_Area = EnumRandomizer.GetRandomSensorLocation().ToString(),
+            //        Sensor_Status = "Offline",
+            //        Sensor_Value = 0,
+            //        Presence = false,
+            //    });
+            //}
         }
         #endregion
 

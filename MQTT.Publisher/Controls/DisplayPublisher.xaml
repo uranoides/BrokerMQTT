@@ -16,12 +16,12 @@
             <Storyboard x:Key="ConnectionSettingsFadeIn">
                 <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
                     Storyboard.TargetProperty="Width"
-                    From="0" To="250" Duration="0:0:0.25" />
+                    From="0" To="350" Duration="0:0:0.25" />
             </Storyboard>
             <Storyboard x:Key="ConnectionSettingsFadeOut">
                 <hlp:GridLengthAnimation Storyboard.TargetName="ConnectionSettingsColumn"
                     Storyboard.TargetProperty="Width"
-                    From="250" To="0" Duration="0:0:0.25" />
+                    From="350" To="0" Duration="0:0:0.25" />
             </Storyboard>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -29,12 +29,14 @@
         <CommandBinding Command="{x:Static cmd:PublisherCommands.WriteTopics}" Executed="WriteTopicsExecuted" CanExecute="WriteTopicsCanExecuted"/>
     </UserControl.CommandBindings>
     <Border Style="{DynamicResource LinearHorizontalBorderBackground}" BorderBrush="{StaticResource Azure2}" BorderThickness="0.5">
-        <Grid>
+        <Grid DataContext="{StaticResource vm}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <uc:DisplayConnectionSettingsPanel ConnectionSettings="{Binding SelectedConnectionSettings}"/>
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
                     <ColumnDefinition Width="*"/>
@@ -42,7 +44,21 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Margin="10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
-                    
+                    <Expander Margin="10 5 10 10" Header="Connection Settings List" 
+                            Style="{StaticResource ExpanderStyle}" FontSize="{DynamicResource FontSize11}" VerticalAlignment="Top">
+                        <Border Grid.Row="1" BorderBrush="{StaticResource Azure2}" BorderThickness="1" Margin="0 5 0 0">
+                            <ListView MaxHeight="900" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0"
+                                    ItemsSource="{Binding ConnectionSettings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    SelectedValue="{Binding SelectedConnectionSettings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <uc:DisplayConnectionSettingsListItem ConnectionSettings="{Binding}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Border>
+                    </Expander>
                 </Border>
                 <Border Grid.Column="1" Margin="10 10 5 10" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
@@ -74,7 +90,7 @@
 
                 </Border>
             </Grid>
-            <uc:DisplayInfo Grid.Row="1" BorderBrush="{StaticResource Azure1}" BorderThickness="0 0.5 0 0"
+            <uc:DisplayInfo Grid.Row="2" BorderBrush="{StaticResource Azure1}" BorderThickness="0 0.5 0 0"
                 LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftUp="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftDown="{Binding LastStatusNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"

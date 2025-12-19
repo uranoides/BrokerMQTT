@@ -1,0 +1,49 @@
+﻿<UserControl x:Name="myUserControl" x:Class="MQTT.Sharing.Controls.DisplayConnectionSettingsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MQTT.Sharing.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="{StaticResource HeaderInfo}" d:DesignWidth="800">
+    <Border BorderThickness="0 0 0 0.5" BorderBrush="{StaticResource Azure1}">
+        <Grid Margin="10 0"
+            DataContext="{Binding ConnectionSettings, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                    Text="{Binding Address, StringFormat=Address: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" FontSize="{StaticResource FontSize12}"  VerticalAlignment="Top" FontWeight="Medium"
+                    Text="{Binding Port, StringFormat=Port: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                    Text="{Binding MqttTransCodeProtocolVersion, StringFormat=MqttProtocolVersion: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="{StaticResource FontSize12}" VerticalAlignment="Top" FontWeight="Medium"
+                    Text="{Binding TagVariablesFileName, StringFormat=TagVariable: {0},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" VerticalAlignment="Bottom" FontWeight="Medium"
+                    Text="{Binding Username, StringFormat=Username: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right" FontSize="{StaticResource FontSize12}" VerticalAlignment="Top" FontWeight="Medium"
+                    Text="{Binding Password, StringFormat=Password: {0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure3}"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

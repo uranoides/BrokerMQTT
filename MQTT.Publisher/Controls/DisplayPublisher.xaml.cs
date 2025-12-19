@@ -107,8 +107,14 @@ namespace MQTT.Publisher.Controls
         public DisplayPublisher()
         {
             InitializeComponent();
-
+        }
+        public async Task Start()
+        {
             PublisherVM = FindResource("vm") as PublisherVM;
+            if (PublisherVM != null)
+            {
+                await PublisherVM.LoadAsync();
+            }
         }
         #endregion
 
