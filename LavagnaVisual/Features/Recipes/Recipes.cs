@@ -15,7 +15,7 @@ namespace LavagnaVisual.Features.Recipes
             group.MapGet("", GetAllRecipesAsync)
                 .WithDescription("CRUD operation to get a list of all recipes");
 
-            group.MapGet("{id}", GetRecipeByIdAsync)
+            group.MapGet("{placeId}", GetRecipeByIdAsync)
                 .WithDescription("CRUD operation to get the recipe with specific Id");
         }
 

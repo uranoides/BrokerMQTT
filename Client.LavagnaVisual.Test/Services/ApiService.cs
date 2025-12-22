@@ -22,7 +22,7 @@ namespace Client.LavagnaVisual.Test.Services
         #region Tasks
         public async Task<List<Recipe>> GetRecipesAsync()
         {
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Properties.Settings.Default.TimeOutApiCall));
             
             OnMessageOccurred?.Invoke(this, "Recupero ricette in corso...");
 
@@ -61,22 +61,47 @@ namespace Client.LavagnaVisual.Test.Services
                 // Rilanciamo l'eccezione se vogliamo che anche il chiamante la gestisca
                 throw;
             }
-            //catch (OperationCanceledException) when (!cts.IsCancellationRequested)
-            //{
-            //    throw new Exception("La richiesta è andata in timeout (connessione lenta).");
-            //}
-            //catch (OperationCanceledException)
-            //{
-            //    throw new Exception("Operazione annullata dall'utente o timeout locale.");
-            //}
-            //catch (HttpRequestException ex)
-            //{
-            //    throw new Exception($"Errore di rete: {ex.Message}");
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception($"Errore imprevisto: {ex.Message}");
-            //}
+        }
+        public async Task<Recipe> GetRecipeByIdAsync(int placeId)
+        {
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Properties.Settings.Default.TimeOutApiCall));
+
+            OnMessageOccurred?.Invoke(this, $"Caricamento ricetta {placeId}...");
+
+            try
+            {
+                var requestUri = $"recipes/{placeId}";
+                var response = await _client.GetAsync(requestUri, cts.Token);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var recipe = await response.Content.ReadFromJsonAsync<Recipe>(cancellationToken: cts.Token);
+                    if (recipe != null)
+                    {
+                        OnMessageOccurred?.Invoke(this, "Ricetta trovata!");
+                        return recipe;
+                    }
+                    else
+                    {
+                        throw new Exception($"La ricetta con ID {placeId} non è stata trovata nei risultati.");
+                    }
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new Exception($"La ricetta con ID {placeId} non esiste.");
+                }
+                else
+                {
+                    // DEBUG: Leggiamo COSA dice il server nel BadRequest
+                    string errorBody = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Server Error {response.StatusCode}: {errorBody}");
+                }
+            }
+            catch (Exception ex)
+            {
+                OnErrorOccurred?.Invoke(this, ex.Message);
+                throw;
+            }
         }
         #endregion
     }

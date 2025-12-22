@@ -1,5 +1,6 @@
 ﻿using Bridge.Models;
 using Client.LavagnaVisual.Test.Services;
+using MQTT.Sharing.Helpers;
 using System.Windows;
 
 namespace Client.LavagnaVisual.Test.Views
@@ -93,6 +94,29 @@ namespace Client.LavagnaVisual.Test.Views
                 await OnError(ex.Message);
             }
         }
+        private async void GetRecipesByIdExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        {
+            if (int.TryParse(tbRecipeById.Text, out int placeId))
+            {
+                try
+                {
+                    Recipe recipe = await _apiService.GetRecipeByIdAsync(placeId);
+
+                    tbResult.Text = JsonHelper.ToJson(recipe);
+                }
+                catch
+                {
+                    tbResult.Clear();
+                    LastStatusNotification = null;
+                }
+            }
+            else
+            {
+                await OnError("Inserire un ID numerico valido.");
+            }
+        }
         #endregion
+
+
     }
 }
