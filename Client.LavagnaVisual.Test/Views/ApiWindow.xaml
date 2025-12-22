@@ -13,93 +13,93 @@
     </Window.CommandBindings>
     <Border Style="{DynamicResource LinearHorizontalBorderBackground}">
         <Grid Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="0 0 5 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <ContentControl Grid.Row="0" Content="GetRecipes" Template="{StaticResource TextBlockTemplate}" HorizontalAlignment="Center"
-                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
-                        Command="{x:Static cmd:ApiCommands.GetRecipes}" 
-                        ToolTip="Read Topic">
-                    </Button>
-                </Grid>
-                <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0 0 5 0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Response" Template="{StaticResource TextBlockTemplate}" 
-                        FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
-                    <DataGrid x:Name="dgRecipes" Background="Transparent" 
-                        Foreground="{StaticResource Azure1}" HeadersVisibility="None"
-                        Grid.Row="1" RowBackground="Transparent"
-                        AutoGenerateColumns="True" 
-                        IsReadOnly="True" />
+                    <ContentControl Grid.Row="0" Content="GetRecipes" Template="{StaticResource TextBlockTemplate}" HorizontalAlignment="Center"
+                        FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
+                            Command="{x:Static cmd:ApiCommands.GetRecipes}" ToolTip="Get Recipes">
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Response" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                        <DataGrid x:Name="dgRecipes" Background="Transparent" 
+                            Foreground="{StaticResource Azure1}" HeadersVisibility="None"
+                            Grid.Row="1" RowBackground="Transparent" AutoGenerateColumns="True" IsReadOnly="True" />
+                    </Grid>
                 </Grid>
-                <Grid Grid.Row="3" Margin="0 5 0 0">
+                <Grid Grid.Column="1" Margin="5 0 0 0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock VerticalAlignment="Bottom" Grid.Row="0" HorizontalAlignment="Left"
-                        Foreground="{StaticResource Azure3}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
-                        Text="{Binding LastStatusNotification, ElementName=myWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left"
-                        Foreground="{StaticResource Red6}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
-                        Text="{Binding LastError, ElementName=myWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <ContentControl Grid.Row="0" Content="GetRecipeById" Template="{StaticResource TextBlockTemplate}" HorizontalAlignment="Center"
+                        FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
+                            Command="{x:Static cmd:ApiCommands.GetRecipeById}" ToolTip="Get Recipe By PlaceId">
+                        </Button>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <ContentControl Grid.Row="0" Margin="0 5 5 0" Content="RecipeId:" Template="{StaticResource TextBlockTemplate}" 
+                                FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                            <TextBox x:Name="tbRecipeById" Background="Transparent" Height="25" Width="40" FontWeight="SemiBold"
+                                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CaretBrush="{StaticResource Azure1}"
+                                Foreground="{StaticResource Azure1}" Grid.Row="1"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Response" Template="{StaticResource TextBlockTemplate}" 
+                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
+                        <TextBox x:Name="tbResult" Background="Transparent" BorderBrush="{StaticResource Azure3}"
+                            Foreground="{StaticResource Azure1}" TextWrapping="Wrap" Grid.Row="1"/>
+                    </Grid>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1" Margin="5 0 0 0">
+            <Grid Grid.Row="1" Margin="0 5 0 0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ContentControl Grid.Row="0" Content="GetRecipeById" Template="{StaticResource TextBlockTemplate}" HorizontalAlignment="Center"
-                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Width="25" Height="25" Template="{DynamicResource TimeButtonTemplate}"
-                        Command="{x:Static cmd:ApiCommands.GetRecipeById}" 
-                        ToolTip="Read Topic">
-                    </Button>
-                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="RecipeId: " Template="{StaticResource TextBlockTemplate}" 
-                            FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
-                        <TextBox x:Name="tbRecipeById" Background="Transparent" Height="20" Width="40" 
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Foreground="{StaticResource Azure1}" Grid.Row="1"/>
-                    </StackPanel>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <ContentControl Grid.Row="0" Margin="0 5 0 0" Content="Response" Template="{StaticResource TextBlockTemplate}" 
-                        FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" FontWeight="Medium" VerticalAlignment="Top" Focusable="False"/>
-                    <TextBox x:Name="tbResult" Background="Transparent" 
-                        Foreground="{StaticResource Azure1}" TextWrapping="Wrap"
-                        Grid.Row="1"/>
-                </Grid>
+                <TextBlock VerticalAlignment="Bottom" Grid.Row="0" HorizontalAlignment="Left"
+                    Foreground="{StaticResource Azure3}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
+                    Text="{Binding LastStatusNotification, ElementName=myWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left"
+                    Foreground="{StaticResource Red6}" FontWeight="SemiBold" FontSize="{StaticResource FontSize11}"
+                    Text="{Binding LastError, ElementName=myWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Grid>
     </Border>

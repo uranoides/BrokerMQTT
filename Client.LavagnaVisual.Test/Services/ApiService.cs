@@ -46,19 +46,16 @@ namespace Client.LavagnaVisual.Test.Services
             }
             catch (Exception ex)
             {
-                // Intercettiamo l'errore, scateniamo l'evento e poi lo rilanciamo
                 string message = ex switch
                 {
-                    OperationCanceledException when !cts.IsCancellationRequested => "La richiesta è andata in timeout (connessione lenta).",
-                    OperationCanceledException => "Operazione annullata.",
-                    HttpRequestException => $"Errore di rete: {ex.Message}",
-                    _ => $"Errore imprevisto: {ex.Message}"
+                    OperationCanceledException when !cts.IsCancellationRequested => "Timeout (Slow Network Connection)",
+                    OperationCanceledException => "Operation Canceled",
+                    HttpRequestException => $"Network Error: {ex.Message}",
+                    _ => $"Unknown Error: {ex.Message}"
                 };
 
-                // Notifica chiunque sia in ascolto (la tua Window)
                 OnErrorOccurred?.Invoke(this, message);
 
-                // Rilanciamo l'eccezione se vogliamo che anche il chiamante la gestisca
                 throw;
             }
         }
@@ -66,7 +63,7 @@ namespace Client.LavagnaVisual.Test.Services
         {
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Properties.Settings.Default.TimeOutApiCall));
 
-            OnMessageOccurred?.Invoke(this, $"Caricamento ricetta {placeId}...");
+            OnMessageOccurred?.Invoke(this, $"Searching Recipe with PlaceId {placeId}...");
 
             try
             {
@@ -78,17 +75,17 @@ namespace Client.LavagnaVisual.Test.Services
                     var recipe = await response.Content.ReadFromJsonAsync<Recipe>(cancellationToken: cts.Token);
                     if (recipe != null)
                     {
-                        OnMessageOccurred?.Invoke(this, "Ricetta trovata!");
+                        OnMessageOccurred?.Invoke(this, "Recipe Found!");
                         return recipe;
                     }
                     else
                     {
-                        throw new Exception($"La ricetta con ID {placeId} non è stata trovata nei risultati.");
+                        throw new Exception($"Recipe with PlaceId {placeId} NOT FOUND!");
                     }
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    throw new Exception($"La ricetta con ID {placeId} non esiste.");
+                    throw new Exception($"Recipe with PlaceId {placeId} NOT EXIST!");
                 }
                 else
                 {

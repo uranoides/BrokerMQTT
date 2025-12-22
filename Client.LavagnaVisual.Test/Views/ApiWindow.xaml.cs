@@ -79,6 +79,8 @@ namespace Client.LavagnaVisual.Test.Views
 
             _apiService.OnErrorOccurred += async (s, msg) => await OnError(msg);
             _apiService.OnMessageOccurred += (s, msg) => OnNotification(msg);
+
+            tbRecipeById.Focus();
         }
         #endregion  
 
@@ -112,7 +114,8 @@ namespace Client.LavagnaVisual.Test.Views
             }
             else
             {
-                await OnError("Inserire un ID numerico valido.");
+                await OnError("Insert a Valid PlaceId!");
+                tbRecipeById.Focus();
             }
         }
         #endregion
