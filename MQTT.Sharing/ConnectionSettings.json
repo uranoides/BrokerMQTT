@@ -7,7 +7,7 @@
     "Username": "test1",
     "Password": "Test1234!",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.Bleb.xml",
-    "IntervalInSeconds": 10
+    "IntervalInMilliseconds": 10000
   },
   {
     "ConnectionId": 2,
@@ -17,7 +17,7 @@
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.Officina.xml",
-    "IntervalInSeconds": 10
+    "IntervalInMilliseconds": 10000
   },
   {
     "ConnectionId": 3,
@@ -27,7 +27,7 @@
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.SacmImola.xml",
-    "IntervalInSeconds": 10
+    "IntervalInMilliseconds": 10000
   },
   {
     "ConnectionId": 4,
@@ -37,6 +37,16 @@
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.SacmImola.xml",
-    "IntervalInSeconds": 10
+    "IntervalInMilliseconds": 10000
+  },
+  {
+    "ConnectionId": 5,
+    "Address": "192.168.0.40",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 0,
+    "Username": "admin",
+    "Password": "admin",
+    "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
+    "IntervalInMilliseconds": 1000
   }
 ]

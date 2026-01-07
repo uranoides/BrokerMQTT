@@ -43,6 +43,14 @@ namespace MQTT.Sharing.Utilities
 
                         foreach (var variable in variables)
                         {
+                            var advancedProps = variable.Element("AdvancedProperties")?
+                            .Elements("AdvancedProperty")
+                            .Select(p => new AdvancedProperty
+                            {
+                                Name = p.Attribute("Name")?.Value ?? string.Empty,
+                                Value = p.Attribute("Value")?.Value ?? string.Empty
+                            }).ToList() ?? new List<AdvancedProperty>();
+
                             variablesList.Add(new VariableData
                             {
                                 Id = id,
@@ -50,7 +58,8 @@ namespace MQTT.Sharing.Utilities
                                 VariableName = variable.Attribute("Name").Value,
                                 Address = variable.Attribute("Address").Value,
                                 Description = variable.Attribute("Description").Value,
-                                CustomData = variable.Attribute("CustomData").Value
+                                CustomData = variable.Attribute("CustomData").Value,
+                                AdvancedProperties = advancedProps
                             });
                         }
                     }

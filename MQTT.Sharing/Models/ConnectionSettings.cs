@@ -9,6 +9,6 @@
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string TagVariablesFileName { get; set; } = string.Empty;
-        public int IntervalInSeconds { get; set; }
+        public int IntervalInMilliseconds { get; set; }
     }
 }

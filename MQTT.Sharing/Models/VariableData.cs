@@ -8,5 +8,12 @@
         public string Description { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public string CustomData { get; set; } = string.Empty;
+        public List<AdvancedProperty> AdvancedProperties { get; set; }
+
+    }
+    public class AdvancedProperty
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
     }
 }

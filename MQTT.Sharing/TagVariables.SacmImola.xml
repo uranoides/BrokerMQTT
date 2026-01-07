@@ -4,508 +4,160 @@
 
 		<!--Palletizer1-->
 		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1" 
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S1&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S1" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1" 
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S2&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S2" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
-		
+
 		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1" 
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S3&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S3" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
-		
+
 		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1" 
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S4&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S4" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place5Read" Index="5">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S5&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S5" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place6Read" Index="6">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S6&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S6" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place7Read" Index="7">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S7&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S7" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place8Read" Index="8">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S8&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S8" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place9Read" Index="9">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S9&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S9" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place10Read" Index="10">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S10&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S10" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place11Read" Index="11">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S11&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S11" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place12Read" Index="12">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S12&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S12" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
 		<Group Name="Place13Read" Index="13">
 			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S13&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+					  CustomData="S13" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
 		</Group>
 
-		<Group Name="Place14Read" Index="14">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S14&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place15Read" Index="15">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S15&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place16Read" Index="16">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S16&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place17Read" Index="17">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S17&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place18Read" Index="18">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S18&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place19Read" Index="19">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S19&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place20Read" Index="20">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S20&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<!--Palletizer2-->
-		<Group Name="Place21Read" Index="21">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S21&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place22Read" Index="22">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S22&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place23Read" Index="23">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S23&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place24Read" Index="24">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S24&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place25Read" Index="25">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S25&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place26Read" Index="26">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S26&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place27Read" Index="27">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S27&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place28Read" Index="28">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S28&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place29Read" Index="29">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S29&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place30Read" Index="30">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S30&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place31Read" Index="31">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S31&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place32Read" Index="32">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S32&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place33Read" Index="33">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S33&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place34Read" Index="34">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S34&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place35Read" Index="35">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S35&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place36Read" Index="36">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S36&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place37Read" Index="37">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S37&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place38Read" Index="38">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S38&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place39Read" Index="39">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S39&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place40Read" Index="40">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer2"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S40&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<!--Unload_Udc_01-->
-		<Group Name="Place41Read" Index="41">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S41&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place42Read" Index="42">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S42&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place43Read" Index="43">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S43&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place44Read" Index="44">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S44&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place45Read" Index="45">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S45&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place46Read" Index="46">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S46&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place47Read" Index="47">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S47&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place48Read" Index="48">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S48&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place49Read" Index="49">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S49&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place50Read" Index="50">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S50&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place51Read" Index="51">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S51&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place52Read" Index="52">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S52&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place53Read" Index="53">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S53&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place54Read" Index="54">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S54&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place55Read" Index="55">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S55&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place56Read" Index="56">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S56&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place57Read" Index="57">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S57&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place58Read" Index="58">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S58&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place59Read" Index="59">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S59&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place60Read" Index="60">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S60&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<!--Unload_Udc_02-->
-		<Group Name="Place61Read" Index="61">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S61&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place62Read" Index="62">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S62&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place63Read" Index="63">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S63&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place64Read" Index="64">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S64&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place65Read" Index="65">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S65&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place66Read" Index="66">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S66&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place67Read" Index="67">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S67&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place68Read" Index="68">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S68&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place69Read" Index="69">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S69&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place70Read" Index="70">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S70&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place71Read" Index="71">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S71&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place72Read" Index="72">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S72&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place73Read" Index="73">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S73&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place74Read" Index="74">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S74&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place75Read" Index="75">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S75&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place76Read" Index="76">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S76&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place77Read" Index="77">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S77&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place78Read" Index="78">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S78&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place79Read" Index="79">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S79&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place80Read" Index="80">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S80&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<!--Unload_Udc_03-->
-		<Group Name="Place81Read" Index="81">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S81&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place82Read" Index="82">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S82&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place83Read" Index="83">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S83&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place84Read" Index="84">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S84&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place85Read" Index="85">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S85&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place86Read" Index="86">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S86&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place87Read" Index="87">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S87&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place88Read" Index="88">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S88&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place89Read" Index="89">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S89&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place90Read" Index="90">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S90&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place91Read" Index="91">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S91&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place92Read" Index="92">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S92&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place93Read" Index="93">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S93&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place94Read" Index="94">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S94&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place95Read" Index="95">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S95&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place96Read" Index="96">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S96&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place97Read" Index="97">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S97&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place98Read" Index="98">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S98&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place99Read" Index="99">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S99&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place100Read" Index="100">
-			<Variable Name="ReadStoreRequestedPlace" Active="true" Description="Richiesta di Deposito Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;,&quot;Location&quot;:&quot;sensor_location&quot;,&quot;Sensor&quot;:&quot;S100&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-		
 	</Groups>
 </IToolS>

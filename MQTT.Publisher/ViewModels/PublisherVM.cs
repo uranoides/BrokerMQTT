@@ -47,7 +47,7 @@ namespace MQTT.Publisher.ViewModels
         #endregion
 
         #region Properties
-        private int publisherTimerIntervalMSec = 100;
+        private int publisherTimerIntervalMSec = 0;
         public int PublisherTimerIntervalMSec
         {
             get { return publisherTimerIntervalMSec; }
@@ -165,8 +165,6 @@ namespace MQTT.Publisher.ViewModels
             JsonManager jsonManager = new JsonManager();
             List<ConnectionSettings> connectionSettings = await jsonManager.ReadJsonAsync();
             ConnectionSettings = new ObservableCollection<ConnectionSettings>(connectionSettings);
-
-            InitializeTaskTimer();
         }
         #endregion
 
@@ -180,12 +178,11 @@ namespace MQTT.Publisher.ViewModels
             BlebSensorsAll = new List<BlebSensor>();
             foreach (var tag in TagVariables)
             {
-                CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
                 BlebSensorsAll.Add(new BlebSensor()
                 {
                     Topic = tag.Address,
                     PlaceId = tag.Id,
-                    Sensor_Location = config.Sensor,
+                    Sensor_Location = tag.CustomData,
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
@@ -199,6 +196,9 @@ namespace MQTT.Publisher.ViewModels
             TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {SelectedConnectionSettings.TagVariablesFileName}");
             InitializeTopics();
             TextRightUp?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
+            // Imposta il Timer del Publisher
+            PublisherTimerIntervalMSec = SelectedConnectionSettings.IntervalInMilliseconds;
+            InitializeTaskTimer();
         }
         public void InitializeTopics()
         {
@@ -259,17 +259,16 @@ namespace MQTT.Publisher.ViewModels
             int numTotalTagsForTopic = TagVariables.Where(t => t.Address.ToLower() == topic.ToLower()).Count();
             int randomIndex = EnumRandomizer.GetRandomInt(numTotalTagsForTopic);
             List<VariableData> matchingTags = TagVariables.Where(t => t.Address.ToLower() == topic.ToLower()).ToList();
-            string randomSensorCustomData = matchingTags[randomIndex].CustomData;
-            CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(randomSensorCustomData);
+            List<AdvancedProperty> advancedProperties = matchingTags[randomIndex].AdvancedProperties;
             bool randomBusy = random.Next(2) == 0;
             PublisherPayload publisherPayload = new PublisherPayload{
                 Presence = randomBusy,
-                SensorLocation = config.Sensor, 
+                SensorLocation = matchingTags[randomIndex].CustomData, 
                 SensorStatus = EnumRandomizer.GetRandomStatusString(),
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };
             IncrementTopic(topic);
-            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == config.Sensor);
+            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == publisherPayload.SensorLocation);
             blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
             blebSensorToUpdate.Presence = publisherPayload.Presence;
             blebSensorToUpdate.Timestamp = DateTime.Now;
