@@ -47,6 +47,6 @@
     "Username": "admin",
     "Password": "admin",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
-    "IntervalInMilliseconds": 1000
+    "IntervalInMilliseconds": 100
   }
 ]
