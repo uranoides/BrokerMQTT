@@ -17,13 +17,13 @@ namespace MQTT.Publisher.Controls
         public static readonly DependencyProperty SacmImolaVMProperty =
             DependencyProperty.Register(nameof(PublisherVM), typeof(PublisherVM), typeof(DisplayPublisher), new PropertyMetadata(null));
 
-        public string LastError
-        {
-            get { return (string)GetValue(LastErrorProperty); }
-            set { SetValue(LastErrorProperty, value); }
-        }
-        public static readonly DependencyProperty LastErrorProperty =
-            DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
+        //public string LastError
+        //{
+        //    get { return (string)GetValue(LastErrorProperty); }
+        //    set { SetValue(LastErrorProperty, value); }
+        //}
+        //public static readonly DependencyProperty LastErrorProperty =
+        //    DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
 
         public string LastTextLeftUpNotification
         {
@@ -60,7 +60,6 @@ namespace MQTT.Publisher.Controls
 
         #region Variables
         private Task LastErrorTask = null;
-        private string LastErrorMessage = null;
         private readonly NotificationState _leftUpState = new();
         private readonly NotificationState _leftDownState = new();
         private readonly NotificationState _rightUpState = new();
@@ -124,16 +123,16 @@ namespace MQTT.Publisher.Controls
             {
                 await Dispatcher.InvokeAsync(() =>
                 {
-                    LastError = errorMessage;
+                    LastTextLeftDownNotification = errorMessage;
 
                     LastErrorTask = Task.Delay(new TimeSpan(0, 0, Properties.Settings.Default.NotificationTime));
                     LastErrorTask.ContinueWith((t) =>
                     {
-                        if (LastErrorTask == t) LastError = null;
+                        if (LastErrorTask == t) LastTextLeftDownNotification = null;
                     }, TaskScheduler.FromCurrentSynchronizationContext());
                 });
             }
-            if (errorMessage != LastErrorMessage) { LastErrorMessage = errorMessage; }
+            if (errorMessage != LastTextLeftDownNotification) { LastTextLeftDownNotification = errorMessage; }
         }
         #endregion
 

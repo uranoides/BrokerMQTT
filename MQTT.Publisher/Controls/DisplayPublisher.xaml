@@ -185,7 +185,6 @@
                 </Border>
             </Grid>
             <uc:DisplayInfo Grid.Row="2"
-                LastError="{Binding LastError, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftUp="{Binding LastTextLeftUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextLeftDown="{Binding LastTextLeftDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                 TextRightUp="{Binding LastTextRightUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"

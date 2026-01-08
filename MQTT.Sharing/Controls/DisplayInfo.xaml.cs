@@ -6,14 +6,6 @@ namespace MQTT.Sharing.Controls
     public partial class DisplayInfo : UserControl
     {
         #region DependencyProperty
-        public string LastError
-        {
-            get { return (string)GetValue(LastErrorProperty); }
-            set { SetValue(LastErrorProperty, value); }
-        }
-        public static readonly DependencyProperty LastErrorProperty =
-            DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayInfo), new PropertyMetadata(null));
-
         public string TextLeftUp
         {
             get { return (string)GetValue(TextLeftUpProperty); }
@@ -51,13 +43,6 @@ namespace MQTT.Sharing.Controls
         public DisplayInfo()
         {
             InitializeComponent();
-        }
-        #endregion
-
-        #region Exception
-        private void ExceptionMessage_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-
         }
         #endregion
     }

@@ -35,8 +35,8 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" x:Name="ExceptionMessage" Template="{StaticResource WarningTemplate}" MouseDown="ExceptionMessage_MouseDown"
-                        Visibility="{Binding LastError, ElementName=myUserControl, ConverterParameter=Collapsed, Converter={StaticResource NullCheckValueConverter}}"/>
+                    <Label Grid.Column="0" Template="{StaticResource WarningTemplate}" Margin="0 0 0 2"
+                        Visibility="{Binding TextLeftDown, ElementName=myUserControl, ConverterParameter=Collapsed, Converter={StaticResource NullCheckValueConverter}}"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 0 0 0"
                         Foreground="{StaticResource Red6}" FontSize="{StaticResource FontSize11}"
                         Text="{Binding TextLeftDown, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />

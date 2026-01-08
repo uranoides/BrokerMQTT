@@ -322,7 +322,7 @@ namespace MQTT.Publisher.ViewModels
             {
                 if (connectionSettings == null)
                 {
-                    Error?.Invoke("Errore: connectionSettings non ancora caricate.");
+                    TextLeftDown?.Invoke("Errore: connectionSettings non ancora caricate.");
                     return;
                 }
 
@@ -339,21 +339,21 @@ namespace MQTT.Publisher.ViewModels
                 }
                 else
                 {
-                    Error?.Invoke($"Connessione fallita per la pubblicazione.");
+                    TextLeftDown?.Invoke($"Connessione fallita per la pubblicazione.");
                 }
             }
             catch (MqttCommunicationException ex)
             {
                 dispatcher.Invoke(() =>
                 {
-                    Error?.Invoke($"Errore comunicazione MQTT: {ex.Message}. Controlla il broker ({SelectedConnectionSettings.Address}:{SelectedConnectionSettings.Port})");
+                    TextLeftDown?.Invoke($"Errore comunicazione MQTT: {ex.Message}. Controlla il broker ({SelectedConnectionSettings.Address}:{SelectedConnectionSettings.Port})");
                 });
             }
             catch (Exception ex)
             {
                 dispatcher.Invoke(() =>
                 {
-                    Error?.Invoke($"Errore grave nel task: {ex.Message}");
+                    TextLeftDown?.Invoke($"Errore grave nel task: {ex.Message}");
                 });
             }
         }
