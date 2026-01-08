@@ -19,11 +19,11 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
-                Text="{Binding Sensor_Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+                    Text="{Binding Sensor_Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
-                Text="{Binding Sensor_ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+                    Text="{Binding Sensor_ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="{StaticResource FontSize11}" 
-                Text="{Binding Sensor_Area, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
+                    Text="{Binding Sensor_Area, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource Azure2}"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -42,6 +42,9 @@
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Presence}" Value="False">
                                     <Setter Property="Fill" Value="{StaticResource Red6}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Sensor_Status}" Value="Offline">
+                                    <Setter Property="Fill" Value="{StaticResource Gray6}"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
