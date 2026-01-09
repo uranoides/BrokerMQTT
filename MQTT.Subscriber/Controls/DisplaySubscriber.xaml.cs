@@ -60,8 +60,6 @@ namespace MQTT.Subscriber.Controls
         #endregion
 
         #region Variables
-        private Task LastErrorTask = null;
-        private string LastErrorMessage = null;
         private readonly NotificationState _leftUpState = new();
         private readonly NotificationState _leftDownState = new();
         private readonly NotificationState _rightUpState = new();
@@ -110,34 +108,6 @@ namespace MQTT.Subscriber.Controls
             _ = UpdateNotificationGeneric(m, v => LastTextRightDownNotification = v, _rightDownState);
         #endregion
 
-        #region Error
-        public async void OnSubscriberVMError(string Message, bool Silent)
-        {
-            await OnError(Message, Silent);
-        }
-        public async Task OnError(string errorMessage, bool Silent = false)
-        {
-            if (errorMessage.Length > 1024)
-            {
-                errorMessage = errorMessage.Substring(0, 1024);
-            }
-            if (!Silent)
-            {
-                await Dispatcher.InvokeAsync(() =>
-                {
-                    LastError = errorMessage;
-
-                    LastErrorTask = Task.Delay(new TimeSpan(0, 0, Properties.Settings.Default.NotificationTime));
-                    LastErrorTask.ContinueWith((t) =>
-                    {
-                        if (LastErrorTask == t) LastError = null;
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
-                });
-            }
-            if (errorMessage != LastErrorMessage) { LastErrorMessage = errorMessage; }
-        }
-        #endregion
-
         #region
         public DisplaySubscriber()
         {
@@ -163,7 +133,7 @@ namespace MQTT.Subscriber.Controls
             }
         }
 
-        private async void ReadTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        private void ReadTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
             try
             {
@@ -172,7 +142,7 @@ namespace MQTT.Subscriber.Controls
             }
             catch (Exception ex)
             {
-                await OnError(ex.Message);
+                UpdateTextLeftDownNotification(ex.Message);
             }
         }
         #endregion

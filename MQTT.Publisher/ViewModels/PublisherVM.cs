@@ -21,11 +21,6 @@ namespace MQTT.Publisher.ViewModels
         }
         #endregion
 
-        #region Error
-        public delegate void ErrorHandler(string ErrorMessage, bool Silent = false);
-        public event ErrorHandler Error;
-        #endregion
-
         #region Text
         public delegate void TextLeftUpHandler(string Message);
         public event TextLeftUpHandler TextLeftUp;

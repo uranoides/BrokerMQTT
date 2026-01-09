@@ -12,7 +12,7 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
-            <vm:PublisherVM x:Key="vm" Error="OnPublisherVMError" 
+            <vm:PublisherVM x:Key="vm" 
                 TextLeftUp="UpdateTextLeftUpNotification" TextLeftDown="UpdateTextLeftDownNotification"
                 TextRightUp="UpdateTextRightUpNotification" TextRightDown="UpdateTextRightDownNotification"/>
             <Storyboard x:Key="ConnectionSettingsFadeIn">

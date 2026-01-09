@@ -17,14 +17,6 @@ namespace MQTT.Publisher.Controls
         public static readonly DependencyProperty SacmImolaVMProperty =
             DependencyProperty.Register(nameof(PublisherVM), typeof(PublisherVM), typeof(DisplayPublisher), new PropertyMetadata(null));
 
-        //public string LastError
-        //{
-        //    get { return (string)GetValue(LastErrorProperty); }
-        //    set { SetValue(LastErrorProperty, value); }
-        //}
-        //public static readonly DependencyProperty LastErrorProperty =
-        //    DependencyProperty.Register(nameof(LastError), typeof(string), typeof(DisplayPublisher), new PropertyMetadata(null));
-
         public string LastTextLeftUpNotification
         {
             get { return (string)GetValue(LastTextLeftUpNotificationProperty); }
@@ -59,7 +51,6 @@ namespace MQTT.Publisher.Controls
         #endregion
 
         #region Variables
-        private Task LastErrorTask = null;
         private readonly NotificationState _leftUpState = new();
         private readonly NotificationState _leftDownState = new();
         private readonly NotificationState _rightUpState = new();
@@ -108,34 +99,6 @@ namespace MQTT.Publisher.Controls
             _ = UpdateNotificationGeneric(m, v => LastTextRightDownNotification = v, _rightDownState);
         #endregion
 
-        #region Error
-        public async void OnPublisherVMError(string Message, bool Silent)
-        {
-            await OnError(Message, Silent);
-        }
-        public async Task OnError(string errorMessage, bool Silent = false)
-        {
-            if (errorMessage.Length > 1024)
-            {
-                errorMessage = errorMessage.Substring(0, 1024);
-            }
-            if (!Silent)
-            {
-                await Dispatcher.InvokeAsync(() =>
-                {
-                    LastTextLeftDownNotification = errorMessage;
-
-                    LastErrorTask = Task.Delay(new TimeSpan(0, 0, Properties.Settings.Default.NotificationTime));
-                    LastErrorTask.ContinueWith((t) =>
-                    {
-                        if (LastErrorTask == t) LastTextLeftDownNotification = null;
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
-                });
-            }
-            if (errorMessage != LastTextLeftDownNotification) { LastTextLeftDownNotification = errorMessage; }
-        }
-        #endregion
-
         #region Builder
         public DisplayPublisher()
         {
@@ -152,7 +115,7 @@ namespace MQTT.Publisher.Controls
         #endregion
 
         #region Commands
-        private async void WriteTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        private void WriteTopicsExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
             try
             {
@@ -161,7 +124,7 @@ namespace MQTT.Publisher.Controls
             }
             catch (Exception ex)
             {
-                await OnError(ex.Message);
+                UpdateTextLeftDownNotification(ex.Message);
             }
         }
 

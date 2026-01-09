@@ -23,11 +23,6 @@ namespace MQTT.Subscriber.ViewModels
         }
         #endregion
 
-        #region Error
-        public delegate void ErrorHandler(string ErrorMessage, bool Silent = false);
-        public event ErrorHandler Error;
-        #endregion
-
         #region Text
         public delegate void TextLeftUpHandler(string Message);
         public event TextLeftUpHandler TextLeftUp;
@@ -199,7 +194,7 @@ namespace MQTT.Subscriber.ViewModels
                     {
                         connectionError += "Errore Generico";
                     }
-                    Error?.Invoke(connectionError);
+                    TextLeftDown?.Invoke(connectionError);
                     await DisconnectOnError();
                 }
                 else
@@ -209,12 +204,12 @@ namespace MQTT.Subscriber.ViewModels
             }
             catch (OperationCanceledException)
             {
-                Error?.Invoke("ERRORE: Timeout di Connessione (5\") Raggiunto");
+                TextLeftDown?.Invoke("ERRORE: Timeout di Connessione (5\") Raggiunto");
                 await DisconnectOnError();
             }
             catch (Exception ex)
             {
-                Error?.Invoke($"ERRORE: Errore di Connessione o Esecuzione: {ex.Message}");
+                TextLeftDown?.Invoke($"ERRORE: Errore di Connessione o Esecuzione: {ex.Message}");
                 await DisconnectOnError();
             }
         }
@@ -264,7 +259,7 @@ namespace MQTT.Subscriber.ViewModels
                 string reason = e.ReasonString ?? e.Reason.ToString();
                 string errorMessage = $"⛔️ Disconnessione Imprevista dal Broker. Causa: {reason}";
 
-                Error?.Invoke(errorMessage);
+                TextLeftDown?.Invoke(errorMessage);
 
                 SetBlebSensorsOffline();
                 OnPropertyChanged(nameof(BlebSensors));
@@ -379,18 +374,18 @@ namespace MQTT.Subscriber.ViewModels
                             }
                             else
                             {
-                                Error?.Invoke($"⚠️ Sensor with Location '{location}' NOT FOUND on BlebSensors' list.");
+                                TextLeftDown?.Invoke($"⚠️ Sensor with Location '{location}' NOT FOUND on BlebSensors' list.");
                             }
                         }
                     }
                 }
                 catch (JsonException ex)
                 {
-                    Error?.Invoke($"Errore di Parsing JSON per il Topic '{topic}'. Payload non valido: '{payload}'. Errore: {ex.Message}");
+                    TextLeftDown?.Invoke($"Errore di Parsing JSON per il Topic '{topic}'. Payload non valido: '{payload}'. Errore: {ex.Message}");
                 }
                 catch (Exception ex)
                 {
-                    Error?.Invoke($"Errore Generico durante l'Elaborazione del Messaggio sul Topic '{topic}'. Errore: {ex.Message}");
+                    TextLeftDown?.Invoke($"Errore Generico durante l'Elaborazione del Messaggio sul Topic '{topic}'. Errore: {ex.Message}");
                 }
             });
             return Task.CompletedTask;
@@ -411,7 +406,7 @@ namespace MQTT.Subscriber.ViewModels
                 {
                     Topic = tag.Address,
                     PlaceId = tag.Id,
-                    Sensor_Location = config.Sensor,
+                    Sensor_Location = tag.CustomData,
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
