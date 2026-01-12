@@ -41,12 +41,12 @@
   },
   {
     "ConnectionId": 5,
-    "Address": "192.168.0.40",
+    "Address": "192.168.0.64",
     "Port": 1883,
     "MqttTransCodeProtocolVersion": 0,
     "Username": "admin",
     "Password": "admin",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
-    "IntervalInMilliseconds": 500
+    "IntervalInMilliseconds": 100
   }
 ]
