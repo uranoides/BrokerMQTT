@@ -1,4 +1,5 @@
 ﻿using MQTT.Sharing;
+using MQTT.Sharing.Enumerations;
 using MQTT.Sharing.Helpers;
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
@@ -81,7 +82,7 @@ namespace MQTT.Publisher.ViewModels
             {
                 connectionSettings = value;
                 OnPropertyChanged(nameof(ConnectionSettings));
-                
+
             }
         }
         private ConnectionSettings selectedConnectionSettings;
@@ -92,7 +93,7 @@ namespace MQTT.Publisher.ViewModels
             {
                 selectedConnectionSettings = value;
                 OnPropertyChanged(nameof(SelectedConnectionSettings));
-                if(SelectedConnectionSettings != null)
+                if (SelectedConnectionSettings != null)
                 {
                     _ = GetBlebSensorsAsync();
                 }
@@ -152,6 +153,26 @@ namespace MQTT.Publisher.ViewModels
                 OnPropertyChanged(nameof(BlebSensorsPayloads));
             }
         }
+        private string sensorNumber;
+        public string SensorNumber
+        {
+            get { return sensorNumber; }
+            set
+            {
+                sensorNumber = value;
+                OnPropertyChanged(nameof(SensorNumber));
+            }
+        }
+        private bool sensorValue = false;
+        public bool SensorValue
+        {
+            get { return sensorValue; }
+            set
+            {
+                sensorValue = value;
+                OnPropertyChanged(nameof(SensorValue));
+            }
+        }
         #endregion
 
         #region Builder
@@ -206,7 +227,7 @@ namespace MQTT.Publisher.ViewModels
             {
                 var item = new TopicCounter { Name = name, Count = 0 };
                 Topics.Add(item);
-                _topicLookup.Add(name, item); 
+                _topicLookup.Add(name, item);
             }
         }
         public void IncrementTopic(string topicName)
@@ -249,6 +270,77 @@ namespace MQTT.Publisher.ViewModels
                 TextLeftUp?.Invoke("Publisher Task Stopped..");
             }
         }
+        public async Task WriteSingleTopicAsync()
+        {
+            try
+            {
+                if (connectionSettings == null)
+                {
+                    TextLeftDown?.Invoke("Errore: connectionSettings non ancora caricate.");
+                    return;
+                }
+
+                if (SelectedTopic == null)
+                {
+                    TextLeftDown?.Invoke("No topic selected for single publish.");
+                    return;
+                }
+
+                string randomMessage = GetSingleMessage();
+                TextLeftUp?.Invoke($"Published to {SelectedTopic.Name}");
+
+                var manager = new MqttPublisherManager(SelectedConnectionSettings.Address, SelectedConnectionSettings.Port);
+
+                bool isConnected = await manager.ConnectAsync();
+
+                if (isConnected)
+                {
+                    await manager.PublishMessageAsync(SelectedTopic.Name, randomMessage);
+                    await manager.DisconnectAsync();
+                }
+                else
+                {
+                    TextLeftDown?.Invoke($"Connessione fallita per la pubblicazione.");
+                }
+            }
+            catch (MqttCommunicationException ex)
+            {
+                dispatcher.Invoke(() =>
+                {
+                    TextLeftDown?.Invoke($"Errore comunicazione MQTT: {ex.Message}. Controlla il broker ({SelectedConnectionSettings.Address}:{SelectedConnectionSettings.Port})");
+                });
+            }
+            catch (Exception ex)
+            {
+                dispatcher.Invoke(() =>
+                {
+                    TextLeftDown?.Invoke($"Errore grave nel task: {ex.Message}");
+                });
+            }
+
+
+
+        }
+        private string GetSingleMessage()
+        {
+            PublisherPayload publisherPayload = new PublisherPayload
+            {
+                Presence = SensorValue,
+                SensorLocation = SensorNumber,
+                SensorStatus = BlebStatus.Valid.ToString(),
+                Timestamp = TimestampRoundTrip.GetTimeStamp()
+            };
+
+            IncrementTopic(SelectedTopic.Name);
+            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == publisherPayload.SensorLocation);
+            blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
+            blebSensorToUpdate.Presence = publisherPayload.Presence;
+            blebSensorToUpdate.Timestamp = DateTime.Now;
+            LastMessage = JsonHelper.ToJson(publisherPayload, true);
+            UpdateBlebSensorPayloads(blebSensorToUpdate);
+
+            return LastMessage;
+        }
         private string GetRandomMessage(string topic)
         {
             int numTotalTagsForTopic = TagVariables.Where(t => t.Address.ToLower() == topic.ToLower()).Count();
@@ -256,9 +348,10 @@ namespace MQTT.Publisher.ViewModels
             List<VariableData> matchingTags = TagVariables.Where(t => t.Address.ToLower() == topic.ToLower()).ToList();
             List<AdvancedProperty> advancedProperties = matchingTags[randomIndex].AdvancedProperties;
             bool randomBusy = random.Next(2) == 0;
-            PublisherPayload publisherPayload = new PublisherPayload{
+            PublisherPayload publisherPayload = new PublisherPayload
+            {
                 Presence = randomBusy,
-                SensorLocation = matchingTags[randomIndex].CustomData, 
+                SensorLocation = matchingTags[randomIndex].CustomData,
                 SensorStatus = EnumRandomizer.GetRandomStatusString(),
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };

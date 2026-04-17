@@ -130,10 +130,30 @@ namespace MQTT.Publisher.Controls
 
         private void WriteTopicsCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
         {
-            if (PublisherVM != null) 
+            if (PublisherVM != null)
             {
-                if(PublisherVM.SelectedConnectionSettings != null)
-                    e.CanExecute = true; 
+                if (PublisherVM.SelectedConnectionSettings != null)
+                    e.CanExecute = true;
+            }
+        }
+        private void WriteSingleTopicCanExecuted(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+        {
+            if (PublisherVM != null)
+            {
+                if (PublisherVM.SelectedConnectionSettings != null && !string.IsNullOrEmpty(PublisherVM.SensorNumber))
+                    e.CanExecute = true;
+            }
+        }
+        private async void WriteSingleTopicExecuted(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                if (PublisherVM != null)
+                    await PublisherVM.WriteSingleTopicAsync();
+            }
+            catch (Exception ex)
+            {
+                UpdateTextLeftDownNotification(ex.Message);
             }
         }
         #endregion
@@ -151,6 +171,15 @@ namespace MQTT.Publisher.Controls
             Storyboard Anima = (Storyboard)TryFindResource("ConnectionSettingsFadeOut");
             if (Anima != null) { Anima.Begin(); }
             UpdateTextLeftUpNotification("Connection Settings Panel Close..");
+        }
+
+        #endregion
+
+        #region Clicks
+        private void ClearHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if (PublisherVM != null)
+                PublisherVM.BlebSensorsPayloads = new List<BlebSensor>();
         }
         #endregion
     }

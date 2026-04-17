@@ -1,16 +1,7 @@
 <Solution>
-  <Folder Name="/Bridge/">
-    <Project Path="Bridge.Models/Bridge.Models.csproj" Id="bdc50daa-fc5f-4a28-a1c9-6497d0a48d86" />
-  </Folder>
   <Folder Name="/Broker/">
     <Project Path="MQTT.Publisher/MQTT.Publisher.csproj" />
     <Project Path="MQTT.Sharing/MQTT.Sharing.csproj" />
     <Project Path="MQTT.Subscriber/MQTT.Subscriber.csproj" Id="d1c481de-a0a7-4e97-8a87-d93a7e83f4f2" />
-  </Folder>
-  <Folder Name="/Desktop/">
-    <Project Path="Client.LavagnaVisual.Test/Client.LavagnaVisual.Test.csproj" Id="3b09bf44-af60-4d2f-93b5-214011a6da4f" />
-  </Folder>
-  <Folder Name="/Web/">
-    <Project Path="LavagnaVisual/LavagnaVisual.csproj" Id="50665836-8fd9-4df2-abe3-742b7310a10c" />
   </Folder>
 </Solution>

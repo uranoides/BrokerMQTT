@@ -11,22 +11,12 @@
   },
   {
     "ConnectionId": 2,
-    "Address": "127.0.0.1",
+    "Address": "192.168.0.18",
     "Port": 1883,
     "MqttTransCodeProtocolVersion": 0,
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.Officina.xml",
-    "IntervalInMilliseconds": 10000
-  },
-  {
-    "ConnectionId": 3,
-    "Address": "192.168.55.10",
-    "Port": 1883,
-    "MqttTransCodeProtocolVersion": 0,
-    "Username": "",
-    "Password": "",
-    "TagVariablesFileName": "MQTT.Sharing.TagVariables.SacmImola.xml",
     "IntervalInMilliseconds": 10000
   },
   {
@@ -38,15 +28,5 @@
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.SacmImola.xml",
     "IntervalInMilliseconds": 10000
-  },
-  {
-    "ConnectionId": 5,
-    "Address": "192.168.0.64",
-    "Port": 1883,
-    "MqttTransCodeProtocolVersion": 0,
-    "Username": "admin",
-    "Password": "admin",
-    "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
-    "IntervalInMilliseconds": 100
   }
 ]

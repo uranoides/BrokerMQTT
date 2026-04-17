@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IToolS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Groups>
+
+		<!--Palletizer1-->
+		<Group Name="Place1Read" Index="1">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S1" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place2Read" Index="2">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S2" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place3Read" Index="3">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S3" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place4Read" Index="4">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S4" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place5Read" Index="5">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S5" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place6Read" Index="6">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S6" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place7Read" Index="7">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S7" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+		<Group Name="Place8Read" Index="8">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/palletizer1"
+					  CustomData="S8" VariableType="Bool" DiagnosticVisible="true">
+				<AdvancedProperties>
+					<AdvancedProperty Name="Field" Value="presence"/>
+					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+					<AdvancedProperty Name="Location" Value="sensor_location"/>
+				</AdvancedProperties>
+			</Variable>
+		</Group>
+
+	</Groups>
+</IToolS>
