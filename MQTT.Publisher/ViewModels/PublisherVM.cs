@@ -201,11 +201,12 @@ namespace MQTT.Publisher.ViewModels
                     Sensor_Location = tag.CustomData,
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
+                    Sensor_Type = BlebSensorType.Radar.ToString().Substring(0, 3),
                     Sensor_Area = tag.AdvancedProperties[3].Value,
                     Sensor_Communication = "Radar",
                     Sensor_Status = "Offline",
                     Sensor_Value = EnumRandomizer.GetRandomInt(1000),
+                    Battery = EnumRandomizer.GetRandomInt(100),
                     Presence = false,
                 });
             }
@@ -354,6 +355,7 @@ namespace MQTT.Publisher.ViewModels
                 SensorArea = advancedProperties[3].Value,
                 SensorLocation = matchingTags[randomIndex].CustomData,
                 SensorStatus = EnumRandomizer.GetRandomStatusString(),
+                Battery = EnumRandomizer.GetRandomInt(100),
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };
             IncrementTopic(topic);
@@ -362,6 +364,7 @@ namespace MQTT.Publisher.ViewModels
             blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
             blebSensorToUpdate.Presence = publisherPayload.Presence;
             blebSensorToUpdate.Timestamp = DateTime.Now;
+            blebSensorToUpdate.Battery = publisherPayload.Battery;
             LastMessage = JsonHelper.ToJson(publisherPayload, true);
             UpdateBlebSensorPayloads(blebSensorToUpdate);
 

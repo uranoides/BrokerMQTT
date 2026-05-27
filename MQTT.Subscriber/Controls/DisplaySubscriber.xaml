@@ -9,7 +9,7 @@
              xmlns:cmd="clr-namespace:MQTT.Subscriber.Commands"
              xmlns:local="clr-namespace:MQTT.Subscriber.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="1050">
+             d:DesignHeight="650" d:DesignWidth="1200">
     <UserControl.Resources>
         <ResourceDictionary>
             <vm:SubscriberVM x:Key="vm" 
@@ -42,8 +42,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
                     <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="500"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Expander Margin="10 5 5 5" Header="Connection Settings List" 
@@ -140,7 +140,7 @@
                                     HorizontalAlignment="Right" IsConnected="{Binding IsBlebRunning}"/>
                             </StackPanel>
                         </Grid>
-                        <uc:DisplayBlebSensors Grid.Row="2" Rows="4" Columns="6"
+                        <uc:DisplayBlebSensors Grid.Row="2" Rows="4" Columns="10"
                             LedSensorIdFontSize="{StaticResource FontSize11}"
                             LedTimerFontSize="{StaticResource FontSize11}"
                             LedCircleSize="55" 

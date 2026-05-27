@@ -154,5 +154,16 @@ namespace MQTT.Sharing.Models
                 OnPropertyChanged(nameof(Timestamp));
             }
         }
+
+        private int battery;
+        public int Battery
+        {
+            get { return battery; }
+            set
+            {
+                battery = value;
+                OnPropertyChanged(nameof(Battery));
+            }
+        }
     }
 }

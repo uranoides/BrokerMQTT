@@ -17,7 +17,7 @@
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
-    "IntervalInMilliseconds": 1000
+    "IntervalInMilliseconds": 500
   },
   {
     "ConnectionId": 3,
@@ -27,6 +27,6 @@
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
-    "IntervalInMilliseconds": 1000
+    "IntervalInMilliseconds": 500
   }
 ]

@@ -1,4 +1,5 @@
-﻿using MQTT.Sharing.Helpers;
+﻿using MQTT.Sharing.Enumerations;
+using MQTT.Sharing.Helpers;
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
 using MQTTnet;
@@ -77,7 +78,6 @@ namespace MQTT.Subscriber.ViewModels
             {
                 topics = value;
                 OnPropertyChanged(nameof(Topics));
-
             }
         }
         private TopicCounter selectedTopic;
@@ -332,7 +332,7 @@ namespace MQTT.Subscriber.ViewModels
             if (BlebSensorsAll == null || BlebSensorsAll.Count == 0)
                 TextRightDown?.Invoke("⚠️ DIAGNOSTICA: BlebSensorsAll è NULL o vuota. I messaggi non verranno abbinati ad alcun sensore.");
             else
-                TextRightDown?.Invoke($"🔍 DIAGNOSTICA: {BlebSensorsAll.Count} sensori in BlebSensorsAll. Locations: [{string.Join(", ", BlebSensorsAll.Select(s => s.Sensor_Location))}]");
+                TextRightDown?.Invoke($"🔍 DIAGNOSTICA: {BlebSensorsAll.Count} sensori in BlebSensorsAll");
 
             TextLeftUp?.Invoke("Connessione e Sottoscrizione ai Topic avvenuta con Successo..");
         }
@@ -342,8 +342,6 @@ namespace MQTT.Subscriber.ViewModels
             string topic = e.ApplicationMessage.Topic;
 
             TextRightUp?.Invoke($"📨 DIAGNOSTICA: Messaggio ricevuto su topic '{topic}'");
-
-            IncrementTopic(topic);
 
             TextLeftUp?.Invoke("Last Reading at " + DateTime.Now.ToString());
 
@@ -358,7 +356,11 @@ namespace MQTT.Subscriber.ViewModels
                         if (root.TryGetProperty("sensor_location", out JsonElement locElem) && locElem.ValueKind == JsonValueKind.String)
                         {
                             string location = locElem.GetString();
-                            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(f => f.Sensor_Location == location);
+                            var area = root.TryGetProperty("sensor_area", out var areaElem) && areaElem.ValueKind == JsonValueKind.String ? areaElem.GetString() : null;
+
+                            IncrementTopic(topic + " - " + area);
+
+                            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(f => f.Sensor_Location == location && f.Sensor_Area == area);
                             if (blebSensorToUpdate != null)
                             {
                                 if (root.TryGetProperty("gateway_ID", out var gtw))
@@ -373,9 +375,10 @@ namespace MQTT.Subscriber.ViewModels
                                 if (root.TryGetProperty("sensor_communication", out var comm))
                                     blebSensorToUpdate.Sensor_Communication = comm.GetString();
 
-                                if (root.TryGetProperty("sensor_area", out var area))
-                                    blebSensorToUpdate.Sensor_Area = area.GetString();
+                                if (root.TryGetProperty("battery", out var battery))
+                                    blebSensorToUpdate.Battery = battery.GetInt32();
 
+                                blebSensorToUpdate.Sensor_Area = area;
                                 blebSensorToUpdate.Sensor_Location = location;
                                 blebSensorToUpdate.Sensor_Status = root.TryGetProperty("sensor_status", out var status) ? status.GetString() : "Unknown";
 
@@ -434,11 +437,12 @@ namespace MQTT.Subscriber.ViewModels
                     Sensor_Location = tag.CustomData,
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
+                    Sensor_Type = BlebSensorType.Radar.ToString().Substring(0, 3),
                     Sensor_Area = tag.AdvancedProperties[3].Value,
                     Sensor_Communication = "Radar",
                     Sensor_Status = "Offline",
                     Sensor_Value = EnumRandomizer.GetRandomInt(1000),
+                    Battery = 100,
                     Presence = false,
                 });
             }
@@ -472,12 +476,12 @@ namespace MQTT.Subscriber.ViewModels
         }
         private void GetTopicBlebSensors()
         {
-            BlebSensors = BlebSensorsAll.Where(v => v.Topic == SelectedTopic.Name).ToList();
+            BlebSensors = BlebSensorsAll.Where(v => (v.Topic + " - " + v.Sensor_Area) == SelectedTopic.Name).ToList();
             TextRightUp?.Invoke($"Loaded {BlebSensors.Count} Bleb Sensors for Topic " + SelectedTopic.Name);
         }
         public void InitializeTopics()
         {
-            var uniqueTopics = BlebSensorsAll.Select(v => v.Topic).Distinct();
+            var uniqueTopics = BlebSensorsAll.Select(v => v.Topic + " - " + v.Sensor_Area).Distinct();
 
             Topics.Clear();
             _topicLookup = new Dictionary<string, TopicCounter>();

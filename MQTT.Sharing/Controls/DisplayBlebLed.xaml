@@ -8,7 +8,7 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
             DataContext="{Binding BlebSensor, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
         <TextBlock FontSize="{Binding SensorIdFontSize, ElementName=myUserControl}"
-            Text="{Binding Sensor_Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontWeight="SemiBold"
+            Text="{Binding Sensor_Area, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontWeight="SemiBold"
             HorizontalAlignment="Center" Margin="0 0 0 2" Foreground="{StaticResource Azure2}"/>
         <Grid Width="{Binding CircleSize, ElementName=myUserControl}" 
             Height="{Binding CircleSize, ElementName=myUserControl}">
@@ -41,11 +41,11 @@
 
         </Grid>
         <TextBlock FontWeight="SemiBold" Margin="0 2 0 0" FontSize="{Binding SensorIdFontSize, ElementName=myUserControl}"
-                HorizontalAlignment="Center" Foreground="{StaticResource Azure2}">
+            HorizontalAlignment="Center" Foreground="{StaticResource Azure2}">
             <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} | {1}">
-                    <Binding Path="Sensor_Area" UpdateSourceTrigger="PropertyChanged" />
+                <MultiBinding StringFormat="{}{0} | {1}%">
                     <Binding Path="Sensor_Type" UpdateSourceTrigger="PropertyChanged" />
+                    <Binding Path="Battery" UpdateSourceTrigger="PropertyChanged" />
                 </MultiBinding>
             </TextBlock.Text>
         </TextBlock>

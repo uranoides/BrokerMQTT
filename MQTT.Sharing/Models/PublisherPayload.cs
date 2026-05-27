@@ -18,5 +18,8 @@ namespace MQTT.Sharing.Models
 
         [JsonPropertyName("timestamp")]
         public string Timestamp { get; set; }
+
+        [JsonPropertyName("battery")]
+        public int Battery { get; set; }
     }
 }
