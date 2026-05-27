@@ -3,11 +3,7 @@
 	<Groups>
 
 		<Group Name="Place1Read" Index="1">
-			<Variable Name="PickingRequest" Active="true" Description="Radar" Address="Test_SACMI_Radar" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="PickingRequest" Active="true" Description="IR" Address="Test_SCAMI_IR" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
+			<Variable Name="PickingRequest" Active="true" Description="Radar" Address="Radar" CustomData="{&quot;Field&quot;:&quot;presence&quot;,&quot;Status&quot;:&quot;sensor_status&quot;,&quot;StatusValidValue&quot;:&quot;Valid&quot;}" VariableType="Bool" DiagnosticVisible="true"/>
 		</Group>
 
 	</Groups>

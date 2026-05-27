@@ -43,9 +43,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="ConnectionSettingsColumn" Width="0"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Expander Margin="10 5 5 5" Header="Connection Settings List" 
@@ -166,7 +166,7 @@
                         </Grid>
                     </Grid>
                 </Border>
-                <Border Grid.Column="4" Margin="5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                <Border Grid.Column="3" Margin="5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
@@ -214,7 +214,7 @@
                         </Grid>
                     </Grid>
                 </Border>
-                <Border Grid.Column="3" Margin="5 5 10 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
+                <Border Grid.Column="4" Margin="5 5 10 5" BorderBrush="{StaticResource Azure1}" BorderThickness="0.5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>

@@ -202,8 +202,8 @@ namespace MQTT.Publisher.ViewModels
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
-                    Sensor_Area = EnumRandomizer.GetRandomSensorLocation().ToString(),
-                    Sensor_Communication = "BLE",
+                    Sensor_Area = tag.AdvancedProperties[3].Value,
+                    Sensor_Communication = "Radar",
                     Sensor_Status = "Offline",
                     Sensor_Value = EnumRandomizer.GetRandomInt(1000),
                     Presence = false,
@@ -351,12 +351,14 @@ namespace MQTT.Publisher.ViewModels
             PublisherPayload publisherPayload = new PublisherPayload
             {
                 Presence = randomBusy,
+                SensorArea = advancedProperties[3].Value,
                 SensorLocation = matchingTags[randomIndex].CustomData,
                 SensorStatus = EnumRandomizer.GetRandomStatusString(),
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };
             IncrementTopic(topic);
-            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == publisherPayload.SensorLocation);
+            BlebSensor blebSensorToUpdate = BlebSensorsAll
+                .FirstOrDefault(s => s.Sensor_Location == publisherPayload.SensorLocation && s.Sensor_Area == publisherPayload.SensorArea);
             blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
             blebSensorToUpdate.Presence = publisherPayload.Presence;
             blebSensorToUpdate.Timestamp = DateTime.Now;

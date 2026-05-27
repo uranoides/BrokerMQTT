@@ -6,6 +6,8 @@ namespace MQTT.Sharing.Models
     {
         public string Field { get; set; }
         public string Status { get; set; }
+        public string Area { get; set; }
+        public string AreaValue { get; set; }
         public string Location { get; set; }
 
         [JsonPropertyName("StatusValidValue")]

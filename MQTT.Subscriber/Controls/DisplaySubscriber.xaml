@@ -144,7 +144,7 @@
                             LedSensorIdFontSize="{StaticResource FontSize11}"
                             LedTimerFontSize="{StaticResource FontSize11}"
                             LedCircleSize="55" 
-                            LedLocationFontSize="{StaticResource FontSize18}"
+                            LedLocationFontSize="{StaticResource FontSize11}"
                             BlebSensors="{Binding BlebSensors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
                 </Border>

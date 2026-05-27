@@ -4,6 +4,9 @@ namespace MQTT.Sharing.Models
 {
     public class PublisherPayload
     {
+        [JsonPropertyName("sensor_area")]
+        public string SensorArea { get; set; }
+
         [JsonPropertyName("sensor_location")]
         public string SensorLocation { get; set; }
 

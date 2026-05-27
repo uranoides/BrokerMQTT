@@ -1,13 +1,10 @@
-﻿using MQTT.Sharing;
-using MQTT.Sharing.Helpers;
+﻿using MQTT.Sharing.Helpers;
 using MQTT.Sharing.Models;
 using MQTT.Sharing.Utilities;
 using MQTTnet;
 using MQTTnet.Protocol;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Text.Json;
 using System.Windows;
 
@@ -40,7 +37,7 @@ namespace MQTT.Subscriber.ViewModels
         #region Variables
         public List<VariableData> TagVariables;
         public List<BlebSensor> BlebSensorsAll;
-        private CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        private CancellationTokenSource cts = new CancellationTokenSource();
         private bool isDisconnectingIntentional = false;
         private IMqttClient mqttClient;
         #endregion
@@ -166,7 +163,11 @@ namespace MQTT.Subscriber.ViewModels
         public async Task StartAsync()
         {
             using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var cancellationToken = cts.Token;
+            if (cts.IsCancellationRequested)
+            {
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
             string nuovoGuidString = Guid.NewGuid().ToString();
 
             MqttClientFactory mqttFactory = new();
@@ -287,10 +288,24 @@ namespace MQTT.Subscriber.ViewModels
             MqttClientFactory mqttFactory = new();
             var subscribeOptionsBuilder = mqttFactory.CreateSubscribeOptionsBuilder();
 
+            if (TagVariables == null || TagVariables.Count == 0)
+            {
+                TextLeftDown?.Invoke("⚠️ DIAGNOSTICA: TagVariables è NULL o vuota. Nessun topic da sottoscrivere.");
+                return;
+            }
+
             List<string> uniqueAddresses = TagVariables
                 .Select(v => v.Address)
                 .Distinct()
                 .ToList();
+
+            TextLeftDown?.Invoke($"🔍 DIAGNOSTICA: {TagVariables.Count} variabili lette, {uniqueAddresses.Count} topic univoci: [{string.Join(", ", uniqueAddresses)}]");
+
+            if (uniqueAddresses.Count == 0)
+            {
+                TextLeftDown?.Invoke("⚠️ DIAGNOSTICA: Nessun topic trovato nelle TagVariables. Controlla il file XML.");
+                return;
+            }
 
             foreach (string address in uniqueAddresses)
             {
@@ -304,7 +319,20 @@ namespace MQTT.Subscriber.ViewModels
 
             var subscribeOptions = subscribeOptionsBuilder.Build();
 
-            await mqttClient.SubscribeAsync(subscribeOptions, CancellationToken.None);
+            MqttClientSubscribeResult subscribeResult = await mqttClient.SubscribeAsync(subscribeOptions, CancellationToken.None);
+
+            foreach (var item in subscribeResult.Items)
+            {
+                if (item.ResultCode > MqttClientSubscribeResultCode.GrantedQoS2)
+                    TextLeftDown?.Invoke($"⚠️ DIAGNOSTICA: Sottoscrizione FALLITA per topic '{item.TopicFilter.Topic}' → Codice: {item.ResultCode}");
+                else
+                    TextLeftDown?.Invoke($"✅ DIAGNOSTICA: Sottoscritto '{item.TopicFilter.Topic}' → QoS: {item.ResultCode}");
+            }
+
+            if (BlebSensorsAll == null || BlebSensorsAll.Count == 0)
+                TextRightDown?.Invoke("⚠️ DIAGNOSTICA: BlebSensorsAll è NULL o vuota. I messaggi non verranno abbinati ad alcun sensore.");
+            else
+                TextRightDown?.Invoke($"🔍 DIAGNOSTICA: {BlebSensorsAll.Count} sensori in BlebSensorsAll. Locations: [{string.Join(", ", BlebSensorsAll.Select(s => s.Sensor_Location))}]");
 
             TextLeftUp?.Invoke("Connessione e Sottoscrizione ai Topic avvenuta con Successo..");
         }
@@ -312,6 +340,8 @@ namespace MQTT.Subscriber.ViewModels
         {
             string payload = e.ApplicationMessage.ConvertPayloadToString();
             string topic = e.ApplicationMessage.Topic;
+
+            TextRightUp?.Invoke($"📨 DIAGNOSTICA: Messaggio ricevuto su topic '{topic}'");
 
             IncrementTopic(topic);
 
@@ -367,10 +397,6 @@ namespace MQTT.Subscriber.ViewModels
                                 }
                                 OnPropertyChanged(nameof(BlebSensors));
                                 UpdateBlebSensorPayloads(blebSensorToUpdate);
-                                //if (blebSensorToUpdate.Sensor_Status == "Valid" && blebSensorToUpdate.Presence == true)
-                                //{
-                                //    Task.Run(async () => await GetDestinationPlaceId(blebSensorToUpdate.PlaceId));
-                                //}
                             }
                             else
                             {
@@ -401,7 +427,6 @@ namespace MQTT.Subscriber.ViewModels
             BlebSensorsAll = new List<BlebSensor>();
             foreach (var tag in TagVariables)
             {
-                CustomData config = CustomDataDeserializer.DeserializeFromXmlAttribute(tag.CustomData);
                 BlebSensorsAll.Add(new BlebSensor()
                 {
                     Topic = tag.Address,
@@ -410,8 +435,8 @@ namespace MQTT.Subscriber.ViewModels
                     Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
                     Sensor_Type = EnumRandomizer.GetRandomBlebSensorType().ToString(),
-                    Sensor_Area = EnumRandomizer.GetRandomSensorLocation().ToString(),
-                    Sensor_Communication = "BLE",
+                    Sensor_Area = tag.AdvancedProperties[3].Value,
+                    Sensor_Communication = "Radar",
                     Sensor_Status = "Offline",
                     Sensor_Value = EnumRandomizer.GetRandomInt(1000),
                     Presence = false,

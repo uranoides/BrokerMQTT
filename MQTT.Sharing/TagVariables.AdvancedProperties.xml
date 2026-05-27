@@ -4,11 +4,13 @@
 
 		<!--Unload_Udc_01-->
 		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S1" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -16,11 +18,13 @@
 		</Group>
 
 		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S2" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -28,11 +32,13 @@
 		</Group>
 
 		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S3" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -40,11 +46,13 @@
 		</Group>
 
 		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S4" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -52,11 +60,13 @@
 		</Group>
 
 		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S5" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -64,11 +74,13 @@
 		</Group>
 
 		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S6" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -76,11 +88,13 @@
 		</Group>
 
 		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S7" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -88,11 +102,13 @@
 		</Group>
 
 		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S8" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P8" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -100,11 +116,13 @@
 		</Group>
 
 		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
 					  CustomData="S9" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -112,11 +130,13 @@
 		</Group>
 
 		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S10" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P10" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -124,11 +144,13 @@
 		</Group>
 
 		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S11" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P11" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -136,11 +158,13 @@
 		</Group>
 
 		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S12" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P12" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
@@ -148,801 +172,18 @@
 		</Group>
 
 		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_01"
-					  CustomData="S13" VariableType="Bool" DiagnosticVisible="true">
+			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+					  CustomData="P13" VariableType="Bool" DiagnosticVisible="true">
 				<AdvancedProperties>
 					<AdvancedProperty Name="Field" Value="presence"/>
 					<AdvancedProperty Name="Status" Value="sensor_status"/>
+					<AdvancedProperty Name="Area" Value="sensor_area"/>
+					<AdvancedProperty Name="AreaValue" Value="PICK"/>
 					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
 					<AdvancedProperty Name="Location" Value="sensor_location"/>
 				</AdvancedProperties>
 			</Variable>
 		</Group>
 
-		<!--Unload_Udc_02-->
-		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S14" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S15" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S16" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S17" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S18" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S19" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S20" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S21" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S22" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S23" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S24" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S25" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_02"
-					  CustomData="S26" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<!--Unload_Udc_03-->
-		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S27" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S28" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S29" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S30" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S31" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S32" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S33" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S34" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S35" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S36" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S37" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S38" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_03"
-					  CustomData="S39" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<!--Unload_Udc_04-->
-		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S40" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S41" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S42" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S43" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S44" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S45" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S46" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S47" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S48" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S49" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S50" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S51" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_04"
-					  CustomData="S52" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<!--Unload_Udc_05-->
-		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S53" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S54" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S55" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S56" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S57" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S58" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S59" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S60" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S61" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S62" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S63" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S64" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_05"
-					  CustomData="S65" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<!--Unload_Udc_06-->
-		<Group Name="Place1Read" Index="1">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S66" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place2Read" Index="2">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S67" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place3Read" Index="3">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S68" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place4Read" Index="4">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S69" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place5Read" Index="5">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S70" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place6Read" Index="6">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S71" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place7Read" Index="7">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S72" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place8Read" Index="8">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S73" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place9Read" Index="9">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S74" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place10Read" Index="10">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S75" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place11Read" Index="11">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S76" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place12Read" Index="12">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S77" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-
-		<Group Name="Place13Read" Index="13">
-			<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="blebimola/unload_udc_06"
-					  CustomData="S78" VariableType="Bool" DiagnosticVisible="true">
-				<AdvancedProperties>
-					<AdvancedProperty Name="Field" Value="presence"/>
-					<AdvancedProperty Name="Status" Value="sensor_status"/>
-					<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
-					<AdvancedProperty Name="Location" Value="sensor_location"/>
-				</AdvancedProperties>
-			</Variable>
-		</Group>
-		
 	</Groups>
 </IToolS>
