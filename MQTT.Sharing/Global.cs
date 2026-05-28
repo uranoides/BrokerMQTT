@@ -5,7 +5,7 @@
         #region Topics
         public static List<string> TestTopics = new List<string>
         {
-            "radar",
+            "Radar",
         };
         public static string GetRandomTestTopic()
         {

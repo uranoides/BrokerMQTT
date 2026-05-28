@@ -4,7 +4,7 @@
 
 		<Section Name="PICK">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -18,7 +18,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -32,7 +32,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -46,7 +46,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -60,7 +60,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -74,7 +74,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -88,7 +88,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -102,7 +102,7 @@
 			</Group>
 
 			<Group Name="Place8Read" Index="8">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P8" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -116,7 +116,7 @@
 			</Group>
 
 			<Group Name="Place9Read" Index="9">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P9" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -130,7 +130,7 @@
 			</Group>
 
 			<Group Name="Place10Read" Index="10">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P10" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -144,7 +144,7 @@
 			</Group>
 
 			<Group Name="Place11Read" Index="11">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P11" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -158,7 +158,7 @@
 			</Group>
 
 			<Group Name="Place12Read" Index="12">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P12" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -172,7 +172,7 @@
 			</Group>
 
 			<Group Name="Place13Read" Index="13">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P13" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -188,7 +188,7 @@
 
 		<Section Name="144">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -202,7 +202,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -216,7 +216,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -230,7 +230,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -244,7 +244,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -258,7 +258,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -272,7 +272,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -286,7 +286,7 @@
 			</Group>
 
 			<Group Name="Place8Read" Index="8">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P8" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -300,7 +300,7 @@
 			</Group>
 
 			<Group Name="Place9Read" Index="9">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P9" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -314,7 +314,7 @@
 			</Group>
 
 			<Group Name="Place10Read" Index="10">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P10" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -328,7 +328,7 @@
 			</Group>
 
 			<Group Name="Place11Read" Index="11">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P11" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -342,7 +342,7 @@
 			</Group>
 
 			<Group Name="Place12Read" Index="12">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P12" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -356,7 +356,7 @@
 			</Group>
 
 			<Group Name="Place13Read" Index="13">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P13" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -370,7 +370,7 @@
 			</Group>
 
 			<Group Name="Place14Read" Index="14">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P14" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -384,7 +384,7 @@
 			</Group>
 
 			<Group Name="Place15Read" Index="15">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P15" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -398,7 +398,7 @@
 			</Group>
 
 			<Group Name="Place16Read" Index="16">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P16" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -412,7 +412,7 @@
 			</Group>
 
 			<Group Name="Place17Read" Index="17">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P17" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -426,7 +426,7 @@
 			</Group>
 
 			<Group Name="Place18Read" Index="18">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P18" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -440,7 +440,7 @@
 			</Group>
 
 			<Group Name="Place19Read" Index="19">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P19" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -454,7 +454,7 @@
 			</Group>
 
 			<Group Name="Place20Read" Index="20">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P20" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -468,7 +468,7 @@
 			</Group>
 
 			<Group Name="Place21Read" Index="21">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P21" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -482,7 +482,7 @@
 			</Group>
 
 			<Group Name="Place22Read" Index="22">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P22" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -496,7 +496,7 @@
 			</Group>
 
 			<Group Name="Place23Read" Index="23">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P23" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -510,7 +510,7 @@
 			</Group>
 
 			<Group Name="Place24Read" Index="24">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P24" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -524,7 +524,7 @@
 			</Group>
 
 			<Group Name="Place25Read" Index="25">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P25" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -538,7 +538,7 @@
 			</Group>
 
 			<Group Name="Place26Read" Index="26">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P26" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -554,7 +554,7 @@
 
 		<Section Name="141">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -568,7 +568,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -582,7 +582,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -596,7 +596,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -610,7 +610,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -626,7 +626,7 @@
 
 		<Section Name="164">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -640,7 +640,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -654,7 +654,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -668,7 +668,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -682,7 +682,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -696,7 +696,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -710,7 +710,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -726,7 +726,7 @@
 
 		<Section Name="154">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -740,7 +740,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -754,7 +754,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -768,7 +768,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -782,7 +782,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -796,7 +796,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -810,7 +810,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -824,7 +824,7 @@
 			</Group>
 
 			<Group Name="Place8Read" Index="8">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P8" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -838,7 +838,7 @@
 			</Group>
 
 			<Group Name="Place9Read" Index="9">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P9" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -852,7 +852,7 @@
 			</Group>
 
 			<Group Name="Place10Read" Index="10">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P10" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -866,7 +866,7 @@
 			</Group>
 
 			<Group Name="Place11Read" Index="11">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="T1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -880,7 +880,7 @@
 			</Group>
 
 			<Group Name="Place12Read" Index="12">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="T2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -894,7 +894,7 @@
 			</Group>
 
 			<Group Name="Place13Read" Index="13">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="T3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -908,7 +908,7 @@
 			</Group>
 
 			<Group Name="Place14Read" Index="14">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="T4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -922,7 +922,7 @@
 			</Group>
 
 			<Group Name="Place15Read" Index="15">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -936,7 +936,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -950,7 +950,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -964,7 +964,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -978,7 +978,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -992,7 +992,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1006,7 +1006,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1020,7 +1020,7 @@
 			</Group>
 
 			<Group Name="Place8Read" Index="8">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="8" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1034,7 +1034,7 @@
 			</Group>
 
 			<Group Name="Place9Read" Index="9">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="9" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1048,7 +1048,7 @@
 			</Group>
 
 			<Group Name="Place10Read" Index="10">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="10" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1062,7 +1062,7 @@
 			</Group>
 
 			<Group Name="Place11Read" Index="11">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="11" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1076,7 +1076,7 @@
 			</Group>
 
 			<Group Name="Place12Read" Index="12">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="12" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1090,7 +1090,7 @@
 			</Group>
 
 			<Group Name="Place13Read" Index="13">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="13" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1104,7 +1104,7 @@
 			</Group>
 
 			<Group Name="Place14Read" Index="14">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="14" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1118,7 +1118,7 @@
 			</Group>
 
 			<Group Name="Place15Read" Index="15">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="15" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1132,7 +1132,7 @@
 			</Group>
 
 			<Group Name="Place16Read" Index="16">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="16" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1146,7 +1146,7 @@
 			</Group>
 
 			<Group Name="Place17Read" Index="17">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="17" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1160,7 +1160,7 @@
 			</Group>
 
 			<Group Name="Place18Read" Index="18">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="18" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1174,7 +1174,7 @@
 			</Group>
 
 			<Group Name="Place19Read" Index="19">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="19" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1188,7 +1188,7 @@
 			</Group>
 
 			<Group Name="Place20Read" Index="20">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="20" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1202,7 +1202,7 @@
 			</Group>
 
 			<Group Name="Place21Read" Index="21">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="21" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1216,7 +1216,7 @@
 			</Group>
 
 			<Group Name="Place22Read" Index="22">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="22" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1230,7 +1230,7 @@
 			</Group>
 
 			<Group Name="Place23Read" Index="23">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="23" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1244,7 +1244,7 @@
 			</Group>
 
 			<Group Name="Place24Read" Index="24">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="24" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1258,7 +1258,7 @@
 			</Group>
 
 			<Group Name="Place25Read" Index="25">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="25" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1272,7 +1272,7 @@
 			</Group>
 
 			<Group Name="Place26Read" Index="26">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="26" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1288,7 +1288,7 @@
 
 		<Section Name="IMB">
 			<Group Name="Place1Read" Index="1">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P1" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1302,7 +1302,7 @@
 			</Group>
 
 			<Group Name="Place2Read" Index="2">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P2" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1316,7 +1316,7 @@
 			</Group>
 
 			<Group Name="Place3Read" Index="3">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P3" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1330,7 +1330,7 @@
 			</Group>
 
 			<Group Name="Place4Read" Index="4">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P4" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1344,7 +1344,7 @@
 			</Group>
 
 			<Group Name="Place5Read" Index="5">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P5" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1358,7 +1358,7 @@
 			</Group>
 
 			<Group Name="Place6Read" Index="6">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P6" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1372,7 +1372,7 @@
 			</Group>
 
 			<Group Name="Place7Read" Index="7">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P7" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1386,7 +1386,7 @@
 			</Group>
 
 			<Group Name="Place8Read" Index="8">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P8" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1400,7 +1400,7 @@
 			</Group>
 
 			<Group Name="Place9Read" Index="9">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P9" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1414,7 +1414,7 @@
 			</Group>
 
 			<Group Name="Place10Read" Index="10">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P10" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1428,7 +1428,7 @@
 			</Group>
 
 			<Group Name="Place11Read" Index="11">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P11" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1442,7 +1442,7 @@
 			</Group>
 
 			<Group Name="Place12Read" Index="12">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P12" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1456,7 +1456,7 @@
 			</Group>
 
 			<Group Name="Place13Read" Index="13">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P13" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1470,7 +1470,7 @@
 			</Group>
 
 			<Group Name="Place14Read" Index="14">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P14" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>
@@ -1484,7 +1484,7 @@
 			</Group>
 
 			<Group Name="Place15Read" Index="15">
-				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="radar"
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
 						  CustomData="P15" VariableType="Bool" DiagnosticVisible="true">
 					<AdvancedProperties>
 						<AdvancedProperty Name="Field" Value="presence"/>

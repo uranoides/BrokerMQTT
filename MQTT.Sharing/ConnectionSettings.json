@@ -21,7 +21,7 @@
   },
   {
     "ConnectionId": 3,
-    "Address": "10.12.21.105",
+    "Address": "192.168.0.76",
     "Port": 1883,
     "MqttTransCodeProtocolVersion": 0,
     "Username": "",
