@@ -155,8 +155,8 @@ namespace MQTT.Sharing.Models
             }
         }
 
-        private int battery;
-        public int Battery
+        private decimal? battery;
+        public decimal? Battery
         {
             get { return battery; }
             set

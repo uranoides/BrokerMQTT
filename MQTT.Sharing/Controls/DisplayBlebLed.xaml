@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:MQTT.Sharing.Converters"
              xmlns:local="clr-namespace:MQTT.Sharing.Controls"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:BatteryColorConverter x:Key="BatteryColorConverter"/>
+    </UserControl.Resources>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
             DataContext="{Binding BlebSensor, ElementName=myUserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
         <TextBlock FontSize="{Binding SensorIdFontSize, ElementName=myUserControl}"
@@ -40,14 +44,9 @@
             </StackPanel>
 
         </Grid>
-        <TextBlock FontWeight="SemiBold" Margin="0 2 0 0" FontSize="{Binding SensorIdFontSize, ElementName=myUserControl}"
-            HorizontalAlignment="Center" Foreground="{StaticResource Azure2}">
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} | {1}%">
-                    <Binding Path="Sensor_Type" UpdateSourceTrigger="PropertyChanged" />
-                    <Binding Path="Battery" UpdateSourceTrigger="PropertyChanged" />
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontWeight="SemiBold" VerticalAlignment="Center" 
+            FontSize="{Binding SensorIdFontSize, ElementName=myUserControl}"
+            Text="{Binding Battery, StringFormat='{}{0}V', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Foreground="{Binding Battery, Converter={StaticResource BatteryColorConverter}}"/>
     </StackPanel>
 </UserControl>

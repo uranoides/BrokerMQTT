@@ -89,7 +89,7 @@ namespace MQTT.Subscriber.ViewModels
                 selectedTopic = value;
                 OnPropertyChanged(nameof(SelectedTopic));
                 if (SelectedTopic != null)
-                    GetTopicBlebSensors();
+                    _ = GetTopicBlebSensorsAsync();
                 else
                     BlebSensors = new List<BlebSensor>();
             }
@@ -231,7 +231,7 @@ namespace MQTT.Subscriber.ViewModels
 
                 TextLeftUp?.Invoke("Client MQTT disconnesso e risorse liberate.");
             }
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 IsBlebRunning = false;
             });
@@ -242,7 +242,7 @@ namespace MQTT.Subscriber.ViewModels
         }
         private Task OnConnectedAsync(MqttClientConnectedEventArgs e)
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 IsBlebRunning = true;
             });
@@ -265,7 +265,7 @@ namespace MQTT.Subscriber.ViewModels
                 SetBlebSensorsOffline();
                 OnPropertyChanged(nameof(BlebSensors));
             }
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 IsBlebRunning = false;
             });
@@ -345,78 +345,74 @@ namespace MQTT.Subscriber.ViewModels
 
             TextLeftUp?.Invoke("Last Reading at " + DateTime.Now.ToString());
 
-            Application.Current.Dispatcher.Invoke(() =>
+            try
             {
-                try
+                using (JsonDocument document = JsonDocument.Parse(payload))
                 {
-                    using (JsonDocument document = JsonDocument.Parse(payload))
-                    {
-                        JsonElement root = document.RootElement;
+                    JsonElement root = document.RootElement;
 
-                        if (root.TryGetProperty("sensor_location", out JsonElement locElem) && locElem.ValueKind == JsonValueKind.String)
+                    if (root.TryGetProperty("sensor_location", out JsonElement locElem) && locElem.ValueKind == JsonValueKind.String)
+                    {
+                        string location = locElem.GetString();
+                        var area = root.TryGetProperty("sensor_area", out var areaElem) && areaElem.ValueKind == JsonValueKind.String ? areaElem.GetString() : null;
+
+                        BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(f => f.Sensor_Location == location && f.Sensor_Area == area);
+                        if (blebSensorToUpdate != null)
                         {
-                            string location = locElem.GetString();
-                            var area = root.TryGetProperty("sensor_area", out var areaElem) && areaElem.ValueKind == JsonValueKind.String ? areaElem.GetString() : null;
+                            // Leggo tutti i valori primitivi dal JSON sul thread background
+                            string gatewayId = root.TryGetProperty("gateway_ID", out var gtw) ? gtw.GetString() : null;
+                            string sensorId = root.TryGetProperty("sensor_ID", out var sid) ? sid.GetString() : null;
+                            string sensorType = root.TryGetProperty("sensor_type", out var stype) ? stype.GetString() : null;
+                            string sensorComm = root.TryGetProperty("sensor_communication", out var comm) ? comm.GetString() : null;
+                            decimal? batteryVal = root.TryGetProperty("battery", out var battery) ? battery.GetDecimal() : null;
+                            string sensorStatus = root.TryGetProperty("sensor_status", out var status) ? status.GetString() : "Unknown";
+                            long? sensorThreshold = root.TryGetProperty("sensor_threshold", out var threshold) ? threshold.GetInt64() : null;
+                            long? sensorValue = root.TryGetProperty("sensor_value", out var val) ? val.GetInt64() : null;
+                            bool? presence = sensorStatus == "Offline"
+                                                         ? null
+                                                         : root.TryGetProperty("presence", out var pres) ? pres.GetBoolean() : null;
+                            DateTime? timestamp = null;
+                            if (root.TryGetProperty("timestamp", out var ts) && DateTime.TryParse(ts.GetString(), out DateTime parsedDate))
+                                timestamp = parsedDate;
 
                             IncrementTopic(topic + " - " + area);
 
-                            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(f => f.Sensor_Location == location && f.Sensor_Area == area);
-                            if (blebSensorToUpdate != null)
+                            // Assegno le proprietà sul thread UI per evitare cross-thread exceptions
+                            Application.Current.Dispatcher.InvokeAsync(() =>
                             {
-                                if (root.TryGetProperty("gateway_ID", out var gtw))
-                                    blebSensorToUpdate.Gateway_ID = gtw.GetString();
-
-                                if (root.TryGetProperty("sensor_ID", out var id))
-                                    blebSensorToUpdate.Sensor_ID = id.GetString();
-
-                                if (root.TryGetProperty("sensor_type", out var type))
-                                    blebSensorToUpdate.Sensor_Type = type.GetString();
-
-                                if (root.TryGetProperty("sensor_communication", out var comm))
-                                    blebSensorToUpdate.Sensor_Communication = comm.GetString();
-
-                                if (root.TryGetProperty("battery", out var battery))
-                                    blebSensorToUpdate.Battery = battery.GetInt32();
-
+                                if (gatewayId != null) blebSensorToUpdate.Gateway_ID = gatewayId;
+                                if (sensorId != null) blebSensorToUpdate.Sensor_ID = sensorId;
+                                if (sensorType != null) blebSensorToUpdate.Sensor_Type = sensorType;
+                                if (sensorComm != null) blebSensorToUpdate.Sensor_Communication = sensorComm;
+                                if (batteryVal != null) blebSensorToUpdate.Battery = batteryVal.Value;
+                                if (sensorThreshold != null) blebSensorToUpdate.Sensor_Threshold = sensorThreshold.Value;
+                                if (sensorValue != null) blebSensorToUpdate.Sensor_Value = sensorValue.Value;
+                                if (timestamp != null) blebSensorToUpdate.Timestamp = timestamp.Value;
                                 blebSensorToUpdate.Sensor_Area = area;
                                 blebSensorToUpdate.Sensor_Location = location;
-                                blebSensorToUpdate.Sensor_Status = root.TryGetProperty("sensor_status", out var status) ? status.GetString() : "Unknown";
+                                blebSensorToUpdate.Sensor_Status = sensorStatus;
+                                blebSensorToUpdate.Presence = presence;
 
-                                if (root.TryGetProperty("sensor_threshold", out var threshold))
-                                    blebSensorToUpdate.Sensor_Threshold = threshold.GetInt64();
-
-                                if (root.TryGetProperty("sensor_value", out var val))
-                                    blebSensorToUpdate.Sensor_Value = val.GetInt64();
-
-                                if (status.GetString() == "Offline")
-                                    blebSensorToUpdate.Presence = null;
-                                else
-                                    blebSensorToUpdate.Presence = root.TryGetProperty("presence", out var pres) ? pres.GetBoolean() : null;
-
-                                if (root.TryGetProperty("timestamp", out var ts))
-                                {
-                                    if (DateTime.TryParse(ts.GetString(), out DateTime parsedDate))
-                                        blebSensorToUpdate.Timestamp = parsedDate;
-                                }
                                 OnPropertyChanged(nameof(BlebSensors));
                                 UpdateBlebSensorPayloads(blebSensorToUpdate);
-                            }
-                            else
-                            {
-                                TextLeftDown?.Invoke($"⚠️ Sensor with Location '{location}' NOT FOUND on BlebSensors' list.");
-                            }
+                            });
+                        }
+                        else
+                        {
+                            TextLeftDown?.Invoke($"⚠️ Sensor with Location '{location}' NOT FOUND on BlebSensors' list.");
                         }
                     }
                 }
-                catch (JsonException ex)
-                {
-                    TextLeftDown?.Invoke($"Errore di Parsing JSON per il Topic '{topic}'. Payload non valido: '{payload}'. Errore: {ex.Message}");
-                }
-                catch (Exception ex)
-                {
-                    TextLeftDown?.Invoke($"Errore Generico durante l'Elaborazione del Messaggio sul Topic '{topic}'. Errore: {ex.Message}");
-                }
-            });
+            }
+            catch (JsonException ex)
+            {
+                TextLeftDown?.Invoke($"Errore di Parsing JSON per il Topic '{topic}'. Payload non valido: '{payload}'. Errore: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                TextLeftDown?.Invoke($"Errore Generico durante l'Elaborazione del Messaggio sul Topic '{topic}'. Errore: {ex.Message}");
+            }
+
             return Task.CompletedTask;
         }
         #endregion
@@ -425,28 +421,37 @@ namespace MQTT.Subscriber.ViewModels
         private async Task GetBlebSensorsAsync()
         {
             Topics = new ObservableCollection<TopicCounter>();
-            var reader = new ConfigurationXmlReader();
-            TagVariables = reader.ReadVariables(SelectedConnectionSettings.TagVariablesFileName);
-            BlebSensorsAll = new List<BlebSensor>();
-            foreach (var tag in TagVariables)
+            string fileName = SelectedConnectionSettings.TagVariablesFileName;
+
+            (List<VariableData> variables, List<BlebSensor> sensors) = await Task.Run(() =>
             {
-                BlebSensorsAll.Add(new BlebSensor()
+                var reader = new ConfigurationXmlReader();
+                var vars = reader.ReadVariables(fileName);
+                var sens = new List<BlebSensor>();
+                foreach (var tag in vars)
                 {
-                    Topic = tag.Address,
-                    PlaceId = tag.Id,
-                    Sensor_Location = tag.CustomData,
-                    Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
-                    Sensor_Type = BlebSensorType.Radar.ToString().Substring(0, 3),
-                    Sensor_Area = tag.AdvancedProperties[3].Value,
-                    Sensor_Communication = "Radar",
-                    Sensor_Status = "Offline",
-                    Sensor_Value = EnumRandomizer.GetRandomInt(1000),
-                    Battery = 100,
-                    Presence = false,
-                });
-            }
-            TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {SelectedConnectionSettings.TagVariablesFileName}");
+                    sens.Add(new BlebSensor()
+                    {
+                        Topic = tag.Address,
+                        PlaceId = tag.Id,
+                        Sensor_Location = tag.CustomData,
+                        Gateway_ID = EnumRandomizer.GetRandomAlphanumeric(),
+                        Sensor_ID = EnumRandomizer.GetRandomAlphanumeric(),
+                        Sensor_Type = BlebSensorType.Radar.ToString().Substring(0, 3),
+                        Sensor_Area = tag.AdvancedProperties[3].Value,
+                        Sensor_Communication = "Radar",
+                        Sensor_Status = "Offline",
+                        Sensor_Value = EnumRandomizer.GetRandomInt(1000),
+                        Battery = 0,
+                        Presence = false,
+                    });
+                }
+                return (vars, sens);
+            });
+
+            TagVariables = variables;
+            BlebSensorsAll = sensors;
+            TextLeftUp?.Invoke($"Loaded {BlebSensorsAll.Count} Bleb Sensors from {fileName}");
             InitializeTopics();
             TextRightUp?.Invoke($"Loaded {Topics.Count} Topics from Bleb Sensors");
         }
@@ -469,15 +474,18 @@ namespace MQTT.Subscriber.ViewModels
                 sensor.Sensor_Status = "Offline";
                 sensor.Presence = null;
             }
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 BlebSensors = new List<BlebSensor>();
             });
         }
-        private void GetTopicBlebSensors()
+        private async Task GetTopicBlebSensorsAsync()
         {
-            BlebSensors = BlebSensorsAll.Where(v => (v.Topic + " - " + v.Sensor_Area) == SelectedTopic.Name).ToList();
-            TextRightUp?.Invoke($"Loaded {BlebSensors.Count} Bleb Sensors for Topic " + SelectedTopic.Name);
+            var topicName = SelectedTopic.Name;
+            var filtered = await Task.Run(() =>
+                BlebSensorsAll.Where(v => (v.Topic + " - " + v.Sensor_Area) == topicName).ToList());
+            BlebSensors = filtered;
+            TextRightUp?.Invoke($"Loaded {filtered.Count} Bleb Sensors for Topic " + topicName);
         }
         public void InitializeTopics()
         {
@@ -497,12 +505,12 @@ namespace MQTT.Subscriber.ViewModels
         {
             if (_topicLookup.ContainsKey(topicName))
             {
-                Application.Current.Dispatcher.Invoke(() => _topicLookup[topicName].Count++);
+                Application.Current.Dispatcher.InvokeAsync(() => _topicLookup[topicName].Count++);
             }
         }
         public void ResetAllCounters()
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 foreach (var topic in Topics)
                 {
