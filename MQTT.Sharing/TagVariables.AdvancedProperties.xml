@@ -184,6 +184,48 @@
 					</AdvancedProperties>
 				</Variable>
 			</Group>
+
+			<Group Name="Place14Read" Index="14">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="P14" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place15Read" Index="15">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="P15" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place16Read" Index="16">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="P16" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
 		</Section>
 
 		<Section Name="144">
