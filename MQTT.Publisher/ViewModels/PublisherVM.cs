@@ -355,7 +355,7 @@ namespace MQTT.Publisher.ViewModels
                 SensorArea = advancedProperties[3].Value,
                 SensorLocation = matchingTags[randomIndex].CustomData,
                 SensorStatus = EnumRandomizer.GetRandomStatusString(),
-                Battery = EnumRandomizer.GetRandomInt(100),
+                Battery = EnumRandomizer.GetRandomDecimal(3.6),
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };
             IncrementTopic(topic);

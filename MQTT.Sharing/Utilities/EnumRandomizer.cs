@@ -32,6 +32,11 @@ namespace MQTT.Sharing.Utilities
             Random random = new Random();
             return random.Next(0, max);
         }
+        public static decimal GetRandomDecimal(double max)
+        {
+            Random random = new Random();
+            return Math.Round((decimal)(random.NextDouble() * max), 1);
+        }
         public static string GetRandomAlphanumeric(int length = 8)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

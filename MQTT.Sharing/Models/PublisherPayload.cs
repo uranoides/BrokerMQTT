@@ -20,6 +20,6 @@ namespace MQTT.Sharing.Models
         public string Timestamp { get; set; }
 
         [JsonPropertyName("battery")]
-        public int Battery { get; set; }
+        public decimal Battery { get; set; }
     }
 }

@@ -165,5 +165,22 @@ namespace MQTT.Sharing.Models
                 OnPropertyChanged(nameof(Battery));
             }
         }
+
+        public DateTime? TimerStartedAt { get; set; }
+
+        private bool isTimerRunning;
+        public bool IsTimerRunning
+        {
+            get { return isTimerRunning; }
+            set
+            {
+                isTimerRunning = value;
+                OnPropertyChanged(nameof(IsTimerRunning));
+            }
+        }
+
+        public int TimerElapsedSeconds => IsTimerRunning && TimerStartedAt.HasValue
+            ? (int)(DateTime.Now - TimerStartedAt.Value).TotalSeconds
+            : 0;
     }
 }

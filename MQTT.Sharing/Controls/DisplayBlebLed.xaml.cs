@@ -93,13 +93,20 @@ namespace MQTT.Sharing.Controls
 
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
-            ElapsedSeconds++;
+            if (BlebSensor != null && BlebSensor.IsTimerRunning && BlebSensor.TimerStartedAt.HasValue)
+                ElapsedSeconds = (int)(DateTime.Now - BlebSensor.TimerStartedAt.Value).TotalSeconds;
+            else
+                ElapsedSeconds++;
         }
         private void StartUpdateTimer()
         {
-            ElapsedSeconds = 0; // Azzera il contatore
+            if (BlebSensor != null && BlebSensor.TimerStartedAt.HasValue)
+                ElapsedSeconds = (int)(DateTime.Now - BlebSensor.TimerStartedAt.Value).TotalSeconds;
+            else
+                ElapsedSeconds = 0;
             TimerText.Visibility = Visibility.Visible;
-            updateTimer.Start();
+            if (!updateTimer.IsEnabled)
+                updateTimer.Start();
         }
 
         private void StopUpdateTimer()
@@ -129,6 +136,14 @@ namespace MQTT.Sharing.Controls
             {
                 newSensor.PropertyChanged += control.BlebSensor_PropertyChanged;
             }
+
+            if (e.NewValue is BlebSensor sensor && sensor.IsTimerRunning && sensor.TimerStartedAt.HasValue)
+            {
+                control.ElapsedSeconds = (int)(DateTime.Now - sensor.TimerStartedAt.Value).TotalSeconds;
+                control.TimerText.Visibility = Visibility.Visible;
+                if (!control.updateTimer.IsEnabled)
+                    control.updateTimer.Start();
+            }
         }
         private void BlebSensor_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -139,17 +154,17 @@ namespace MQTT.Sharing.Controls
             }
             if (sender is BlebSensor sensor)
             {
-                if (e.PropertyName == nameof(BlebSensor.Sensor_Status))
+                if (e.PropertyName == nameof(BlebSensor.Sensor_Status) && sensor.Sensor_Status == "Offline")
                 {
-                    if (sensor.Sensor_Status == "Offline")
-                    {
-                        this.Dispatcher.Invoke(StopUpdateTimer, DispatcherPriority.Normal);
-                        return;
-                    }
+                    this.Dispatcher.Invoke(StopUpdateTimer, DispatcherPriority.Normal);
+                    return;
                 }
-                if (e.PropertyName == nameof(BlebSensor.Presence) && sensor.Sensor_Status != "Offline")
+                if (e.PropertyName == nameof(BlebSensor.IsTimerRunning))
                 {
-                    this.Dispatcher.Invoke(() => StartBlinkAnimation(), DispatcherPriority.Render);
+                    if (sensor.IsTimerRunning)
+                        this.Dispatcher.Invoke(StartUpdateTimer, DispatcherPriority.Render);
+                    else
+                        this.Dispatcher.Invoke(StopUpdateTimer, DispatcherPriority.Normal);
                 }
             }
         }

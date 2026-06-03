@@ -1,16 +1,6 @@
 [
   {
     "ConnectionId": 1,
-    "Address": "xbricksboard.bleb.it",
-    "Port": 1886,
-    "MqttTransCodeProtocolVersion": 3,
-    "Username": "test1",
-    "Password": "Test1234!",
-    "TagVariablesFileName": "MQTT.Sharing.TagVariables.Bleb.xml",
-    "IntervalInMilliseconds": 1000
-  },
-  {
-    "ConnectionId": 2,
     "Address": "10.43.30.12",
     "Port": 1883,
     "MqttTransCodeProtocolVersion": 0,
@@ -20,7 +10,7 @@
     "IntervalInMilliseconds": 500
   },
   {
-    "ConnectionId": 3,
+    "ConnectionId": 2,
     "Address": "10.12.21.145",
     "Port": 1883,
     "MqttTransCodeProtocolVersion": 0,

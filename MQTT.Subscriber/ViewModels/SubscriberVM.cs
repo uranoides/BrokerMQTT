@@ -393,6 +393,17 @@ namespace MQTT.Subscriber.ViewModels
                                 blebSensorToUpdate.Sensor_Status = sensorStatus;
                                 blebSensorToUpdate.Presence = presence;
 
+                                if (sensorStatus == "Offline")
+                                {
+                                    blebSensorToUpdate.IsTimerRunning = false;
+                                    blebSensorToUpdate.TimerStartedAt = null;
+                                }
+                                else if (presence.HasValue)
+                                {
+                                    blebSensorToUpdate.IsTimerRunning = true;
+                                    blebSensorToUpdate.TimerStartedAt = DateTime.Now;
+                                }
+
                                 OnPropertyChanged(nameof(BlebSensors));
                                 UpdateBlebSensorPayloads(blebSensorToUpdate);
                             });
