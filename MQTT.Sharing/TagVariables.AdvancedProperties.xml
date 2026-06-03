@@ -226,6 +226,118 @@
 					</AdvancedProperties>
 				</Variable>
 			</Group>
+
+			<Group Name="Place17Read" Index="17">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T17" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place18Read" Index="18">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T18" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place19Read" Index="19">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T19" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place20Read" Index="20">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T20" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place21Read" Index="21">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T21" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place22Read" Index="22">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T22" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place23Read" Index="23">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T23" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
+
+			<Group Name="Place24Read" Index="24">
+				<Variable Name="ReadPickingRequestedPlace" Active="true" Description="Richiesta di Prelievo Piazza" Address="Radar"
+						  CustomData="T24" VariableType="Bool" DiagnosticVisible="true">
+					<AdvancedProperties>
+						<AdvancedProperty Name="Field" Value="presence"/>
+						<AdvancedProperty Name="Status" Value="sensor_status"/>
+						<AdvancedProperty Name="Area" Value="sensor_area"/>
+						<AdvancedProperty Name="AreaValue" Value="PICK"/>
+						<AdvancedProperty Name="StatusValidValue" Value="Valid"/>
+						<AdvancedProperty Name="Location" Value="sensor_location"/>
+					</AdvancedProperties>
+				</Variable>
+			</Group>
 		</Section>
 
 		<Section Name="144">
