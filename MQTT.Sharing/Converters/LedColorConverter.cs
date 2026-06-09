@@ -30,11 +30,11 @@ namespace MQTT.Sharing.Converters
                 {
                     if (isPresent == true)
                     {
-                        color = new RadialGradientBrush(Color.FromRgb(0, 150, 136), Color.FromRgb(0, 105, 92));
+                        color = new RadialGradientBrush(Color.FromRgb(244, 67, 54), Color.FromRgb(183, 28, 28));
                     }
                     else
                     {
-                        color = new RadialGradientBrush(Color.FromRgb(244, 67, 54), Color.FromRgb(183, 28, 28));
+                        color = new RadialGradientBrush(Color.FromRgb(0, 150, 136), Color.FromRgb(0, 105, 92));
                     }
                 }
             }
