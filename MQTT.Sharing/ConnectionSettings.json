@@ -11,9 +11,9 @@
   },
   {
     "ConnectionId": 2,
-    "Address": "192.168.0.23",
+    "Address": "192.168.81.93",
     "Port": 1883,
-    "MqttTransCodeProtocolVersion": 0,
+    "MqttTransCodeProtocolVersion": 3,
     "Username": "",
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",

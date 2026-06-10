@@ -6,7 +6,6 @@
         public static List<string> TestTopics = new List<string>
         {
             "Radar",
-            "IR"
         };
         public static string GetRandomTestTopic()
         {
