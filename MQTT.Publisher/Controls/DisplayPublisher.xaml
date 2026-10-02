@@ -116,6 +116,11 @@
                         <ScrollViewer Grid.Row="3" Margin="10 5 10 10"
                                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                             <ItemsControl ItemsSource="{Binding Source={StaticResource GroupedBlebSensors}}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <RadioButton GroupName="BlebSensors" Margin="0 3 0 3" MinWidth="110"
@@ -140,11 +145,6 @@
                                                 <Setter Property="VerticalAlignment" Value="Top"/>
                                             </Style>
                                         </GroupStyle.ContainerStyle>
-                                        <GroupStyle.Panel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel Orientation="Horizontal"/>
-                                            </ItemsPanelTemplate>
-                                        </GroupStyle.Panel>
                                     </GroupStyle>
                                 </ItemsControl.GroupStyle>
                             </ItemsControl>
