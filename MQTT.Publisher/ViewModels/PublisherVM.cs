@@ -361,7 +361,8 @@ namespace MQTT.Publisher.ViewModels
         private string GetSingleMessage()
         {
             IncrementTopic(SelectedTopic.Name);
-            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == SelectedBlebSensor.Sensor_Location);
+            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == SelectedBlebSensor.Sensor_Location &&
+                s.Sensor_Area == SelectedBlebSensor.Sensor_Area);
             SelectedBlebSensor.Sensor_Status = BlebStatus.Valid.ToString();
             blebSensorToUpdate.Sensor_Status = SelectedBlebSensor.Sensor_Status;
             blebSensorToUpdate.Presence = SelectedBlebSensor.Presence;
