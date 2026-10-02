@@ -70,9 +70,24 @@ namespace MQTT.Publisher.ViewModels
             get { return selectedBlebSensor; }
             set
             {
+                if (selectedBlebSensor != null)
+                    selectedBlebSensor.PropertyChanged -= SelectedBlebSensor_PropertyChanged;
+
                 selectedBlebSensor = value;
                 OnPropertyChanged(nameof(SelectedBlebSensor));
+
+                if (selectedBlebSensor != null)
+                {
+                    selectedBlebSensor.PropertyChanged += SelectedBlebSensor_PropertyChanged;
+                    TextLeftUp?.Invoke($"Sensore Selezionato {SelectedBlebSensor.Sensor_Area}-{SelectedBlebSensor.Sensor_Location}");
+                    UpdateLastMessageFromSelectedSensor();
+                }
             }
+        }
+        private void SelectedBlebSensor_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(BlebSensor.Presence))
+                UpdateLastMessageFromSelectedSensor();
         }
         private ObservableCollection<ConnectionSettings> connectionSettings;
         public ObservableCollection<ConnectionSettings> ConnectionSettings
@@ -322,22 +337,36 @@ namespace MQTT.Publisher.ViewModels
 
 
         }
-        private string GetSingleMessage()
+        private void UpdateLastMessageFromSelectedSensor()
         {
-            PublisherPayload publisherPayload = new PublisherPayload
+            BlebPayload preset = new BlebPayload
             {
-                Presence = SensorValue,
-                SensorLocation = SensorNumber,
-                SensorStatus = BlebStatus.Valid.ToString(),
+                Gateway_ID = "F0BB80950C",
+                Sensor_ID = "EDBF619ABB",
+                Sensor_Type = SelectedBlebSensor.Sensor_Type,
+                Sensor_Communication = "BLE",
+                Sensor_Area = SelectedBlebSensor.Sensor_Area,
+                Sensor_Location = SelectedBlebSensor.Sensor_Location,
+                Sensor_Status = "Valid",
+                Sensor_Threshold = 100,
+                Sensor_Value = 100,
+                Presence = SelectedBlebSensor.Presence ?? false,
+                Rssi = 0,
+                Battery = 3.6m,
                 Timestamp = TimestampRoundTrip.GetTimeStamp()
             };
 
+            LastMessage = JsonHelper.ToJson(preset, true);
+        }
+        private string GetSingleMessage()
+        {
             IncrementTopic(SelectedTopic.Name);
-            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == publisherPayload.SensorLocation);
-            blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
-            blebSensorToUpdate.Presence = publisherPayload.Presence;
+            BlebSensor blebSensorToUpdate = BlebSensorsAll.FirstOrDefault(s => s.Sensor_Location == SelectedBlebSensor.Sensor_Location);
+            SelectedBlebSensor.Sensor_Status = BlebStatus.Valid.ToString();
+            blebSensorToUpdate.Sensor_Status = SelectedBlebSensor.Sensor_Status;
+            blebSensorToUpdate.Presence = SelectedBlebSensor.Presence;
             blebSensorToUpdate.Timestamp = DateTime.Now;
-            LastMessage = JsonHelper.ToJson(publisherPayload, true);
+            LastMessage = JsonHelper.ToJson(SelectedBlebSensor, true);
             UpdateBlebSensorPayloads(blebSensorToUpdate);
 
             return LastMessage;
@@ -364,8 +393,7 @@ namespace MQTT.Publisher.ViewModels
             blebSensorToUpdate.Sensor_Status = publisherPayload.SensorStatus;
             blebSensorToUpdate.Presence = publisherPayload.Presence;
             blebSensorToUpdate.Timestamp = DateTime.Now;
-            blebSensorToUpdate.Battery = publisherPayload.Battery;
-            LastMessage = JsonHelper.ToJson(publisherPayload, true);
+            LastMessage = JsonHelper.ToJson(SelectedBlebSensor, true);
             UpdateBlebSensorPayloads(blebSensorToUpdate);
 
             return LastMessage;

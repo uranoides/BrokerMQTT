@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="MQTT.Pubblisher.Imola.Controls.DisplayMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cmd="clr-namespace:MQTT.Pubblisher.Imola.Commands"
+             xmlns:vm="clr-namespace:MQTT.Pubblisher.Imola.ViewModels"
+             xmlns:uc="clr-namespace:MQTT.Sharing.Controls;assembly=MQTT.Sharing"
+             xmlns:local="clr-namespace:MQTT.Pubblisher.Imola.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <vm:MainVM x:Key="vm" 
+                TextLeftUp="UpdateTextLeftUpNotification" TextLeftDown="UpdateTextLeftDownNotification"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static cmd:MainCommands.WriteTopics}" Executed="WriteTopicsExecuted" CanExecute="WriteTopicsCanExecuted"/>
+    </UserControl.CommandBindings>
+    <Border Style="{DynamicResource LinearHorizontalBorderBackground}" 
+            BorderBrush="{StaticResource Azure2}" BorderThickness="0.5">
+        <Grid DataContext="{StaticResource vm}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <ContentControl Grid.Row="0" Content="Broker Connection Settings" Template="{StaticResource TextBlockTemplate}" 
+                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Yellow3}" FontWeight="Medium" 
+                    HorizontalAlignment="Center" Focusable="False"/>
+                <Border Grid.Row="1" Margin="10 10 10 5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0 0 5 0">
+                                <ContentControl Content="IP Address" Template="{StaticResource TextBlockTemplate}" Margin="0 0 0 2"
+                                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" Focusable="False"
+                                    FontWeight="Medium"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Margin="0 0 0 10" Foreground="{DynamicResource Azure1}"
+                                    FontSize="{DynamicResource FontSize11}"
+                                    Text="{Binding ConnectionSettings.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5 0 0 0">
+                                <ContentControl Content="Port" Template="{StaticResource TextBlockTemplate}" Margin="0 0 0 2"
+                                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" Focusable="False"
+                                    FontWeight="Medium"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Margin="0 0 0 10" Foreground="{DynamicResource Azure1}"
+                                    FontSize="{DynamicResource FontSize11}"
+                                    Text="{Binding ConnectionSettings.Port, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0 0 5 0">
+                                <ContentControl Content="Username" Template="{StaticResource TextBlockTemplate}" Margin="0 0 0 2"
+                                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" Focusable="False"
+                                    FontWeight="Medium"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Margin="0 0 0 10" Foreground="{DynamicResource Azure1}"
+                                    FontSize="{DynamicResource FontSize11}"
+                                    Text="{Binding ConnectionSettings.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5 0 0 0">
+                                <ContentControl Content="Password" Template="{StaticResource TextBlockTemplate}" Margin="0 0 0 2"
+                                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" Focusable="False"
+                                    FontWeight="Medium"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Margin="0 0 0 10" Foreground="{DynamicResource Azure1}"
+                                    FontSize="{DynamicResource FontSize11}"
+                                    Text="{Binding ConnectionSettings.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0 0 5 0">
+                                <ContentControl Content="Interval MilliSeconds" Template="{StaticResource TextBlockTemplate}" Margin="0 0 0 2"
+                                    FontSize="{DynamicResource FontSize11}" Foreground="{DynamicResource Azure3}" Focusable="False"
+                                    FontWeight="Medium"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Margin="0 0 0 10" Foreground="{DynamicResource Azure1}"
+                                    FontSize="{DynamicResource FontSize11}"
+                                    Text="{Binding ConnectionSettings.IntervalInMilliseconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <Button Width="24" Height="24" Grid.Column="1" VerticalAlignment="Bottom"
+                                Command="{x:Static cmd:MainCommands.WriteTopics}" Margin="0 0 0 2"
+                                Template="{DynamicResource TimeButtonTemplate}" ToolTip="Connect/Disconnect">
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="3" Margin="5 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding LastTextLeftUpNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                        Grid.Row="0" Foreground="{StaticResource Yellow4}" FontSize="{StaticResource FontSize12}">
+                    </TextBlock>
+                    <TextBlock Text="{Binding LastTextLeftDownNotification, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                        Grid.Row="1" Foreground="{StaticResource Yellow4}" FontSize="{StaticResource FontSize12}">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

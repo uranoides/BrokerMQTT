@@ -18,5 +18,15 @@
     "Password": "",
     "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
     "IntervalInMilliseconds": 500
+  },
+  {
+    "ConnectionId": 3,
+    "Address": "10.43.30.11",
+    "Port": 1883,
+    "MqttTransCodeProtocolVersion": 0,
+    "Username": "",
+    "Password": "",
+    "TagVariablesFileName": "MQTT.Sharing.TagVariables.AdvancedProperties.xml",
+    "IntervalInMilliseconds": 500
   }
 ]

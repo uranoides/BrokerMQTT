@@ -140,7 +140,7 @@ namespace MQTT.Publisher.Controls
         {
             if (PublisherVM != null)
             {
-                if (PublisherVM.SelectedConnectionSettings != null && !string.IsNullOrEmpty(PublisherVM.SensorNumber))
+                if (PublisherVM.SelectedConnectionSettings != null && PublisherVM.SelectedBlebSensor != null)
                     e.CanExecute = true;
             }
         }
@@ -180,6 +180,17 @@ namespace MQTT.Publisher.Controls
         {
             if (PublisherVM != null)
                 PublisherVM.BlebSensorsPayloads = new List<BlebSensor>();
+        }
+        #endregion
+
+        #region RadioButtons
+        private void BlebSensorRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            if (sender is RadioButton radioButton && radioButton.DataContext is BlebSensor sensor
+                && TryFindResource("vm") is PublisherVM vm)
+            {
+                vm.SelectedBlebSensor = sensor;
+            }
         }
         #endregion
     }
